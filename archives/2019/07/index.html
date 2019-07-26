@@ -34,6 +34,8 @@
 
 
 
+  <meta name="baidu-site-verification" content="nBylrXZ2mg">
+
 
 
 
@@ -71,7 +73,7 @@
     scheme: 'Pisces',
     version: '7.2.0',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     copycode: {"enable":true,"show_result":true,"style":null},
     fancybox: false,
     fastclick: false,
@@ -620,11 +622,11 @@
 
 
 <span id="timeDate">载入天数...</span>
-<span id="times">载入时分秒...</span>  Sometimes your whole life boils down to one insame move.
+<span id="times">载入时分秒...</span>  
 <script>
     var now = new Date();
     function createtime() {
-        var grt= new Date("03/09/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        var grt= new Date("07/20/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
         now.setTime(now.getTime()+250);
         days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
         hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
@@ -679,6 +681,8 @@ setInterval("createtime()",250);
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -891,6 +895,16 @@ setInterval("createtime()",250);
   
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
 
     <style>
     .copy-btn {
