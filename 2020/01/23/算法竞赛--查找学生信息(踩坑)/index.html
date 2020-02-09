@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="vX8GmgNWqZ">
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="踩坑第一次(记录一下)输入N个学生的信息，然后进行查询。输入信息:输入的第一行为N，即学生的个数(N&amp;lt;=1000)接下来的N行包括N个学生的信息，信息格式如下：01 李江 男 2102 刘唐 男 2303 张军 男 1904 王娜 女 19然后输入一个M(M&amp;lt;=10000),接下来会有M行，代表M次查询，每行输入一个学号，格式如下：02030104输出信息:输出M行，每行包括一个对应于">
+<meta name="keywords" content="算法竞赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法竞赛--查找学生信息(踩坑)">
+<meta property="og:url" content="https://Daybreak-Zheng.github.io/2020/01/23/算法竞赛--查找学生信息(踩坑)/index.html">
+<meta property="og:site_name" content="Daybreak-Zheng">
+<meta property="og:description" content="踩坑第一次(记录一下)输入N个学生的信息，然后进行查询。输入信息:输入的第一行为N，即学生的个数(N&amp;lt;=1000)接下来的N行包括N个学生的信息，信息格式如下：01 李江 男 2102 刘唐 男 2303 张军 男 1904 王娜 女 19然后输入一个M(M&amp;lt;=10000),接下来会有M行，代表M次查询，每行输入一个学号，格式如下：02030104输出信息:输出M行，每行包括一个对应于">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-09T12:23:06.985Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法竞赛--查找学生信息(踩坑)">
+<meta name="twitter:description" content="踩坑第一次(记录一下)输入N个学生的信息，然后进行查询。输入信息:输入的第一行为N，即学生的个数(N&amp;lt;=1000)接下来的N行包括N个学生的信息，信息格式如下：01 李江 男 2102 刘唐 男 2303 张军 男 1904 王娜 女 19然后输入一个M(M&amp;lt;=10000),接下来会有M行，代表M次查询，每行输入一个学号，格式如下：02030104输出信息:输出M行，每行包括一个对应于">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://Daybreak-Zheng.github.io/2020/01/23/算法竞赛--查找学生信息(踩坑)/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>算法竞赛--查找学生信息(踩坑) | Daybreak-Zheng</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daybreak-Zheng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">5</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">22</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Daybreak-Zheng.github.io/2020/01/23/算法竞赛--查找学生信息(踩坑)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daybreak-Zheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daybreak-Zheng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法竞赛--查找学生信息(踩坑)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-23 20:15:10" itemprop="dateCreated datePublished" datetime="2020-01-23T20:15:10+08:00">2020-01-23</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-09 20:23:06" itemprop="dateModified" datetime="2020-02-09T20:23:06+08:00">2020-02-09</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">1.5k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">1 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="踩坑第一次-记录一下"><a href="#踩坑第一次-记录一下" class="headerlink" title="踩坑第一次(记录一下)"></a>踩坑第一次(记录一下)</h1><h3 id="输入N个学生的信息，然后进行查询。"><a href="#输入N个学生的信息，然后进行查询。" class="headerlink" title="输入N个学生的信息，然后进行查询。"></a>输入N个学生的信息，然后进行查询。</h3><h3 id="输入信息"><a href="#输入信息" class="headerlink" title="输入信息:"></a>输入信息:</h3><h4 id="输入的第一行为N，即学生的个数-N-lt-1000"><a href="#输入的第一行为N，即学生的个数-N-lt-1000" class="headerlink" title="输入的第一行为N，即学生的个数(N&lt;=1000)"></a>输入的第一行为N，即学生的个数(N&lt;=1000)</h4><h4 id="接下来的N行包括N个学生的信息，信息格式如下："><a href="#接下来的N行包括N个学生的信息，信息格式如下：" class="headerlink" title="接下来的N行包括N个学生的信息，信息格式如下："></a>接下来的N行包括N个学生的信息，信息格式如下：</h4><h4 id="01-李江-男-21"><a href="#01-李江-男-21" class="headerlink" title="01 李江 男 21"></a>01 李江 男 21</h4><h4 id="02-刘唐-男-23"><a href="#02-刘唐-男-23" class="headerlink" title="02 刘唐 男 23"></a>02 刘唐 男 23</h4><h4 id="03-张军-男-19"><a href="#03-张军-男-19" class="headerlink" title="03 张军 男 19"></a>03 张军 男 19</h4><h4 id="04-王娜-女-19"><a href="#04-王娜-女-19" class="headerlink" title="04 王娜 女 19"></a>04 王娜 女 19</h4><h4 id="然后输入一个M-M-lt-10000-接下来会有M行，代表M次查询，每行输入一个学号，格式如下："><a href="#然后输入一个M-M-lt-10000-接下来会有M行，代表M次查询，每行输入一个学号，格式如下：" class="headerlink" title="然后输入一个M(M&lt;=10000),接下来会有M行，代表M次查询，每行输入一个学号，格式如下："></a>然后输入一个M(M&lt;=10000),接下来会有M行，代表M次查询，每行输入一个学号，格式如下：</h4><h4 id="02"><a href="#02" class="headerlink" title="02"></a>02</h4><h4 id="03"><a href="#03" class="headerlink" title="03"></a>03</h4><h4 id="01"><a href="#01" class="headerlink" title="01"></a>01</h4><h4 id="04"><a href="#04" class="headerlink" title="04"></a>04</h4><h3 id="输出信息"><a href="#输出信息" class="headerlink" title="输出信息:"></a>输出信息:</h3><h4 id="输出M行，每行包括一个对应于查询的学生的信息。"><a href="#输出M行，每行包括一个对应于查询的学生的信息。" class="headerlink" title="输出M行，每行包括一个对应于查询的学生的信息。"></a>输出M行，每行包括一个对应于查询的学生的信息。</h4><h4 id="如果没有对应的学生信息，则输出“No-Answer-”"><a href="#如果没有对应的学生信息，则输出“No-Answer-”" class="headerlink" title="如果没有对应的学生信息，则输出“No Answer!”"></a>如果没有对应的学生信息，则输出“No Answer!”</h4><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">001 张三 男 19</span><br><span class="line">002 李四 男 20</span><br><span class="line">003 王五 男 18</span><br><span class="line">004 赵六 女 17</span><br><span class="line">005 刘七 女 21</span><br><span class="line">7</span><br><span class="line">003</span><br><span class="line">002</span><br><span class="line">005</span><br><span class="line">004</span><br><span class="line">003</span><br><span class="line">001</span><br><span class="line">006</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">003 王五 男 18</span><br><span class="line">002 李四 男 20</span><br><span class="line">005 刘七 女 21</span><br><span class="line">004 赵六 女 17</span><br><span class="line">003 王五 男 18</span><br><span class="line">001 张三 男 19</span><br><span class="line">No Answer!</span><br></pre></td></tr></table></figure>
+
+<h3 id="踩坑一"><a href="#踩坑一" class="headerlink" title="踩坑一:"></a>踩坑一:</h3><h4 id="学号用整型存储，提交错误90-，仔细看了看，如果学号以0开头，用整型输出会忽略学号前面的零，然后直接输出。为何不在输出的时候多输出两个零呢？哈哈，一提交错误75-，又想了想，万一前面有4个零，5个零呢，为何不用字符数组呢，成了，终于学号输出解决了。"><a href="#学号用整型存储，提交错误90-，仔细看了看，如果学号以0开头，用整型输出会忽略学号前面的零，然后直接输出。为何不在输出的时候多输出两个零呢？哈哈，一提交错误75-，又想了想，万一前面有4个零，5个零呢，为何不用字符数组呢，成了，终于学号输出解决了。" class="headerlink" title="学号用整型存储，提交错误90%，仔细看了看，如果学号以0开头，用整型输出会忽略学号前面的零，然后直接输出。为何不在输出的时候多输出两个零呢？哈哈，一提交错误75%，又想了想，万一前面有4个零，5个零呢，为何不用字符数组呢，成了，终于学号输出解决了。"></a>学号用整型存储，提交错误90%，仔细看了看，如果学号以0开头，用整型输出会忽略学号前面的零，然后直接输出。为何不在输出的时候多输出两个零呢？哈哈，一提交错误75%，又想了想，万一前面有4个零，5个零呢，为何不用字符数组呢，成了，终于学号输出解决了。</h4><h3 id="踩坑二"><a href="#踩坑二" class="headerlink" title="踩坑二:"></a>踩坑二:</h3><h4 id="提交错误50-折腾了两天，还是没想出来，看了看大佬的博客，-原博客链接-，大佬遇到了相同的问题，也是错了50-，name-sex-num数组长度超过40，我服了，谁的名字有这么长，这题真的太坑了。"><a href="#提交错误50-折腾了两天，还是没想出来，看了看大佬的博客，-原博客链接-，大佬遇到了相同的问题，也是错了50-，name-sex-num数组长度超过40，我服了，谁的名字有这么长，这题真的太坑了。" class="headerlink" title="提交错误50%折腾了两天，还是没想出来，看了看大佬的博客， 原博客链接 ，大佬遇到了相同的问题，也是错了50%，name,sex,num数组长度超过40，我服了，谁的名字有这么长，这题真的太坑了。"></a>提交错误50%折腾了两天，还是没想出来，看了看大佬的博客， <a href="https://blog.csdn.net/a845717607/article/details/78983943" target="_blank" rel="noopener">原博客链接</a> ，大佬遇到了相同的问题，也是错了50%，name,sex,num数组长度超过40，我服了，谁的名字有这么长，这题真的太坑了。</h4><h3 id="踩坑三"><a href="#踩坑三" class="headerlink" title="踩坑三:"></a>踩坑三:</h3><h4 id="本以为这题足够坑了，结果提交还是错误50-，我心态崩了，想了好久，试一试多组输入，结果AC-这题真的坑，多组输入题目一点不涉及。"><a href="#本以为这题足够坑了，结果提交还是错误50-，我心态崩了，想了好久，试一试多组输入，结果AC-这题真的坑，多组输入题目一点不涉及。" class="headerlink" title="本以为这题足够坑了，结果提交还是错误50%，我心态崩了，想了好久，试一试多组输入，结果AC,这题真的坑，多组输入题目一点不涉及。"></a>本以为这题足够坑了，结果提交还是错误50%，我心态崩了，想了好久，试一试多组输入，结果AC,这题真的坑，多组输入题目一点不涉及。</h4><h3 id="总结-以后在不超出题目内存范围的条件下，把数组等开的足够大。"><a href="#总结-以后在不超出题目内存范围的条件下，把数组等开的足够大。" class="headerlink" title="总结:以后在不超出题目内存范围的条件下，把数组等开的足够大。"></a>总结:以后在不超出题目内存范围的条件下，把数组等开的足够大。</h3><h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下:"></a>代码如下:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">struct student</span><br><span class="line">&#123;</span><br><span class="line">	char num[100];</span><br><span class="line">	char name[100];</span><br><span class="line">	char sex[100];</span><br><span class="line">	int age;</span><br><span class="line">&#125;;</span><br><span class="line">student stu[1010];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n,m,j;</span><br><span class="line">    while(scanf(&quot;%d&quot;,&amp;n)==1)</span><br><span class="line">    &#123;</span><br><span class="line">	    for(int i=0;i&lt;n;i++)</span><br><span class="line">			scanf(&quot;%s %s %s %d&quot;,stu[i].num,stu[i].name,stu[i].sex,&amp;stu[i].age);</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;m);</span><br><span class="line">		char c[100];</span><br><span class="line">		for(int i=0;i&lt;m;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			scanf(&quot;%s&quot;,c);</span><br><span class="line">			for(j=0;j&lt;n;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				if(strcmp(c,stu[j].num)==0)</span><br><span class="line">				&#123;</span><br><span class="line">					printf(&quot;%s %s %s %d\n&quot;,stu[j].num,stu[j].name,stu[j].sex,stu[j].age);</span><br><span class="line">					break;</span><br><span class="line">				&#125;	</span><br><span class="line">			&#125;</span><br><span class="line">			if(j&gt;=n)</span><br><span class="line">				printf(&quot;No Answer!\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>小礼物走一个哟</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="Daybreak-Zheng 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="Daybreak-Zheng 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/算法竞赛/" rel="tag"> 算法竞赛</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/21/算法竞赛--子串是连续的(规律)/" rel="next" title="算法竞赛--子串是连续的(规律)">
+                <i class="fa fa-chevron-left"></i> 算法竞赛--子串是连续的(规律)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/25/算法竞赛--基本输入输出(二) (2)/" rel="prev" title="算法竞赛--算法练习工具之代码对拍">
+                算法竞赛--算法练习工具之代码对拍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Daybreak-Zheng">
+  
+  <p class="site-author-name" itemprop="name">Daybreak-Zheng</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Daybreak-Zheng" title="GitHub &rarr; https://github.com/Daybreak-Zheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://Daybreak-Zheng.github.io" title="https://Daybreak-Zheng.github.io">Daybreak-Zheng</a>
+        </li>
+      
+    </ul>
+  </div>
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#踩坑第一次-记录一下"><span class="nav-number">1.</span> <span class="nav-text">踩坑第一次(记录一下)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入N个学生的信息，然后进行查询。"><span class="nav-number">1.0.1.</span> <span class="nav-text">输入N个学生的信息，然后进行查询。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入信息"><span class="nav-number">1.0.2.</span> <span class="nav-text">输入信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入的第一行为N，即学生的个数-N-lt-1000"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">输入的第一行为N，即学生的个数(N&lt;=1000)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来的N行包括N个学生的信息，信息格式如下："><span class="nav-number">1.0.2.2.</span> <span class="nav-text">接下来的N行包括N个学生的信息，信息格式如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#01-李江-男-21"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">01 李江 男 21</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#02-刘唐-男-23"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">02 刘唐 男 23</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#03-张军-男-19"><span class="nav-number">1.0.2.5.</span> <span class="nav-text">03 张军 男 19</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#04-王娜-女-19"><span class="nav-number">1.0.2.6.</span> <span class="nav-text">04 王娜 女 19</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#然后输入一个M-M-lt-10000-接下来会有M行，代表M次查询，每行输入一个学号，格式如下："><span class="nav-number">1.0.2.7.</span> <span class="nav-text">然后输入一个M(M&lt;=10000),接下来会有M行，代表M次查询，每行输入一个学号，格式如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#02"><span class="nav-number">1.0.2.8.</span> <span class="nav-text">02</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#03"><span class="nav-number">1.0.2.9.</span> <span class="nav-text">03</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#01"><span class="nav-number">1.0.2.10.</span> <span class="nav-text">01</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#04"><span class="nav-number">1.0.2.11.</span> <span class="nav-text">04</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出信息"><span class="nav-number">1.0.3.</span> <span class="nav-text">输出信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输出M行，每行包括一个对应于查询的学生的信息。"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">输出M行，每行包括一个对应于查询的学生的信息。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果没有对应的学生信息，则输出“No-Answer-”"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">如果没有对应的学生信息，则输出“No Answer!”</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-number">1.0.4.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-number">1.0.5.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#踩坑一"><span class="nav-number">1.0.6.</span> <span class="nav-text">踩坑一:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#学号用整型存储，提交错误90-，仔细看了看，如果学号以0开头，用整型输出会忽略学号前面的零，然后直接输出。为何不在输出的时候多输出两个零呢？哈哈，一提交错误75-，又想了想，万一前面有4个零，5个零呢，为何不用字符数组呢，成了，终于学号输出解决了。"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">学号用整型存储，提交错误90%，仔细看了看，如果学号以0开头，用整型输出会忽略学号前面的零，然后直接输出。为何不在输出的时候多输出两个零呢？哈哈，一提交错误75%，又想了想，万一前面有4个零，5个零呢，为何不用字符数组呢，成了，终于学号输出解决了。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#踩坑二"><span class="nav-number">1.0.7.</span> <span class="nav-text">踩坑二:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提交错误50-折腾了两天，还是没想出来，看了看大佬的博客，-原博客链接-，大佬遇到了相同的问题，也是错了50-，name-sex-num数组长度超过40，我服了，谁的名字有这么长，这题真的太坑了。"><span class="nav-number">1.0.7.1.</span> <span class="nav-text">提交错误50%折腾了两天，还是没想出来，看了看大佬的博客， 原博客链接 ，大佬遇到了相同的问题，也是错了50%，name,sex,num数组长度超过40，我服了，谁的名字有这么长，这题真的太坑了。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#踩坑三"><span class="nav-number">1.0.8.</span> <span class="nav-text">踩坑三:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本以为这题足够坑了，结果提交还是错误50-，我心态崩了，想了好久，试一试多组输入，结果AC-这题真的坑，多组输入题目一点不涉及。"><span class="nav-number">1.0.8.1.</span> <span class="nav-text">本以为这题足够坑了，结果提交还是错误50%，我心态崩了，想了好久，试一试多组输入，结果AC,这题真的坑，多组输入题目一点不涉及。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结-以后在不超出题目内存范围的条件下，把数组等开的足够大。"><span class="nav-number">1.0.9.</span> <span class="nav-text">总结:以后在不超出题目内存范围的条件下，把数组等开的足够大。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码如下"><span class="nav-number">1.0.10.</span> <span class="nav-text">代码如下:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daybreak-Zheng</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">40k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">36 分钟</span>
+  
+</div>
+
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>  
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/20/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+ <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['/lib/three/three-waves.min.js', '/lib/three/canvas_lines.min.js', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
+
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '5509b91a59c3adf55754',
+    clientSecret: 'c2f7f5deb4e775eaf0997d8188cea666e0e2f84c',
+    repo: 'Daybreak-Zheng.github.io',
+    owner: 'Daybreak-Zheng',
+    admin: ['Daybreak-Zheng'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+    <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('����').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('���Ƴɹ�')
+        else $(this).text('����ʧ��')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('����')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clipboard-min.js"></script>  
+<script type="text/javascript" src="/js/clipboard-use.js"></script>
+</html>

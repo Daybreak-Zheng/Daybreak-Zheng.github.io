@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="vX8GmgNWqZ">
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="我们在练习算法时，很多时候可以将自己的代码跟网上提供的标准代码比对，既可以学习别人的写法，另外也可以找出自己代码存在的问题，方便调试。对拍就是一种很好的调试代码的方式。用正确的代码找出使错误代码出错的数据，或者用效率低的正确代码验证效率高的代码的正确性对拍总共需要四份代码1.自己的代码 my.cpp2.正确的代码  correct.cpp3.数据生成器 data.cpp4.比较器 checker.">
+<meta name="keywords" content="算法竞赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法竞赛--算法练习工具之代码对拍">
+<meta property="og:url" content="https://Daybreak-Zheng.github.io/2020/01/28/算法竞赛--算法练习工具之代码对拍/index.html">
+<meta property="og:site_name" content="Daybreak-Zheng">
+<meta property="og:description" content="我们在练习算法时，很多时候可以将自己的代码跟网上提供的标准代码比对，既可以学习别人的写法，另外也可以找出自己代码存在的问题，方便调试。对拍就是一种很好的调试代码的方式。用正确的代码找出使错误代码出错的数据，或者用效率低的正确代码验证效率高的代码的正确性对拍总共需要四份代码1.自己的代码 my.cpp2.正确的代码  correct.cpp3.数据生成器 data.cpp4.比较器 checker.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p.haituie.com/628034/%E6%8D%95%E8%8E%B7_132257276562747500.PNG">
+<meta property="og:updated_time" content="2020-02-09T13:16:53.059Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法竞赛--算法练习工具之代码对拍">
+<meta name="twitter:description" content="我们在练习算法时，很多时候可以将自己的代码跟网上提供的标准代码比对，既可以学习别人的写法，另外也可以找出自己代码存在的问题，方便调试。对拍就是一种很好的调试代码的方式。用正确的代码找出使错误代码出错的数据，或者用效率低的正确代码验证效率高的代码的正确性对拍总共需要四份代码1.自己的代码 my.cpp2.正确的代码  correct.cpp3.数据生成器 data.cpp4.比较器 checker.">
+<meta name="twitter:image" content="http://p.haituie.com/628034/%E6%8D%95%E8%8E%B7_132257276562747500.PNG">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://Daybreak-Zheng.github.io/2020/01/28/算法竞赛--算法练习工具之代码对拍/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>算法竞赛--算法练习工具之代码对拍 | Daybreak-Zheng</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daybreak-Zheng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">5</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">22</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Daybreak-Zheng.github.io/2020/01/28/算法竞赛--算法练习工具之代码对拍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daybreak-Zheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daybreak-Zheng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法竞赛--算法练习工具之代码对拍
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-28 20:15:10" itemprop="dateCreated datePublished" datetime="2020-01-28T20:15:10+08:00">2020-01-28</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-09 21:16:53" itemprop="dateModified" datetime="2020-02-09T21:16:53+08:00">2020-02-09</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">3k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">3 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="我们在练习算法时，很多时候可以将自己的代码跟网上提供的标准代码比对，既可以学习别人的写法，另外也可以找出自己代码存在的问题，方便调试。对拍就是一种很好的调试代码的方式。用正确的代码找出使错误代码出错的数据，或者用效率低的正确代码验证效率高的代码的正确性"><a href="#我们在练习算法时，很多时候可以将自己的代码跟网上提供的标准代码比对，既可以学习别人的写法，另外也可以找出自己代码存在的问题，方便调试。对拍就是一种很好的调试代码的方式。用正确的代码找出使错误代码出错的数据，或者用效率低的正确代码验证效率高的代码的正确性" class="headerlink" title="我们在练习算法时，很多时候可以将自己的代码跟网上提供的标准代码比对，既可以学习别人的写法，另外也可以找出自己代码存在的问题，方便调试。对拍就是一种很好的调试代码的方式。用正确的代码找出使错误代码出错的数据，或者用效率低的正确代码验证效率高的代码的正确性"></a>我们在练习算法时，很多时候可以将自己的代码跟网上提供的标准代码比对，既可以学习别人的写法，另外也可以找出自己代码存在的问题，方便调试。对拍就是一种很好的调试代码的方式。用正确的代码找出使错误代码出错的数据，或者用效率低的正确代码验证效率高的代码的正确性</h3><h3 id="对拍总共需要四份代码"><a href="#对拍总共需要四份代码" class="headerlink" title="对拍总共需要四份代码"></a>对拍总共需要四份代码</h3><h4 id="1-自己的代码-my-cpp"><a href="#1-自己的代码-my-cpp" class="headerlink" title="1.自己的代码 my.cpp"></a>1.自己的代码 my.cpp</h4><h4 id="2-正确的代码-correct-cpp"><a href="#2-正确的代码-correct-cpp" class="headerlink" title="2.正确的代码  correct.cpp"></a>2.正确的代码  correct.cpp</h4><h4 id="3-数据生成器-data-cpp"><a href="#3-数据生成器-data-cpp" class="headerlink" title="3.数据生成器 data.cpp"></a>3.数据生成器 data.cpp</h4><h4 id="4-比较器-checker-cpp"><a href="#4-比较器-checker-cpp" class="headerlink" title="4.比较器 checker.cpp"></a>4.比较器 checker.cpp</h4><h3 id="我们看一个例子"><a href="#我们看一个例子" class="headerlink" title="我们看一个例子:"></a>我们看一个例子:</h3><h4 id="美国总统奥巴马不仅呼吁所有人都学习编程，甚至以身作则编写代码，成为美国历史上首位编写计算机代码的总统。2014-年底，为庆祝“计算机科学教育周”正式启动，奥巴马编写了很简单的计算机代码：在屏幕上画一个正方形。现在你也跟他一起画吧！"><a href="#美国总统奥巴马不仅呼吁所有人都学习编程，甚至以身作则编写代码，成为美国历史上首位编写计算机代码的总统。2014-年底，为庆祝“计算机科学教育周”正式启动，奥巴马编写了很简单的计算机代码：在屏幕上画一个正方形。现在你也跟他一起画吧！" class="headerlink" title="美国总统奥巴马不仅呼吁所有人都学习编程，甚至以身作则编写代码，成为美国历史上首位编写计算机代码的总统。2014 年底，为庆祝“计算机科学教育周”正式启动，奥巴马编写了很简单的计算机代码：在屏幕上画一个正方形。现在你也跟他一起画吧！"></a>美国总统奥巴马不仅呼吁所有人都学习编程，甚至以身作则编写代码，成为美国历史上首位编写计算机代码的总统。2014 年底，为庆祝“计算机科学教育周”正式启动，奥巴马编写了很简单的计算机代码：在屏幕上画一个正方形。现在你也跟他一起画吧！</h4><h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h3><h4 id="输入在一行中给出正方形边长-N（3≤N≤20）和组成正方形边的某种字符-C，间隔一个空格。"><a href="#输入在一行中给出正方形边长-N（3≤N≤20）和组成正方形边的某种字符-C，间隔一个空格。" class="headerlink" title="输入在一行中给出正方形边长 N（3≤N≤20）和组成正方形边的某种字符 C，间隔一个空格。"></a>输入在一行中给出正方形边长 N（3≤N≤20）和组成正方形边的某种字符 C，间隔一个空格。</h4><h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h3><h4 id="输出由给定字符-C-画出的正方形。但是注意到行间距比列间距大，所以为了让结果看上去更像正方形，我们输出的行数实际上是列数的-50-（四舍五入取整）。"><a href="#输出由给定字符-C-画出的正方形。但是注意到行间距比列间距大，所以为了让结果看上去更像正方形，我们输出的行数实际上是列数的-50-（四舍五入取整）。" class="headerlink" title="输出由给定字符 C 画出的正方形。但是注意到行间距比列间距大，所以为了让结果看上去更像正方形，我们输出的行数实际上是列数的 50%（四舍五入取整）。"></a>输出由给定字符 C 画出的正方形。但是注意到行间距比列间距大，所以为了让结果看上去更像正方形，我们输出的行数实际上是列数的 50%（四舍五入取整）。</h4><h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 a</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出："><a href="#样例输出：" class="headerlink" title="样例输出："></a>样例输出：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">aaaaaaaaaa</span><br><span class="line">a        a</span><br><span class="line">a        a</span><br><span class="line">a        a</span><br><span class="line">aaaaaaaaaa</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-首先写出自己的代码"><a href="#1-首先写出自己的代码" class="headerlink" title="(1)首先写出自己的代码:"></a>(1)首先写出自己的代码:</h4><h5 id="在自己的代码主函数加入下面代码"><a href="#在自己的代码主函数加入下面代码" class="headerlink" title="在自己的代码主函数加入下面代码:"></a>在自己的代码主函数加入下面代码:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">freopen(&quot;in.in&quot;,&quot;r&quot;,stdin);				//从in.in文件中读数据</span><br><span class="line">freopen(&quot;out1.out&quot;,&quot;w&quot;,stdout);			//将结果输出到out1.out文件中</span><br></pre></td></tr></table></figure>
+
+<h4 id="my-cpp如下"><a href="#my-cpp如下" class="headerlink" title="my.cpp如下:"></a>my.cpp如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">char A[25][25];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	freopen(&quot;in.in&quot;,&quot;r&quot;,stdin);							</span><br><span class="line">	freopen(&quot;out1.out&quot;,&quot;w&quot;,stdout);</span><br><span class="line">	int N,M;</span><br><span class="line">	char c;</span><br><span class="line">	scanf(&quot;%d %c&quot;,&amp;N,&amp;c);</span><br><span class="line">	N%2==0?M=N/2:M=N/2+1;</span><br><span class="line">	for(int i=0;i&lt;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		A[0][i]=c;</span><br><span class="line">		A[M-1][i]=c;</span><br><span class="line">	&#125;	</span><br><span class="line">	for(int i=1;i&lt;=M-2;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		A[i][N-1]=c;</span><br><span class="line">		A[i][0]=c;</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i=0;i&lt;M;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for(int j=0;j&lt;N;j++)</span><br><span class="line">			printf(&quot;%c&quot;,A[i][j]==&apos;\0&apos;?&apos; &apos;:c);</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-找一份可以AC的代码"><a href="#2-找一份可以AC的代码" class="headerlink" title="(2)找一份可以AC的代码:"></a>(2)找一份可以AC的代码:</h4><h5 id="在代码主函数加入下面代码"><a href="#在代码主函数加入下面代码" class="headerlink" title="在代码主函数加入下面代码:"></a>在代码主函数加入下面代码:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">freopen(&quot;in.in&quot;,&quot;r&quot;,stdin);			//从in.in文件中读数据</span><br><span class="line">freopen(&quot;out2.out&quot;,&quot;w&quot;,stdou        //将结果输出到out2.out文件中</span><br></pre></td></tr></table></figure>
+
+<h4 id="correct-cpp如下"><a href="#correct-cpp如下" class="headerlink" title="correct.cpp如下:"></a>correct.cpp如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;map&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">#include&lt;set&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	freopen(&quot;in.in&quot;,&quot;r&quot;,stdin);</span><br><span class="line">	freopen(&quot;out2.out&quot;,&quot;w&quot;,stdout);</span><br><span class="line">	int N; string c;</span><br><span class="line">	cin &gt;&gt; N&gt;&gt;c;</span><br><span class="line">	int rows;</span><br><span class="line">	if (N % 2 == 0)</span><br><span class="line">		rows = N / 2;</span><br><span class="line">	else</span><br><span class="line">		rows = N / 2 + 1;</span><br><span class="line">	for (int i = 0; i &lt; rows; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (i == 0 || i == rows - 1)</span><br><span class="line">		&#123;</span><br><span class="line">			for (int j = 0; j &lt; N; j++)</span><br><span class="line">				cout &lt;&lt; c;</span><br><span class="line">			cout &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			for (int j = 0; j &lt; N; j++)</span><br><span class="line">				if (j == 0 || j == N - 1)</span><br><span class="line">					cout &lt;&lt; c;</span><br><span class="line">				else</span><br><span class="line">					cout &lt;&lt; &quot; &quot;;</span><br><span class="line">			cout &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-制作数据生成器"><a href="#3-制作数据生成器" class="headerlink" title="(3)制作数据生成器:"></a>(3)制作数据生成器:</h4><h4 id="data-cpp如下"><a href="#data-cpp如下" class="headerlink" title="data.cpp如下:"></a>data.cpp如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;ctime&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cstdlib&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	freopen(&quot;in.in&quot;,&quot;w&quot;,stdout);</span><br><span class="line">	srand(time(0));//用当前时间来设定rand函数所用的随机数产生演算法的种子值。</span><br><span class="line">	int n=rand()%20+3;//产生一个3-23的数 </span><br><span class="line">	int m=rand()%60+40;//产生一个40-100的数 用来产生ASCII码为40-100的字符</span><br><span class="line">	printf(&quot;%d %c\n&quot;,n,(char)(m));</span><br><span class="line">	return 0;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-制作比较器"><a href="#4-制作比较器" class="headerlink" title="(4)制作比较器:"></a>(4)制作比较器:</h3><h4 id="checker-cpp如下"><a href="#checker-cpp如下" class="headerlink" title="checker.cpp如下:"></a>checker.cpp如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstdlib&gt;</span><br><span class="line">#include&lt;windows.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	while(1)&#123;</span><br><span class="line">		system(&quot;data.exe&quot;);</span><br><span class="line">		system(&quot;my.exe&quot;);</span><br><span class="line">		system(&quot;correct.exe&quot;);</span><br><span class="line">		if(system(&quot;fc out1.out out2.out&quot;))&#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-将四个代码保存在同一目录下。"><a href="#1-将四个代码保存在同一目录下。" class="headerlink" title="(1)将四个代码保存在同一目录下。"></a>(1)将四个代码保存在同一目录下。</h4><h4 id="2-先分别运行my-cpp和correct-cpp生成out1-out文件和out2-out文件及对应的exe文件。"><a href="#2-先分别运行my-cpp和correct-cpp生成out1-out文件和out2-out文件及对应的exe文件。" class="headerlink" title="(2)先分别运行my.cpp和correct.cpp生成out1.out文件和out2.out文件及对应的exe文件。"></a>(2)先分别运行my.cpp和correct.cpp生成out1.out文件和out2.out文件及对应的exe文件。</h4><h4 id="3-运行data-cpp生成in-in文件"><a href="#3-运行data-cpp生成in-in文件" class="headerlink" title="(3)运行data.cpp生成in.in文件"></a>(3)运行data.cpp生成in.in文件</h4><h4 id="4-运行check-cpp进行比较"><a href="#4-运行check-cpp进行比较" class="headerlink" title="(4)运行check.cpp进行比较"></a>(4)运行check.cpp进行比较</h4><h4 id="两文件的输出不同程序就会停止，可以去in-in文件中找到出错的测试数据，一般1-2秒就可检查出错误。"><a href="#两文件的输出不同程序就会停止，可以去in-in文件中找到出错的测试数据，一般1-2秒就可检查出错误。" class="headerlink" title="两文件的输出不同程序就会停止，可以去in.in文件中找到出错的测试数据，一般1-2秒就可检查出错误。"></a>两文件的输出不同程序就会停止，可以去in.in文件中找到出错的测试数据，一般1-2秒就可检查出错误。</h4><h4 id="下图为正在运行中的程序，且未出现错误"><a href="#下图为正在运行中的程序，且未出现错误" class="headerlink" title="下图为正在运行中的程序，且未出现错误"></a>下图为正在运行中的程序，且未出现错误</h4><p><img src="http://p.haituie.com/628034/%E6%8D%95%E8%8E%B7_132257276562747500.PNG" alt="图"></p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>小礼物走一个哟</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="Daybreak-Zheng 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="Daybreak-Zheng 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/算法竞赛/" rel="tag"> 算法竞赛</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/25/算法竞赛--基本输入输出(二) (2)/" rel="next" title="算法竞赛--算法练习工具之代码对拍">
+                <i class="fa fa-chevron-left"></i> 算法竞赛--算法练习工具之代码对拍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/31/算法竞赛--PAT 乙 1036 跟奥巴马一起编程/" rel="prev" title="算法竞赛--PAT 乙 1036 跟奥巴马一起编程">
+                算法竞赛--PAT 乙 1036 跟奥巴马一起编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Daybreak-Zheng">
+  
+  <p class="site-author-name" itemprop="name">Daybreak-Zheng</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Daybreak-Zheng" title="GitHub &rarr; https://github.com/Daybreak-Zheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://Daybreak-Zheng.github.io" title="https://Daybreak-Zheng.github.io">Daybreak-Zheng</a>
+        </li>
+      
+    </ul>
+  </div>
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#我们在练习算法时，很多时候可以将自己的代码跟网上提供的标准代码比对，既可以学习别人的写法，另外也可以找出自己代码存在的问题，方便调试。对拍就是一种很好的调试代码的方式。用正确的代码找出使错误代码出错的数据，或者用效率低的正确代码验证效率高的代码的正确性"><span class="nav-number">1.</span> <span class="nav-text">我们在练习算法时，很多时候可以将自己的代码跟网上提供的标准代码比对，既可以学习别人的写法，另外也可以找出自己代码存在的问题，方便调试。对拍就是一种很好的调试代码的方式。用正确的代码找出使错误代码出错的数据，或者用效率低的正确代码验证效率高的代码的正确性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对拍总共需要四份代码"><span class="nav-number">2.</span> <span class="nav-text">对拍总共需要四份代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-自己的代码-my-cpp"><span class="nav-number">2.1.</span> <span class="nav-text">1.自己的代码 my.cpp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-正确的代码-correct-cpp"><span class="nav-number">2.2.</span> <span class="nav-text">2.正确的代码  correct.cpp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-数据生成器-data-cpp"><span class="nav-number">2.3.</span> <span class="nav-text">3.数据生成器 data.cpp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-比较器-checker-cpp"><span class="nav-number">2.4.</span> <span class="nav-text">4.比较器 checker.cpp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们看一个例子"><span class="nav-number">3.</span> <span class="nav-text">我们看一个例子:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#美国总统奥巴马不仅呼吁所有人都学习编程，甚至以身作则编写代码，成为美国历史上首位编写计算机代码的总统。2014-年底，为庆祝“计算机科学教育周”正式启动，奥巴马编写了很简单的计算机代码：在屏幕上画一个正方形。现在你也跟他一起画吧！"><span class="nav-number">3.1.</span> <span class="nav-text">美国总统奥巴马不仅呼吁所有人都学习编程，甚至以身作则编写代码，成为美国历史上首位编写计算机代码的总统。2014 年底，为庆祝“计算机科学教育周”正式启动，奥巴马编写了很简单的计算机代码：在屏幕上画一个正方形。现在你也跟他一起画吧！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式"><span class="nav-number">4.</span> <span class="nav-text">输入格式:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入在一行中给出正方形边长-N（3≤N≤20）和组成正方形边的某种字符-C，间隔一个空格。"><span class="nav-number">4.1.</span> <span class="nav-text">输入在一行中给出正方形边长 N（3≤N≤20）和组成正方形边的某种字符 C，间隔一个空格。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式"><span class="nav-number">5.</span> <span class="nav-text">输出格式:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输出由给定字符-C-画出的正方形。但是注意到行间距比列间距大，所以为了让结果看上去更像正方形，我们输出的行数实际上是列数的-50-（四舍五入取整）。"><span class="nav-number">5.1.</span> <span class="nav-text">输出由给定字符 C 画出的正方形。但是注意到行间距比列间距大，所以为了让结果看上去更像正方形，我们输出的行数实际上是列数的 50%（四舍五入取整）。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-number">6.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出："><span class="nav-number">7.</span> <span class="nav-text">样例输出：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-首先写出自己的代码"><span class="nav-number">7.1.</span> <span class="nav-text">(1)首先写出自己的代码:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在自己的代码主函数加入下面代码"><span class="nav-number">7.1.1.</span> <span class="nav-text">在自己的代码主函数加入下面代码:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#my-cpp如下"><span class="nav-number">7.2.</span> <span class="nav-text">my.cpp如下:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-找一份可以AC的代码"><span class="nav-number">7.3.</span> <span class="nav-text">(2)找一份可以AC的代码:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在代码主函数加入下面代码"><span class="nav-number">7.3.1.</span> <span class="nav-text">在代码主函数加入下面代码:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#correct-cpp如下"><span class="nav-number">7.4.</span> <span class="nav-text">correct.cpp如下:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-制作数据生成器"><span class="nav-number">7.5.</span> <span class="nav-text">(3)制作数据生成器:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#data-cpp如下"><span class="nav-number">7.6.</span> <span class="nav-text">data.cpp如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-制作比较器"><span class="nav-number">8.</span> <span class="nav-text">(4)制作比较器:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#checker-cpp如下"><span class="nav-number">8.1.</span> <span class="nav-text">checker.cpp如下:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-将四个代码保存在同一目录下。"><span class="nav-number">8.2.</span> <span class="nav-text">(1)将四个代码保存在同一目录下。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-先分别运行my-cpp和correct-cpp生成out1-out文件和out2-out文件及对应的exe文件。"><span class="nav-number">8.3.</span> <span class="nav-text">(2)先分别运行my.cpp和correct.cpp生成out1.out文件和out2.out文件及对应的exe文件。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-运行data-cpp生成in-in文件"><span class="nav-number">8.4.</span> <span class="nav-text">(3)运行data.cpp生成in.in文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-运行check-cpp进行比较"><span class="nav-number">8.5.</span> <span class="nav-text">(4)运行check.cpp进行比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两文件的输出不同程序就会停止，可以去in-in文件中找到出错的测试数据，一般1-2秒就可检查出错误。"><span class="nav-number">8.6.</span> <span class="nav-text">两文件的输出不同程序就会停止，可以去in.in文件中找到出错的测试数据，一般1-2秒就可检查出错误。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下图为正在运行中的程序，且未出现错误"><span class="nav-number">8.7.</span> <span class="nav-text">下图为正在运行中的程序，且未出现错误</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daybreak-Zheng</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">40k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">36 分钟</span>
+  
+</div>
+
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>  
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/20/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+ <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['/lib/three/three-waves.min.js', '/lib/three/canvas_lines.min.js', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
+
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '5509b91a59c3adf55754',
+    clientSecret: 'c2f7f5deb4e775eaf0997d8188cea666e0e2f84c',
+    repo: 'Daybreak-Zheng.github.io',
+    owner: 'Daybreak-Zheng',
+    admin: ['Daybreak-Zheng'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+    <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('����').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('���Ƴɹ�')
+        else $(this).text('����ʧ��')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('����')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clipboard-min.js"></script>  
+<script type="text/javascript" src="/js/clipboard-use.js"></script>
+</html>
