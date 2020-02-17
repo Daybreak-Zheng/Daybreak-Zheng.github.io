@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="vX8GmgNWqZ">
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="1.又一版A+B输入两个不超过整型定义的非负10进制整数A和B(&amp;lt;=231-1)，输出A+B的m (1 &amp;lt; m &amp;lt;10)进制数。输入信息:测试输入包含若干测试用例。每个测试用例占一行，给出m和A，B的值。当m为0时输入结束。输出信息:每个测试用例的输出占一行，输出A+B的m进制数。样例输入:1232 4 58 123 4560  样例输出:1210011103  hint:注意输">
+<meta name="keywords" content="算法竞赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法竞赛--进制转换(-)">
+<meta property="og:url" content="https://Daybreak-Zheng.github.io/2020/01/31/算法竞赛--进制转换(一)/index.html">
+<meta property="og:site_name" content="Daybreak-Zheng">
+<meta property="og:description" content="1.又一版A+B输入两个不超过整型定义的非负10进制整数A和B(&amp;lt;=231-1)，输出A+B的m (1 &amp;lt; m &amp;lt;10)进制数。输入信息:测试输入包含若干测试用例。每个测试用例占一行，给出m和A，B的值。当m为0时输入结束。输出信息:每个测试用例的输出占一行，输出A+B的m进制数。样例输入:1232 4 58 123 4560  样例输出:1210011103  hint:注意输">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-15T15:46:11.530Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法竞赛--进制转换(-)">
+<meta name="twitter:description" content="1.又一版A+B输入两个不超过整型定义的非负10进制整数A和B(&amp;lt;=231-1)，输出A+B的m (1 &amp;lt; m &amp;lt;10)进制数。输入信息:测试输入包含若干测试用例。每个测试用例占一行，给出m和A，B的值。当m为0时输入结束。输出信息:每个测试用例的输出占一行，输出A+B的m进制数。样例输入:1232 4 58 123 4560  样例输出:1210011103  hint:注意输">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://Daybreak-Zheng.github.io/2020/01/31/算法竞赛--进制转换(一)/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>算法竞赛--进制转换(-) | Daybreak-Zheng</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daybreak-Zheng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">5</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Daybreak-Zheng.github.io/2020/01/31/算法竞赛--进制转换(一)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daybreak-Zheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daybreak-Zheng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法竞赛--进制转换(-)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-31 20:15:10" itemprop="dateCreated datePublished" datetime="2020-01-31T20:15:10+08:00">2020-01-31</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-15 23:46:11" itemprop="dateModified" datetime="2020-02-15T23:46:11+08:00">2020-02-15</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">3.6k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">3 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-又一版A-B"><a href="#1-又一版A-B" class="headerlink" title="1.又一版A+B"></a>1.又一版A+B</h3><h4 id="输入两个不超过整型定义的非负10进制整数A和B-lt-231-1-，输出A-B的m-1-lt-m-lt-10-进制数。"><a href="#输入两个不超过整型定义的非负10进制整数A和B-lt-231-1-，输出A-B的m-1-lt-m-lt-10-进制数。" class="headerlink" title="输入两个不超过整型定义的非负10进制整数A和B(&lt;=231-1)，输出A+B的m (1 &lt; m &lt;10)进制数。"></a>输入两个不超过整型定义的非负10进制整数A和B(&lt;=231-1)，输出A+B的m (1 &lt; m &lt;10)进制数。</h4><h4 id="输入信息"><a href="#输入信息" class="headerlink" title="输入信息:"></a>输入信息:</h4><h5 id="测试输入包含若干测试用例。每个测试用例占一行，给出m和A，B的值。当m为0时输入结束。"><a href="#测试输入包含若干测试用例。每个测试用例占一行，给出m和A，B的值。当m为0时输入结束。" class="headerlink" title="测试输入包含若干测试用例。每个测试用例占一行，给出m和A，B的值。当m为0时输入结束。"></a>测试输入包含若干测试用例。每个测试用例占一行，给出m和A，B的值。当m为0时输入结束。</h5><h4 id="输出信息"><a href="#输出信息" class="headerlink" title="输出信息:"></a>输出信息:</h4><h5 id="每个测试用例的输出占一行，输出A-B的m进制数。"><a href="#每个测试用例的输出占一行，输出A-B的m进制数。" class="headerlink" title="每个测试用例的输出占一行，输出A+B的m进制数。"></a>每个测试用例的输出占一行，输出A+B的m进制数。</h5><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入:"></a>样例输入:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 4 5</span><br><span class="line">8 123 456</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出:"></a>样例输出:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1001</span><br><span class="line">1103</span><br></pre></td></tr></table></figure>
+
+<h4 id="hint-注意输入的两个数相加后的结果可能会超过int和long的范围。"><a href="#hint-注意输入的两个数相加后的结果可能会超过int和long的范围。" class="headerlink" title="hint:注意输入的两个数相加后的结果可能会超过int和long的范围。"></a>hint:注意输入的两个数相加后的结果可能会超过int和long的范围。</h4><h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><h4 id="1-题目为非负整数，0也可以，要用do-while循环。"><a href="#1-题目为非负整数，0也可以，要用do-while循环。" class="headerlink" title="(1)题目为非负整数，0也可以，要用do while循环。"></a>(1)题目为非负整数，0也可以，要用do while循环。</h4><h4 id="2-每个测试用例占一行-输出要及时换行。"><a href="#2-每个测试用例占一行-输出要及时换行。" class="headerlink" title="(2)每个测试用例占一行,输出要及时换行。"></a>(2)每个测试用例占一行,输出要及时换行。</h4><h4 id="3-最最最重要，WA50-搞了好久，在hint-a和b必须也是long-long型，否则超出范围"><a href="#3-最最最重要，WA50-搞了好久，在hint-a和b必须也是long-long型，否则超出范围" class="headerlink" title="(3)最最最重要，WA50%,搞了好久，在hint,a和b必须也是long long型，否则超出范围."></a>(3)最最最重要，WA50%,搞了好久，在hint,a和b必须也是long long型，否则超出范围.</h4><h4 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int c[100];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	long long a,b;</span><br><span class="line">	int m;</span><br><span class="line">	while(scanf(&quot;%d&quot;,&amp;m) &amp;&amp; m)		//先输入m并判断是否等于0</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(&quot;%lld%lld&quot;,&amp;a,&amp;b);</span><br><span class="line">		long long sum=a+b;</span><br><span class="line">		int count=0;</span><br><span class="line">		do&#123;</span><br><span class="line">			c[count++]=sum%m;</span><br><span class="line">			sum=sum/m;</span><br><span class="line">		&#125;while(sum&gt;0);</span><br><span class="line">		for(int i=count-1;i&gt;=0;i--)//逆序打印输出</span><br><span class="line">			printf(&quot;%d&quot;,c[i]);</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-数制转换"><a href="#2-数制转换" class="headerlink" title="2.数制转换"></a>2.数制转换</h3><h4 id="求任意两个不同进制非负整数的转换（2进制～16进制），所给整数在long所能表达的范围之内。不同进制的表示符号为（0，1，…，9，a，b，…，f）或者（0，1，…，9，A，B，…，F）。"><a href="#求任意两个不同进制非负整数的转换（2进制～16进制），所给整数在long所能表达的范围之内。不同进制的表示符号为（0，1，…，9，a，b，…，f）或者（0，1，…，9，A，B，…，F）。" class="headerlink" title="求任意两个不同进制非负整数的转换（2进制～16进制），所给整数在long所能表达的范围之内。不同进制的表示符号为（0，1，…，9，a，b，…，f）或者（0，1，…，9，A，B，…，F）。"></a>求任意两个不同进制非负整数的转换（2进制～16进制），所给整数在long所能表达的范围之内。不同进制的表示符号为（0，1，…，9，a，b，…，f）或者（0，1，…，9，A，B，…，F）。</h4><h4 id="输入信息-1"><a href="#输入信息-1" class="headerlink" title="输入信息:"></a>输入信息:</h4><h5 id="输入只有一行，包含三个整数a，n，b。a表示其后的n-是a进制整数，b表示欲将a进制整数n转换成b进制整数。a，b是十进制整数，2-lt-a，b-lt-16。"><a href="#输入只有一行，包含三个整数a，n，b。a表示其后的n-是a进制整数，b表示欲将a进制整数n转换成b进制整数。a，b是十进制整数，2-lt-a，b-lt-16。" class="headerlink" title="输入只有一行，包含三个整数a，n，b。a表示其后的n 是a进制整数，b表示欲将a进制整数n转换成b进制整数。a，b是十进制整数，2 =&lt; a，b &lt;= 16。"></a>输入只有一行，包含三个整数a，n，b。a表示其后的n 是a进制整数，b表示欲将a进制整数n转换成b进制整数。a，b是十进制整数，2 =&lt; a，b &lt;= 16。</h5><h4 id="输出信息-1"><a href="#输出信息-1" class="headerlink" title="输出信息:"></a>输出信息:</h4><h5 id="可能有多组测试数据，对于每组数据，输出包含一行，该行有一个整数为转换后的b进制数。输出时字母符号全部用大写表示，即（0，1，…，9，A，B，…，F）。"><a href="#可能有多组测试数据，对于每组数据，输出包含一行，该行有一个整数为转换后的b进制数。输出时字母符号全部用大写表示，即（0，1，…，9，A，B，…，F）。" class="headerlink" title="可能有多组测试数据，对于每组数据，输出包含一行，该行有一个整数为转换后的b进制数。输出时字母符号全部用大写表示，即（0，1，…，9，A，B，…，F）。"></a>可能有多组测试数据，对于每组数据，输出包含一行，该行有一个整数为转换后的b进制数。输出时字母符号全部用大写表示，即（0，1，…，9，A，B，…，F）。</h5><h4 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入:"></a>样例输入:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4 123 10</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出:"></a>样例输出:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">27</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路-将要转换的数字通过字符串输入，转换为10进制数，10进制数再进行转换，存储在字符串中，逆序输出。"><a href="#思路-将要转换的数字通过字符串输入，转换为10进制数，10进制数再进行转换，存储在字符串中，逆序输出。" class="headerlink" title="思路:将要转换的数字通过字符串输入，转换为10进制数，10进制数再进行转换，存储在字符串中，逆序输出。"></a>思路:将要转换的数字通过字符串输入，转换为10进制数，10进制数再进行转换，存储在字符串中，逆序输出。</h4><h4 id="注意-输入可以是大小写的a-输出则统一为大写，WA50-。"><a href="#注意-输入可以是大小写的a-输出则统一为大写，WA50-。" class="headerlink" title="注意:输入可以是大小写的a,输出则统一为大写，WA50%。"></a>注意:输入可以是大小写的a,输出则统一为大写，WA50%。</h4><h4 id="代码如下-1"><a href="#代码如下-1" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">char a[50],b[50];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n,m;</span><br><span class="line">	while(scanf(&quot;%d%s%d&quot;,&amp;n,a,&amp;m)==3)</span><br><span class="line">	&#123;</span><br><span class="line">		int l=strlen(a),temp=1;</span><br><span class="line">		long long sum=0;</span><br><span class="line">		for(int i=l-1;i&gt;=0;i--)		//从低位开始循环</span><br><span class="line">		&#123;</span><br><span class="line">			if(a[i]&gt;=&apos;A&apos;&amp;&amp;a[i]&lt;=&apos;F&apos;)//若该字符为A-F,转换为10-15的数字</span><br><span class="line">				sum+=(a[i]-&apos;7&apos;)*temp;</span><br><span class="line">			if(a[i]&gt;=&apos;a&apos;&amp;&amp;a[i]&lt;=&apos;F&apos;)//若该字符为a-f,转换为10-15的数字</span><br><span class="line">				sum+=(a[i]-&apos;A&apos;-22)*temp;</span><br><span class="line">			if(a[i]&gt;=&apos;0&apos;&amp;&amp;a[i]&lt;=&apos;9&apos;)//若该字符为0-0,转换为0-9的数字</span><br><span class="line">				sum+=(a[i]-&apos;0&apos;)*temp;//该数字与对应的权重相乘累加求和</span><br><span class="line">			temp*=n;//计算每位数上的权重</span><br><span class="line">		&#125;</span><br><span class="line">		int count=0;</span><br><span class="line">		do&#123;</span><br><span class="line">			if(sum%m&gt;=10)		//如果取余的数字大于10,转换为A-F的字符</span><br><span class="line">			 	b[count++]=(sum%m)+&apos;7&apos;;</span><br><span class="line">			else				//否则转换为0-9字符</span><br><span class="line">				b[count++]=(sum%m)+&apos;0&apos;;</span><br><span class="line">			sum=sum/m;</span><br><span class="line">		&#125;while(sum&gt;0);</span><br><span class="line">		for(int i=count-1;i&gt;=0;i--)//逆序打印输出</span><br><span class="line">		    printf(&quot;%c&quot;,b[i]);</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-进制转换"><a href="#3-进制转换" class="headerlink" title="3.进制转换"></a>3.进制转换</h3><h4 id="将一个长度最多为30位数字的十进制非负整数转换为二进制数输出。"><a href="#将一个长度最多为30位数字的十进制非负整数转换为二进制数输出。" class="headerlink" title="将一个长度最多为30位数字的十进制非负整数转换为二进制数输出。"></a>将一个长度最多为30位数字的十进制非负整数转换为二进制数输出。</h4><h4 id="输入信息-2"><a href="#输入信息-2" class="headerlink" title="输入信息:"></a>输入信息:</h4><h5 id="多组数据，每行为一个长度不超过30位的十进制非负整数。-注意是10进制数字的个数可能有30个，而非30bits的整数）"><a href="#多组数据，每行为一个长度不超过30位的十进制非负整数。-注意是10进制数字的个数可能有30个，而非30bits的整数）" class="headerlink" title="多组数据，每行为一个长度不超过30位的十进制非负整数。(注意是10进制数字的个数可能有30个，而非30bits的整数）"></a>多组数据，每行为一个长度不超过30位的十进制非负整数。(注意是10进制数字的个数可能有30个，而非30bits的整数）</h5><h4 id="输出信息-2"><a href="#输出信息-2" class="headerlink" title="输出信息:"></a>输出信息:</h4><h5 id="每行输出对应的二进制数。"><a href="#每行输出对应的二进制数。" class="headerlink" title="每行输出对应的二进制数。"></a>每行输出对应的二进制数。</h5><h4 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入:"></a>样例输入:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">985</span><br><span class="line">211</span><br><span class="line">1126</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出:"></a>样例输出:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1111011001</span><br><span class="line">11010011</span><br><span class="line">10001100110</span><br></pre></td></tr></table></figure>
+
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意:"></a>注意:</h4><h5 id="1-多组输入输出"><a href="#1-多组输入输出" class="headerlink" title="(1)多组输入输出"></a>(1)多组输入输出</h5><h5 id="2-起初想用long-long-型存储，题目要求30位，long-long最多20位，用字符数组接收"><a href="#2-起初想用long-long-型存储，题目要求30位，long-long最多20位，用字符数组接收" class="headerlink" title="(2)起初想用long long 型存储，题目要求30位，long long最多20位，用字符数组接收"></a>(2)起初想用long long 型存储，题目要求30位，long long最多20位，用字符数组接收</h5><h5 id="3-保存二进制数的数组，要大一些，我开辟了50的空间，一直报RE50-的错误。"><a href="#3-保存二进制数的数组，要大一些，我开辟了50的空间，一直报RE50-的错误。" class="headerlink" title="(3)保存二进制数的数组，要大一些，我开辟了50的空间，一直报RE50%的错误。"></a>(3)保存二进制数的数组，要大一些，我开辟了50的空间，一直报RE50%的错误。</h5><h4 id="思路-用字符数组接收，将每个字符转换为整型，从最后一个数字开始逐步除二取余，存储在新数组中，再将整个数除二存储。"><a href="#思路-用字符数组接收，将每个字符转换为整型，从最后一个数字开始逐步除二取余，存储在新数组中，再将整个数除二存储。" class="headerlink" title="思路:用字符数组接收，将每个字符转换为整型，从最后一个数字开始逐步除二取余，存储在新数组中，再将整个数除二存储。"></a>思路:用字符数组接收，将每个字符转换为整型，从最后一个数字开始逐步除二取余，存储在新数组中，再将整个数除二存储。</h4><h4 id="代码如下-2"><a href="#代码如下-2" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	char a[35];</span><br><span class="line">	while(scanf(&quot;%s&quot;,a)==1)</span><br><span class="line">	&#123;</span><br><span class="line">		int len=strlen(a);</span><br><span class="line">		int b[35]=&#123;0&#125;;</span><br><span class="line">		for(int i=0;i&lt;len;i++)//从高位开始，将每个字符转换为对应的数字</span><br><span class="line">			b[i]=a[i]-&apos;0&apos;;</span><br><span class="line">		int k=0,num=0;</span><br><span class="line">		int z[100]=&#123;0&#125;;		//存储进制数的数组，空间要开辟的足够大</span><br><span class="line">		while(k&lt;len)</span><br><span class="line">		&#123;</span><br><span class="line">			int q=0;</span><br><span class="line">			z[num++]=(b[len-1])%2;//从最后一位开始逐步取余</span><br><span class="line">			for(int j=k;j&lt;len;j++)//将原数除以二并存储</span><br><span class="line">			&#123;</span><br><span class="line">				int temp=b[j];</span><br><span class="line">				b[j]=(b[j]+q)/2;//从最高位开始，如果是偶数，可以除尽，q=0;如果是奇数，会余1给下一位，下一位加10之后再进行除法运算。</span><br><span class="line">				if(temp%2)</span><br><span class="line">					q=10;</span><br><span class="line">				else</span><br><span class="line">					q=0;</span><br><span class="line">			&#125;</span><br><span class="line">			if(b[k]==0)</span><br><span class="line">				k++;</span><br><span class="line">		&#125;</span><br><span class="line">		for(int i=num-1;i&gt;=0;i--)</span><br><span class="line">			printf(&quot;%d&quot;,z[i]);</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-八进制"><a href="#4-八进制" class="headerlink" title="4.八进制"></a>4.八进制</h3><h4 id="输入一个整数，将其转换成八进制数输出。"><a href="#输入一个整数，将其转换成八进制数输出。" class="headerlink" title="输入一个整数，将其转换成八进制数输出。"></a>输入一个整数，将其转换成八进制数输出。</h4><h4 id="输入信息-3"><a href="#输入信息-3" class="headerlink" title="输入信息:"></a>输入信息:</h4><h5 id="输入包括一个整数N-0-lt-N-lt-100000-。"><a href="#输入包括一个整数N-0-lt-N-lt-100000-。" class="headerlink" title="输入包括一个整数N(0&lt;=N&lt;=100000)。"></a>输入包括一个整数N(0&lt;=N&lt;=100000)。</h5><h4 id="输出信息-3"><a href="#输出信息-3" class="headerlink" title="输出信息:"></a>输出信息:</h4><h5 id="可能有多组测试数据，对于每组数据，"><a href="#可能有多组测试数据，对于每组数据，" class="headerlink" title="可能有多组测试数据，对于每组数据，"></a>可能有多组测试数据，对于每组数据，</h5><h5 id="输出N的八进制表示数。"><a href="#输出N的八进制表示数。" class="headerlink" title="输出N的八进制表示数。"></a>输出N的八进制表示数。</h5><h4 id="样例输入-3"><a href="#样例输入-3" class="headerlink" title="样例输入:"></a>样例输入:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">8</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例输出-3"><a href="#样例输出-3" class="headerlink" title="样例输出:"></a>样例输出:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">11</span><br><span class="line">10</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码如下-3"><a href="#代码如下-3" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int a[10005];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int N;</span><br><span class="line">	while(scanf(&quot;%d&quot;,&amp;N)==1)</span><br><span class="line">	&#123;</span><br><span class="line">		int count=0;</span><br><span class="line">		do&#123;					//do while循环,包括N=0的情况。</span><br><span class="line">			a[count++]=N%8;</span><br><span class="line">			N=N/8;</span><br><span class="line">		&#125;while(N&gt;0);</span><br><span class="line">		for(int i=count-1;i&gt;=0;i--)</span><br><span class="line">			printf(&quot;%d&quot;,a[i]);</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>小礼物走一个哟</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="Daybreak-Zheng 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="Daybreak-Zheng 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/算法竞赛/" rel="tag"> 算法竞赛</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/30/算法竞赛--PAT 乙 1022 D进制的A+B/" rel="next" title="算法竞赛--PAT 乙 1022 D进制的A+B">
+                <i class="fa fa-chevron-left"></i> 算法竞赛--PAT 乙 1022 D进制的A+B
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/01/算法竞赛--PAT 乙 1009 说反话/" rel="prev" title="算法竞赛--PAT 乙 1009 说反话">
+                算法竞赛--PAT 乙 1009 说反话 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Daybreak-Zheng">
+  
+  <p class="site-author-name" itemprop="name">Daybreak-Zheng</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Daybreak-Zheng" title="GitHub &rarr; https://github.com/Daybreak-Zheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://Daybreak-Zheng.github.io" title="https://Daybreak-Zheng.github.io">Daybreak-Zheng</a>
+        </li>
+      
+    </ul>
+  </div>
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-又一版A-B"><span class="nav-number">1.</span> <span class="nav-text">1.又一版A+B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入两个不超过整型定义的非负10进制整数A和B-lt-231-1-，输出A-B的m-1-lt-m-lt-10-进制数。"><span class="nav-number">1.1.</span> <span class="nav-text">输入两个不超过整型定义的非负10进制整数A和B(&lt;=231-1)，输出A+B的m (1 &lt; m &lt;10)进制数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入信息"><span class="nav-number">1.2.</span> <span class="nav-text">输入信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#测试输入包含若干测试用例。每个测试用例占一行，给出m和A，B的值。当m为0时输入结束。"><span class="nav-number">1.2.1.</span> <span class="nav-text">测试输入包含若干测试用例。每个测试用例占一行，给出m和A，B的值。当m为0时输入结束。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出信息"><span class="nav-number">1.3.</span> <span class="nav-text">输出信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#每个测试用例的输出占一行，输出A-B的m进制数。"><span class="nav-number">1.3.1.</span> <span class="nav-text">每个测试用例的输出占一行，输出A+B的m进制数。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入"><span class="nav-number">1.4.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出"><span class="nav-number">1.5.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hint-注意输入的两个数相加后的结果可能会超过int和long的范围。"><span class="nav-number">1.6.</span> <span class="nav-text">hint:注意输入的两个数相加后的结果可能会超过int和long的范围。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-题目为非负整数，0也可以，要用do-while循环。"><span class="nav-number">2.1.</span> <span class="nav-text">(1)题目为非负整数，0也可以，要用do while循环。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-每个测试用例占一行-输出要及时换行。"><span class="nav-number">2.2.</span> <span class="nav-text">(2)每个测试用例占一行,输出要及时换行。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-最最最重要，WA50-搞了好久，在hint-a和b必须也是long-long型，否则超出范围"><span class="nav-number">2.3.</span> <span class="nav-text">(3)最最最重要，WA50%,搞了好久，在hint,a和b必须也是long long型，否则超出范围.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下"><span class="nav-number">2.4.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数制转换"><span class="nav-number">3.</span> <span class="nav-text">2.数制转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#求任意两个不同进制非负整数的转换（2进制～16进制），所给整数在long所能表达的范围之内。不同进制的表示符号为（0，1，…，9，a，b，…，f）或者（0，1，…，9，A，B，…，F）。"><span class="nav-number">3.1.</span> <span class="nav-text">求任意两个不同进制非负整数的转换（2进制～16进制），所给整数在long所能表达的范围之内。不同进制的表示符号为（0，1，…，9，a，b，…，f）或者（0，1，…，9，A，B，…，F）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入信息-1"><span class="nav-number">3.2.</span> <span class="nav-text">输入信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入只有一行，包含三个整数a，n，b。a表示其后的n-是a进制整数，b表示欲将a进制整数n转换成b进制整数。a，b是十进制整数，2-lt-a，b-lt-16。"><span class="nav-number">3.2.1.</span> <span class="nav-text">输入只有一行，包含三个整数a，n，b。a表示其后的n 是a进制整数，b表示欲将a进制整数n转换成b进制整数。a，b是十进制整数，2 =&lt; a，b &lt;= 16。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出信息-1"><span class="nav-number">3.3.</span> <span class="nav-text">输出信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可能有多组测试数据，对于每组数据，输出包含一行，该行有一个整数为转换后的b进制数。输出时字母符号全部用大写表示，即（0，1，…，9，A，B，…，F）。"><span class="nav-number">3.3.1.</span> <span class="nav-text">可能有多组测试数据，对于每组数据，输出包含一行，该行有一个整数为转换后的b进制数。输出时字母符号全部用大写表示，即（0，1，…，9，A，B，…，F）。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-1"><span class="nav-number">3.4.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-1"><span class="nav-number">3.5.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-将要转换的数字通过字符串输入，转换为10进制数，10进制数再进行转换，存储在字符串中，逆序输出。"><span class="nav-number">3.6.</span> <span class="nav-text">思路:将要转换的数字通过字符串输入，转换为10进制数，10进制数再进行转换，存储在字符串中，逆序输出。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意-输入可以是大小写的a-输出则统一为大写，WA50-。"><span class="nav-number">3.7.</span> <span class="nav-text">注意:输入可以是大小写的a,输出则统一为大写，WA50%。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-1"><span class="nav-number">3.8.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-进制转换"><span class="nav-number">4.</span> <span class="nav-text">3.进制转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将一个长度最多为30位数字的十进制非负整数转换为二进制数输出。"><span class="nav-number">4.1.</span> <span class="nav-text">将一个长度最多为30位数字的十进制非负整数转换为二进制数输出。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入信息-2"><span class="nav-number">4.2.</span> <span class="nav-text">输入信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多组数据，每行为一个长度不超过30位的十进制非负整数。-注意是10进制数字的个数可能有30个，而非30bits的整数）"><span class="nav-number">4.2.1.</span> <span class="nav-text">多组数据，每行为一个长度不超过30位的十进制非负整数。(注意是10进制数字的个数可能有30个，而非30bits的整数）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出信息-2"><span class="nav-number">4.3.</span> <span class="nav-text">输出信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#每行输出对应的二进制数。"><span class="nav-number">4.3.1.</span> <span class="nav-text">每行输出对应的二进制数。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-2"><span class="nav-number">4.4.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-2"><span class="nav-number">4.5.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意-1"><span class="nav-number">4.6.</span> <span class="nav-text">注意:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-多组输入输出"><span class="nav-number">4.6.1.</span> <span class="nav-text">(1)多组输入输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-起初想用long-long-型存储，题目要求30位，long-long最多20位，用字符数组接收"><span class="nav-number">4.6.2.</span> <span class="nav-text">(2)起初想用long long 型存储，题目要求30位，long long最多20位，用字符数组接收</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-保存二进制数的数组，要大一些，我开辟了50的空间，一直报RE50-的错误。"><span class="nav-number">4.6.3.</span> <span class="nav-text">(3)保存二进制数的数组，要大一些，我开辟了50的空间，一直报RE50%的错误。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-用字符数组接收，将每个字符转换为整型，从最后一个数字开始逐步除二取余，存储在新数组中，再将整个数除二存储。"><span class="nav-number">4.7.</span> <span class="nav-text">思路:用字符数组接收，将每个字符转换为整型，从最后一个数字开始逐步除二取余，存储在新数组中，再将整个数除二存储。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-2"><span class="nav-number">4.8.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-八进制"><span class="nav-number">5.</span> <span class="nav-text">4.八进制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入一个整数，将其转换成八进制数输出。"><span class="nav-number">5.1.</span> <span class="nav-text">输入一个整数，将其转换成八进制数输出。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入信息-3"><span class="nav-number">5.2.</span> <span class="nav-text">输入信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入包括一个整数N-0-lt-N-lt-100000-。"><span class="nav-number">5.2.1.</span> <span class="nav-text">输入包括一个整数N(0&lt;=N&lt;=100000)。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出信息-3"><span class="nav-number">5.3.</span> <span class="nav-text">输出信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可能有多组测试数据，对于每组数据，"><span class="nav-number">5.3.1.</span> <span class="nav-text">可能有多组测试数据，对于每组数据，</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出N的八进制表示数。"><span class="nav-number">5.3.2.</span> <span class="nav-text">输出N的八进制表示数。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-3"><span class="nav-number">5.4.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-3"><span class="nav-number">5.5.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-3"><span class="nav-number">5.6.</span> <span class="nav-text">代码如下:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daybreak-Zheng</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">78k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">1:11</span>
+  
+</div>
+
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>  
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/20/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+ <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['/lib/three/three-waves.min.js', '/lib/three/canvas_lines.min.js', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
+
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '5509b91a59c3adf55754',
+    clientSecret: 'c2f7f5deb4e775eaf0997d8188cea666e0e2f84c',
+    repo: 'Daybreak-Zheng.github.io',
+    owner: 'Daybreak-Zheng',
+    admin: ['Daybreak-Zheng'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+    <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('����').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('���Ƴɹ�')
+        else $(this).text('����ʧ��')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('����')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clipboard-min.js"></script>  
+<script type="text/javascript" src="/js/clipboard-use.js"></script>
+</html>
