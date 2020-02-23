@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="vX8GmgNWqZ">
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="贪心:贪心法是求解一类最优化问题的方法,它总是考虑在当前状态下局部最优(或较优)的策略，来使全局的结果达到最优(或较优)。贪心算法适用的问题一定满足最优子结构性质,即一个问题的最优解可以由它的子问题的最优解有效的构造出来.1.区间不相交问题给出N个开区间(x,y),从中选择尽可能多的开区间，使得这些开区间两两没有交集,样例输入:1234541 32 43 56 7  样例输出:13  思路:总是选">
+<meta name="keywords" content="算法竞赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法竞赛-- 贪心">
+<meta property="og:url" content="https://Daybreak-Zheng.github.io/2020/02/08/算法竞赛--贪心/index.html">
+<meta property="og:site_name" content="Daybreak-Zheng">
+<meta property="og:description" content="贪心:贪心法是求解一类最优化问题的方法,它总是考虑在当前状态下局部最优(或较优)的策略，来使全局的结果达到最优(或较优)。贪心算法适用的问题一定满足最优子结构性质,即一个问题的最优解可以由它的子问题的最优解有效的构造出来.1.区间不相交问题给出N个开区间(x,y),从中选择尽可能多的开区间，使得这些开区间两两没有交集,样例输入:1234541 32 43 56 7  样例输出:13  思路:总是选">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-21T15:10:29.236Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法竞赛-- 贪心">
+<meta name="twitter:description" content="贪心:贪心法是求解一类最优化问题的方法,它总是考虑在当前状态下局部最优(或较优)的策略，来使全局的结果达到最优(或较优)。贪心算法适用的问题一定满足最优子结构性质,即一个问题的最优解可以由它的子问题的最优解有效的构造出来.1.区间不相交问题给出N个开区间(x,y),从中选择尽可能多的开区间，使得这些开区间两两没有交集,样例输入:1234541 32 43 56 7  样例输出:13  思路:总是选">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://Daybreak-Zheng.github.io/2020/02/08/算法竞赛--贪心/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>算法竞赛-- 贪心 | Daybreak-Zheng</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daybreak-Zheng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">9</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">6</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">44</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Daybreak-Zheng.github.io/2020/02/08/算法竞赛--贪心/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daybreak-Zheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daybreak-Zheng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法竞赛-- 贪心
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-08 20:15:10" itemprop="dateCreated datePublished" datetime="2020-02-08T20:15:10+08:00">2020-02-08</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-21 23:10:29" itemprop="dateModified" datetime="2020-02-21T23:10:29+08:00">2020-02-21</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">3.9k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">4 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="贪心-贪心法是求解一类最优化问题的方法-它总是考虑在当前状态下局部最优-或较优-的策略，来使全局的结果达到最优-或较优-。"><a href="#贪心-贪心法是求解一类最优化问题的方法-它总是考虑在当前状态下局部最优-或较优-的策略，来使全局的结果达到最优-或较优-。" class="headerlink" title="贪心:贪心法是求解一类最优化问题的方法,它总是考虑在当前状态下局部最优(或较优)的策略，来使全局的结果达到最优(或较优)。"></a>贪心:贪心法是求解一类最优化问题的方法,它总是考虑在当前状态下局部最优(或较优)的策略，来使全局的结果达到最优(或较优)。</h3><h3 id="贪心算法适用的问题一定满足最优子结构性质-即一个问题的最优解可以由它的子问题的最优解有效的构造出来"><a href="#贪心算法适用的问题一定满足最优子结构性质-即一个问题的最优解可以由它的子问题的最优解有效的构造出来" class="headerlink" title="贪心算法适用的问题一定满足最优子结构性质,即一个问题的最优解可以由它的子问题的最优解有效的构造出来."></a>贪心算法适用的问题一定满足最优子结构性质,即一个问题的最优解可以由它的子问题的最优解有效的构造出来.</h3><h3 id="1-区间不相交问题"><a href="#1-区间不相交问题" class="headerlink" title="1.区间不相交问题"></a>1.区间不相交问题</h3><h4 id="给出N个开区间-x-y-从中选择尽可能多的开区间，使得这些开区间两两没有交集"><a href="#给出N个开区间-x-y-从中选择尽可能多的开区间，使得这些开区间两两没有交集" class="headerlink" title="给出N个开区间(x,y),从中选择尽可能多的开区间，使得这些开区间两两没有交集,"></a>给出N个开区间(x,y),从中选择尽可能多的开区间，使得这些开区间两两没有交集,</h4><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入:"></a>样例输入:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">3 5</span><br><span class="line">6 7</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出:"></a>样例输出:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路-总是选择左端点的最大区间"><a href="#思路-总是选择左端点的最大区间" class="headerlink" title="思路:总是选择左端点的最大区间."></a>思路:总是选择左端点的最大区间.</h4><h4 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">struct Interval</span><br><span class="line">&#123;</span><br><span class="line">	int x1,x2;</span><br><span class="line">&#125;I[105];</span><br><span class="line">using namespace std;</span><br><span class="line">bool cmp(Interval a,Interval b)//排序规则,对左端点进行从大到小排序,左端点相同右端点从小到大排序.</span><br><span class="line">&#123;</span><br><span class="line">	if(a.x1!=b.x1)</span><br><span class="line">		return a.x1&gt;b.x1;</span><br><span class="line">	else</span><br><span class="line">		return a.x2&lt;b.x2;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	for(int i=0;i&lt;n;i++)</span><br><span class="line">		scanf(&quot;%d %d&quot;,&amp;I[i].x1,&amp;I[i].x2);</span><br><span class="line">	sort(I,I+n,cmp);</span><br><span class="line">	int count=1,last=I[0].x1;		//count记录不相交区间的个数,last记录上一个被选中区间的左端点.</span><br><span class="line">	for(int i=1;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(I[i].x2&lt;=last)	//如果该区间的右端点小于等于上一被选中区间的左端点。last更新一次，个数更新一次.</span><br><span class="line">		&#123;</span><br><span class="line">			last=I[i].x1;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d\n&quot;,count);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="与该题相似的为-区间选点问题。"><a href="#与该题相似的为-区间选点问题。" class="headerlink" title="与该题相似的为 区间选点问题。"></a>与该题相似的为 区间选点问题。</h3><h4 id="给出N个闭区间-x-y-求最少需要确定多少个点-才能使每个闭区间中至少存在一个点。"><a href="#给出N个闭区间-x-y-求最少需要确定多少个点-才能使每个闭区间中至少存在一个点。" class="headerlink" title="给出N个闭区间[x,y],求最少需要确定多少个点,才能使每个闭区间中至少存在一个点。"></a>给出N个闭区间[x,y],求最少需要确定多少个点,才能使每个闭区间中至少存在一个点。</h4><h4 id="只需将-I-i-x2-lt-last-改为I-i-x2-lt-last即可"><a href="#只需将-I-i-x2-lt-last-改为I-i-x2-lt-last即可" class="headerlink" title="只需将 I[i].x2&lt;=last 改为I[i].x2&lt;last即可."></a>只需将 I[i].x2&lt;=last 改为I[i].x2&lt;last即可.</h4><h3 id="2-看电视"><a href="#2-看电视" class="headerlink" title="2.看电视"></a>2.看电视</h3><h4 id="暑假到了，小明终于可以开心的看电视了。但是小明喜欢的节目太多了，他希望尽量多的看到完整的节目。"><a href="#暑假到了，小明终于可以开心的看电视了。但是小明喜欢的节目太多了，他希望尽量多的看到完整的节目。" class="headerlink" title="暑假到了，小明终于可以开心的看电视了。但是小明喜欢的节目太多了，他希望尽量多的看到完整的节目。"></a>暑假到了，小明终于可以开心的看电视了。但是小明喜欢的节目太多了，他希望尽量多的看到完整的节目。</h4><h4 id="现在他把他喜欢的电视节目的转播时间表给你，你能帮他合理安排吗？"><a href="#现在他把他喜欢的电视节目的转播时间表给你，你能帮他合理安排吗？" class="headerlink" title="现在他把他喜欢的电视节目的转播时间表给你，你能帮他合理安排吗？"></a>现在他把他喜欢的电视节目的转播时间表给你，你能帮他合理安排吗？</h4><h3 id="输入信息"><a href="#输入信息" class="headerlink" title="输入信息:"></a>输入信息:</h3><h4 id="输入包含多组测试数据。每组输入的第一行是一个整数n（n-lt-100），表示小明喜欢的节目的总数。"><a href="#输入包含多组测试数据。每组输入的第一行是一个整数n（n-lt-100），表示小明喜欢的节目的总数。" class="headerlink" title="输入包含多组测试数据。每组输入的第一行是一个整数n（n&lt;=100），表示小明喜欢的节目的总数。"></a>输入包含多组测试数据。每组输入的第一行是一个整数n（n&lt;=100），表示小明喜欢的节目的总数。</h4><h4 id="接下来n行，每行输入两个整数si和ei（1-lt-i-lt-n），表示第i个节目的开始和结束时间，为了简化问题，每个时间都用一个正整数表示。"><a href="#接下来n行，每行输入两个整数si和ei（1-lt-i-lt-n），表示第i个节目的开始和结束时间，为了简化问题，每个时间都用一个正整数表示。" class="headerlink" title="接下来n行，每行输入两个整数si和ei（1&lt;=i&lt;=n），表示第i个节目的开始和结束时间，为了简化问题，每个时间都用一个正整数表示。"></a>接下来n行，每行输入两个整数si和ei（1&lt;=i&lt;=n），表示第i个节目的开始和结束时间，为了简化问题，每个时间都用一个正整数表示。</h4><h4 id="当n-0时，输入结束。"><a href="#当n-0时，输入结束。" class="headerlink" title="当n=0时，输入结束。"></a>当n=0时，输入结束。</h4><h4 id="输出信息"><a href="#输出信息" class="headerlink" title="输出信息:"></a>输出信息:</h4><h5 id="对于每组输入，输出能完整看到的电视节目的个数。"><a href="#对于每组输入，输出能完整看到的电视节目的个数。" class="headerlink" title="对于每组输入，输出能完整看到的电视节目的个数。"></a>对于每组输入，输出能完整看到的电视节目的个数。</h5><h4 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入:"></a>样例输入:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">12</span><br><span class="line">1 3</span><br><span class="line">3 4</span><br><span class="line">0 7</span><br><span class="line">3 8</span><br><span class="line">15 19</span><br><span class="line">15 20</span><br><span class="line">10 15</span><br><span class="line">8 18</span><br><span class="line">6 12</span><br><span class="line">5 10</span><br><span class="line">4 14</span><br><span class="line">2 9</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出:"></a>样例输出:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路-该题即为区间不想交问题"><a href="#思路-该题即为区间不想交问题" class="headerlink" title="思路:该题即为区间不想交问题."></a>思路:该题即为区间不想交问题.</h4><h4 id="代码如下-1"><a href="#代码如下-1" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">struct Interval</span><br><span class="line">&#123;</span><br><span class="line">	int x1,x2;</span><br><span class="line">&#125;I[105];</span><br><span class="line">bool cmp(Interval a,Interval b)</span><br><span class="line">&#123;</span><br><span class="line">	if(a.x1!=b.x1)</span><br><span class="line">		return a.x1&gt;b.x1;</span><br><span class="line">	else</span><br><span class="line">		return a.x2&lt;b.x2;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n;</span><br><span class="line">	while(scanf(&quot;%d&quot;,&amp;n)==1 &amp;&amp; n)</span><br><span class="line">	&#123;</span><br><span class="line">		for(int i=0;i&lt;n;i++)</span><br><span class="line">			scanf(&quot;%d %d&quot;,&amp;I[i].x1,&amp;I[i].x2);</span><br><span class="line">		sort(I,I+n,cmp);</span><br><span class="line">		int count=1,last=I[0].x1;</span><br><span class="line">		for(int i=1;i&lt;n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			if(I[i].x2&lt;=last)</span><br><span class="line">			&#123;</span><br><span class="line">				count++;</span><br><span class="line">				last=I[i].x1;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;%d\n&quot;,count);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-数列"><a href="#5-数列" class="headerlink" title="5.数列"></a>5.数列</h3><h4 id="编写一个求斐波那契数列的递归函数，输入n-值，使用该递归函数，输出如下图形（参见样例）。"><a href="#编写一个求斐波那契数列的递归函数，输入n-值，使用该递归函数，输出如下图形（参见样例）。" class="headerlink" title="编写一个求斐波那契数列的递归函数，输入n 值，使用该递归函数，输出如下图形（参见样例）。"></a>编写一个求斐波那契数列的递归函数，输入n 值，使用该递归函数，输出如下图形（参见样例）。</h4><h4 id="输入信息-1"><a href="#输入信息-1" class="headerlink" title="输入信息:"></a>输入信息:</h4><h5 id="输入第一行为样例数m，接下来有m行每行一个整数n，n不超过10。"><a href="#输入第一行为样例数m，接下来有m行每行一个整数n，n不超过10。" class="headerlink" title="输入第一行为样例数m，接下来有m行每行一个整数n，n不超过10。"></a>输入第一行为样例数m，接下来有m行每行一个整数n，n不超过10。</h5><h4 id="输出信息-1"><a href="#输出信息-1" class="headerlink" title="输出信息:"></a>输出信息:</h4><h5 id="对应每个样例输出要求的图形-参见样例格式-。"><a href="#对应每个样例输出要求的图形-参见样例格式-。" class="headerlink" title="对应每个样例输出要求的图形(参见样例格式)。"></a>对应每个样例输出要求的图形(参见样例格式)。</h5><h5 id="输出只有1行，即名名吃巧克力的方案数。"><a href="#输出只有1行，即名名吃巧克力的方案数。" class="headerlink" title="输出只有1行，即名名吃巧克力的方案数。"></a>输出只有1行，即名名吃巧克力的方案数。</h5><h4 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入:"></a>样例输入:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出:"></a>样例输出:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">          0</span><br><span class="line">        0 1 1</span><br><span class="line">      0 1 1 2 3</span><br><span class="line">    0 1 1 2 3 5 8</span><br><span class="line">  0 1 1 2 3 5 8 13 21</span><br><span class="line">0 1 1 2 3 5 8 13 21 34 55</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路-该题利用斐波那切数列解题，输出m行数，每行从第0项开始，总共2m-1个数。"><a href="#思路-该题利用斐波那切数列解题，输出m行数，每行从第0项开始，总共2m-1个数。" class="headerlink" title="思路:该题利用斐波那切数列解题，输出m行数，每行从第0项开始，总共2m-1个数。"></a>思路:该题利用斐波那切数列解题，输出m行数，每行从第0项开始，总共2m-1个数。</h4><h4 id="代码如下-2"><a href="#代码如下-2" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int ff(int n)</span><br><span class="line">&#123;</span><br><span class="line">	if(n==0)</span><br><span class="line">		return 0;</span><br><span class="line">	else if(n==1)</span><br><span class="line">		return 1;</span><br><span class="line">	else</span><br><span class="line">		return ff(n-1)+ff(n-2);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n,m;</span><br><span class="line">	while(scanf(&quot;%d&quot;,&amp;n)==1)		//测试样例数</span><br><span class="line">	&#123;</span><br><span class="line">		for(int k=0;k&lt;n;k++)</span><br><span class="line">		&#123;</span><br><span class="line">			scanf(&quot;%d&quot;,&amp;m);		//输入m</span><br><span class="line">			for(int i=1;i&lt;=m;i++) 	//输出m行</span><br><span class="line">			&#123;</span><br><span class="line">				for(int j=0;j&lt;2*(m-i);j++)//输出空格</span><br><span class="line">					printf(&quot; &quot;);</span><br><span class="line">				for(int j=0;j&lt;2*i-1;j++)	//输出数字</span><br><span class="line">				&#123;</span><br><span class="line">					printf(&quot;%d&quot;,ff(j));</span><br><span class="line">					if(j&lt;2*(i-1))</span><br><span class="line">						printf(&quot; &quot;);	</span><br><span class="line">				&#125;</span><br><span class="line">				printf(&quot;\n&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-神奇的口袋"><a href="#6-神奇的口袋" class="headerlink" title="6.神奇的口袋"></a>6.神奇的口袋</h3><h4 id="有一个神奇的口袋，总的容积是40，用这个口袋可以变出一些物品，这些物品的总体积必须是40。John现在有n个想要得到的物品，每个物品的体积分别是a1，a2……an。John可以从这些物品中选择一些，如果选出的物体的总体积是40，那么利用这个神奇的口袋，John就可以得到这些物品。现在的问题是，John有多少种不同的选择物品的方式。"><a href="#有一个神奇的口袋，总的容积是40，用这个口袋可以变出一些物品，这些物品的总体积必须是40。John现在有n个想要得到的物品，每个物品的体积分别是a1，a2……an。John可以从这些物品中选择一些，如果选出的物体的总体积是40，那么利用这个神奇的口袋，John就可以得到这些物品。现在的问题是，John有多少种不同的选择物品的方式。" class="headerlink" title="有一个神奇的口袋，总的容积是40，用这个口袋可以变出一些物品，这些物品的总体积必须是40。John现在有n个想要得到的物品，每个物品的体积分别是a1，a2……an。John可以从这些物品中选择一些，如果选出的物体的总体积是40，那么利用这个神奇的口袋，John就可以得到这些物品。现在的问题是，John有多少种不同的选择物品的方式。"></a>有一个神奇的口袋，总的容积是40，用这个口袋可以变出一些物品，这些物品的总体积必须是40。John现在有n个想要得到的物品，每个物品的体积分别是a1，a2……an。John可以从这些物品中选择一些，如果选出的物体的总体积是40，那么利用这个神奇的口袋，John就可以得到这些物品。现在的问题是，John有多少种不同的选择物品的方式。</h4><h4 id="输入信息-2"><a href="#输入信息-2" class="headerlink" title="输入信息:"></a>输入信息:</h4><h5 id="输入的第一行是正整数n-1-lt-n-lt-20-，表示不同的物品的数目。接下来的n行，每行有一个1到40之间的正整数，分别给出a1，a2……an的值。"><a href="#输入的第一行是正整数n-1-lt-n-lt-20-，表示不同的物品的数目。接下来的n行，每行有一个1到40之间的正整数，分别给出a1，a2……an的值。" class="headerlink" title="输入的第一行是正整数n (1 &lt;= n &lt;= 20)，表示不同的物品的数目。接下来的n行，每行有一个1到40之间的正整数，分别给出a1，a2……an的值。"></a>输入的第一行是正整数n (1 &lt;= n &lt;= 20)，表示不同的物品的数目。接下来的n行，每行有一个1到40之间的正整数，分别给出a1，a2……an的值。</h5><h4 id="输出信息-2"><a href="#输出信息-2" class="headerlink" title="输出信息:"></a>输出信息:</h4><h5 id="输出不同的选择物品的方式的数目。"><a href="#输出不同的选择物品的方式的数目。" class="headerlink" title="输出不同的选择物品的方式的数目。"></a>输出不同的选择物品的方式的数目。</h5><h4 id="样例输入-3"><a href="#样例输入-3" class="headerlink" title="样例输入:"></a>样例输入:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">12</span><br><span class="line">28</span><br><span class="line">3</span><br><span class="line">21</span><br><span class="line">10</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例输出-3"><a href="#样例输出-3" class="headerlink" title="样例输出:"></a>样例输出:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路-从0开始-思路是用40减去good-0-，然后用余数继续与后面数组中的元素相减，看结果是否为0，若为0，表示这样排列满足条件，count-。若不为0，则继续往下走，直到余数小于0或者数组中的数已经全部读完，这样一次查找就完成了，接着需要回退到上一步去继续寻找下一个包含good-0-的可能组合。就比如进行到40-good-0-good-1-时发现余数为0满足条件，count-1，然后回退到40-good-0-，跳过good-1-，去检查40-good-0-good-2-是否满足条件，如此往复，直到检查到40-good-0-good-n-1-为止"><a href="#思路-从0开始-思路是用40减去good-0-，然后用余数继续与后面数组中的元素相减，看结果是否为0，若为0，表示这样排列满足条件，count-。若不为0，则继续往下走，直到余数小于0或者数组中的数已经全部读完，这样一次查找就完成了，接着需要回退到上一步去继续寻找下一个包含good-0-的可能组合。就比如进行到40-good-0-good-1-时发现余数为0满足条件，count-1，然后回退到40-good-0-，跳过good-1-，去检查40-good-0-good-2-是否满足条件，如此往复，直到检查到40-good-0-good-n-1-为止" class="headerlink" title="思路:从0开始,思路是用40减去good[0]，然后用余数继续与后面数组中的元素相减，看结果是否为0，若为0，表示这样排列满足条件，count++。若不为0，则继续往下走，直到余数小于0或者数组中的数已经全部读完，这样一次查找就完成了，接着需要回退到上一步去继续寻找下一个包含good[0]的可能组合。就比如进行到40-good[0]-good[1]时发现余数为0满足条件，count+1，然后回退到40-good[0]，跳过good[1]，去检查40-good[0]-good[2]是否满足条件，如此往复，直到检查到40-good[0]-good[n-1]为止"></a>思路:从0开始,思路是用40减去good[0]，然后用余数继续与后面数组中的元素相减，看结果是否为0，若为0，表示这样排列满足条件，count++。若不为0，则继续往下走，直到余数小于0或者数组中的数已经全部读完，这样一次查找就完成了，接着需要回退到上一步去继续寻找下一个包含good[0]的可能组合。就比如进行到40-good[0]-good[1]时发现余数为0满足条件，count+1，然后回退到40-good[0]，跳过good[1]，去检查40-good[0]-good[2]是否满足条件，如此往复，直到检查到40-good[0]-good[n-1]为止</h4><h4 id="代码如下-3"><a href="#代码如下-3" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int good[25];</span><br><span class="line">int count,r=40,n;</span><br><span class="line">void g(int index)</span><br><span class="line">&#123;</span><br><span class="line">	if(r&lt;0)</span><br><span class="line">		return;</span><br><span class="line">	else if(r==0)</span><br><span class="line">	&#123;</span><br><span class="line">		count++;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	if(index==n)</span><br><span class="line">		return;</span><br><span class="line">	for(int x=index;x&lt;n;x++)</span><br><span class="line">	&#123;</span><br><span class="line">		r=r-good[x];</span><br><span class="line">		g(x+1);</span><br><span class="line">		r=r+good[x];</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	while(scanf(&quot;%d&quot;,&amp;n)==1)</span><br><span class="line">	&#123;</span><br><span class="line">		count=0;</span><br><span class="line">		for(int i=0;i&lt;n;i++)</span><br><span class="line">			scanf(&quot;%d&quot;,&amp;good[i]);	//输入物体的体积</span><br><span class="line">		g(0);						//递归开始</span><br><span class="line">		printf(&quot;%d\n&quot;,count);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>小礼物走一个哟</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="Daybreak-Zheng 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="Daybreak-Zheng 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/算法竞赛/" rel="tag"> 算法竞赛</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/08/算法竞赛--PAT 乙 1023 组个最小数/" rel="next" title="PAT--乙 1023 组个最小数">
+                <i class="fa fa-chevron-left"></i> PAT--乙 1023 组个最小数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/08/算法竞赛--PAT 乙 1020 月饼/" rel="prev" title="PAT--乙 1020 月饼">
+                PAT--乙 1020 月饼 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Daybreak-Zheng">
+  
+  <p class="site-author-name" itemprop="name">Daybreak-Zheng</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Daybreak-Zheng" title="GitHub &rarr; https://github.com/Daybreak-Zheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://Daybreak-Zheng.github.io" title="https://Daybreak-Zheng.github.io">Daybreak-Zheng</a>
+        </li>
+      
+    </ul>
+  </div>
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#贪心-贪心法是求解一类最优化问题的方法-它总是考虑在当前状态下局部最优-或较优-的策略，来使全局的结果达到最优-或较优-。"><span class="nav-number">1.</span> <span class="nav-text">贪心:贪心法是求解一类最优化问题的方法,它总是考虑在当前状态下局部最优(或较优)的策略，来使全局的结果达到最优(或较优)。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪心算法适用的问题一定满足最优子结构性质-即一个问题的最优解可以由它的子问题的最优解有效的构造出来"><span class="nav-number">2.</span> <span class="nav-text">贪心算法适用的问题一定满足最优子结构性质,即一个问题的最优解可以由它的子问题的最优解有效的构造出来.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-区间不相交问题"><span class="nav-number">3.</span> <span class="nav-text">1.区间不相交问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#给出N个开区间-x-y-从中选择尽可能多的开区间，使得这些开区间两两没有交集"><span class="nav-number">3.1.</span> <span class="nav-text">给出N个开区间(x,y),从中选择尽可能多的开区间，使得这些开区间两两没有交集,</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入"><span class="nav-number">3.2.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出"><span class="nav-number">3.3.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-总是选择左端点的最大区间"><span class="nav-number">3.4.</span> <span class="nav-text">思路:总是选择左端点的最大区间.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下"><span class="nav-number">3.5.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与该题相似的为-区间选点问题。"><span class="nav-number">4.</span> <span class="nav-text">与该题相似的为 区间选点问题。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#给出N个闭区间-x-y-求最少需要确定多少个点-才能使每个闭区间中至少存在一个点。"><span class="nav-number">4.1.</span> <span class="nav-text">给出N个闭区间[x,y],求最少需要确定多少个点,才能使每个闭区间中至少存在一个点。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#只需将-I-i-x2-lt-last-改为I-i-x2-lt-last即可"><span class="nav-number">4.2.</span> <span class="nav-text">只需将 I[i].x2&lt;=last 改为I[i].x2&lt;last即可.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-看电视"><span class="nav-number">5.</span> <span class="nav-text">2.看电视</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#暑假到了，小明终于可以开心的看电视了。但是小明喜欢的节目太多了，他希望尽量多的看到完整的节目。"><span class="nav-number">5.1.</span> <span class="nav-text">暑假到了，小明终于可以开心的看电视了。但是小明喜欢的节目太多了，他希望尽量多的看到完整的节目。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现在他把他喜欢的电视节目的转播时间表给你，你能帮他合理安排吗？"><span class="nav-number">5.2.</span> <span class="nav-text">现在他把他喜欢的电视节目的转播时间表给你，你能帮他合理安排吗？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入信息"><span class="nav-number">6.</span> <span class="nav-text">输入信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入包含多组测试数据。每组输入的第一行是一个整数n（n-lt-100），表示小明喜欢的节目的总数。"><span class="nav-number">6.1.</span> <span class="nav-text">输入包含多组测试数据。每组输入的第一行是一个整数n（n&lt;=100），表示小明喜欢的节目的总数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来n行，每行输入两个整数si和ei（1-lt-i-lt-n），表示第i个节目的开始和结束时间，为了简化问题，每个时间都用一个正整数表示。"><span class="nav-number">6.2.</span> <span class="nav-text">接下来n行，每行输入两个整数si和ei（1&lt;=i&lt;=n），表示第i个节目的开始和结束时间，为了简化问题，每个时间都用一个正整数表示。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当n-0时，输入结束。"><span class="nav-number">6.3.</span> <span class="nav-text">当n=0时，输入结束。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出信息"><span class="nav-number">6.4.</span> <span class="nav-text">输出信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对于每组输入，输出能完整看到的电视节目的个数。"><span class="nav-number">6.4.1.</span> <span class="nav-text">对于每组输入，输出能完整看到的电视节目的个数。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-1"><span class="nav-number">6.5.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-1"><span class="nav-number">6.6.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-该题即为区间不想交问题"><span class="nav-number">6.7.</span> <span class="nav-text">思路:该题即为区间不想交问题.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-1"><span class="nav-number">6.8.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-数列"><span class="nav-number">7.</span> <span class="nav-text">5.数列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编写一个求斐波那契数列的递归函数，输入n-值，使用该递归函数，输出如下图形（参见样例）。"><span class="nav-number">7.1.</span> <span class="nav-text">编写一个求斐波那契数列的递归函数，输入n 值，使用该递归函数，输出如下图形（参见样例）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入信息-1"><span class="nav-number">7.2.</span> <span class="nav-text">输入信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入第一行为样例数m，接下来有m行每行一个整数n，n不超过10。"><span class="nav-number">7.2.1.</span> <span class="nav-text">输入第一行为样例数m，接下来有m行每行一个整数n，n不超过10。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出信息-1"><span class="nav-number">7.3.</span> <span class="nav-text">输出信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对应每个样例输出要求的图形-参见样例格式-。"><span class="nav-number">7.3.1.</span> <span class="nav-text">对应每个样例输出要求的图形(参见样例格式)。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出只有1行，即名名吃巧克力的方案数。"><span class="nav-number">7.3.2.</span> <span class="nav-text">输出只有1行，即名名吃巧克力的方案数。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-2"><span class="nav-number">7.4.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-2"><span class="nav-number">7.5.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-该题利用斐波那切数列解题，输出m行数，每行从第0项开始，总共2m-1个数。"><span class="nav-number">7.6.</span> <span class="nav-text">思路:该题利用斐波那切数列解题，输出m行数，每行从第0项开始，总共2m-1个数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-2"><span class="nav-number">7.7.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-神奇的口袋"><span class="nav-number">8.</span> <span class="nav-text">6.神奇的口袋</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有一个神奇的口袋，总的容积是40，用这个口袋可以变出一些物品，这些物品的总体积必须是40。John现在有n个想要得到的物品，每个物品的体积分别是a1，a2……an。John可以从这些物品中选择一些，如果选出的物体的总体积是40，那么利用这个神奇的口袋，John就可以得到这些物品。现在的问题是，John有多少种不同的选择物品的方式。"><span class="nav-number">8.1.</span> <span class="nav-text">有一个神奇的口袋，总的容积是40，用这个口袋可以变出一些物品，这些物品的总体积必须是40。John现在有n个想要得到的物品，每个物品的体积分别是a1，a2……an。John可以从这些物品中选择一些，如果选出的物体的总体积是40，那么利用这个神奇的口袋，John就可以得到这些物品。现在的问题是，John有多少种不同的选择物品的方式。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入信息-2"><span class="nav-number">8.2.</span> <span class="nav-text">输入信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输入的第一行是正整数n-1-lt-n-lt-20-，表示不同的物品的数目。接下来的n行，每行有一个1到40之间的正整数，分别给出a1，a2……an的值。"><span class="nav-number">8.2.1.</span> <span class="nav-text">输入的第一行是正整数n (1 &lt;= n &lt;= 20)，表示不同的物品的数目。接下来的n行，每行有一个1到40之间的正整数，分别给出a1，a2……an的值。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出信息-2"><span class="nav-number">8.3.</span> <span class="nav-text">输出信息:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输出不同的选择物品的方式的数目。"><span class="nav-number">8.3.1.</span> <span class="nav-text">输出不同的选择物品的方式的数目。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入-3"><span class="nav-number">8.4.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出-3"><span class="nav-number">8.5.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-从0开始-思路是用40减去good-0-，然后用余数继续与后面数组中的元素相减，看结果是否为0，若为0，表示这样排列满足条件，count-。若不为0，则继续往下走，直到余数小于0或者数组中的数已经全部读完，这样一次查找就完成了，接着需要回退到上一步去继续寻找下一个包含good-0-的可能组合。就比如进行到40-good-0-good-1-时发现余数为0满足条件，count-1，然后回退到40-good-0-，跳过good-1-，去检查40-good-0-good-2-是否满足条件，如此往复，直到检查到40-good-0-good-n-1-为止"><span class="nav-number">8.6.</span> <span class="nav-text">思路:从0开始,思路是用40减去good[0]，然后用余数继续与后面数组中的元素相减，看结果是否为0，若为0，表示这样排列满足条件，count++。若不为0，则继续往下走，直到余数小于0或者数组中的数已经全部读完，这样一次查找就完成了，接着需要回退到上一步去继续寻找下一个包含good[0]的可能组合。就比如进行到40-good[0]-good[1]时发现余数为0满足条件，count+1，然后回退到40-good[0]，跳过good[1]，去检查40-good[0]-good[2]是否满足条件，如此往复，直到检查到40-good[0]-good[n-1]为止</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-3"><span class="nav-number">8.7.</span> <span class="nav-text">代码如下:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daybreak-Zheng</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">95k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">1:26</span>
+  
+</div>
+
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>  
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/20/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+ <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['/lib/three/three-waves.min.js', '/lib/three/canvas_lines.min.js', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
+
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '5509b91a59c3adf55754',
+    clientSecret: 'c2f7f5deb4e775eaf0997d8188cea666e0e2f84c',
+    repo: 'Daybreak-Zheng.github.io',
+    owner: 'Daybreak-Zheng',
+    admin: ['Daybreak-Zheng'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+    <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('����').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('���Ƴɹ�')
+        else $(this).text('����ʧ��')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('����')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clipboard-min.js"></script>  
+<script type="text/javascript" src="/js/clipboard-use.js"></script>
+</html>
