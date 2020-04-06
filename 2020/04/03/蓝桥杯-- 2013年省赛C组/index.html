@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="vX8GmgNWqZ">
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="A 猜年龄美国数学家维纳(N.Wiener)智力早熟，11岁就上了大学。他曾在1935~1936年应邀来中国清华大学讲学。一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：“我年龄的立方是个4位数。我年龄的4次方是个6位数。这10个数字正好包含了从0到9这10个数字，每个都恰好出现1次。”请你推算一下，他当时到底有多年轻。参考代码(暴力解题)12345678910111">
+<meta name="keywords" content="蓝桥杯 真题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯-- 2013年省赛C组">
+<meta property="og:url" content="https://Daybreak-Zheng.github.io/2020/04/03/蓝桥杯-- 2013年省赛C组/index.html">
+<meta property="og:site_name" content="Daybreak-Zheng">
+<meta property="og:description" content="A 猜年龄美国数学家维纳(N.Wiener)智力早熟，11岁就上了大学。他曾在1935~1936年应邀来中国清华大学讲学。一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：“我年龄的立方是个4位数。我年龄的4次方是个6位数。这10个数字正好包含了从0到9这10个数字，每个都恰好出现1次。”请你推算一下，他当时到底有多年轻。参考代码(暴力解题)12345678910111">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-06T14:02:35.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="蓝桥杯-- 2013年省赛C组">
+<meta name="twitter:description" content="A 猜年龄美国数学家维纳(N.Wiener)智力早熟，11岁就上了大学。他曾在1935~1936年应邀来中国清华大学讲学。一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：“我年龄的立方是个4位数。我年龄的4次方是个6位数。这10个数字正好包含了从0到9这10个数字，每个都恰好出现1次。”请你推算一下，他当时到底有多年轻。参考代码(暴力解题)12345678910111">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://Daybreak-Zheng.github.io/2020/04/03/蓝桥杯-- 2013年省赛C组/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>蓝桥杯-- 2013年省赛C组 | Daybreak-Zheng</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daybreak-Zheng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">14</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">91</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Daybreak-Zheng.github.io/2020/04/03/蓝桥杯-- 2013年省赛C组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daybreak-Zheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daybreak-Zheng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">蓝桥杯-- 2013年省赛C组
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-03 20:15:10" itemprop="dateCreated datePublished" datetime="2020-04-03T20:15:10+08:00">2020-04-03</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-04-06 22:02:35" itemprop="dateModified" datetime="2020-04-06T22:02:35+08:00">2020-04-06</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/蓝桥杯/" itemprop="url" rel="index"><span itemprop="name">蓝桥杯</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">7.4k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">7 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="A-猜年龄"><a href="#A-猜年龄" class="headerlink" title="A 猜年龄"></a>A 猜年龄</h2><h4 id="美国数学家维纳-N-Wiener-智力早熟，11岁就上了大学。他曾在1935-1936年应邀来中国清华大学讲学。"><a href="#美国数学家维纳-N-Wiener-智力早熟，11岁就上了大学。他曾在1935-1936年应邀来中国清华大学讲学。" class="headerlink" title="美国数学家维纳(N.Wiener)智力早熟，11岁就上了大学。他曾在1935~1936年应邀来中国清华大学讲学。"></a>美国数学家维纳(N.Wiener)智力早熟，11岁就上了大学。他曾在1935~1936年应邀来中国清华大学讲学。</h4><h4 id="一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说："><a href="#一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：" class="headerlink" title="一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说："></a>一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：</h4><h4 id="“我年龄的立方是个4位数。我年龄的4次方是个6位数。这10个数字正好包含了从0到9这10个数字，每个都恰好出现1次。”"><a href="#“我年龄的立方是个4位数。我年龄的4次方是个6位数。这10个数字正好包含了从0到9这10个数字，每个都恰好出现1次。”" class="headerlink" title="“我年龄的立方是个4位数。我年龄的4次方是个6位数。这10个数字正好包含了从0到9这10个数字，每个都恰好出现1次。”"></a>“我年龄的立方是个4位数。我年龄的4次方是个6位数。这10个数字正好包含了从0到9这10个数字，每个都恰好出现1次。”</h4><h3 id="请你推算一下，他当时到底有多年轻。"><a href="#请你推算一下，他当时到底有多年轻。" class="headerlink" title="请你推算一下，他当时到底有多年轻。"></a>请你推算一下，他当时到底有多年轻。</h3><h4 id="参考代码-暴力解题"><a href="#参考代码-暴力解题" class="headerlink" title="参考代码(暴力解题)"></a>参考代码(暴力解题)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a[10]=&#123;0&#125;,j;</span><br><span class="line">	//逼近范围实际为18-21; </span><br><span class="line">	for(int i=10;i&lt;30;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		int m=pow(i,3); </span><br><span class="line">		int n=pow(i,4);</span><br><span class="line">		memset(a,0,10);</span><br><span class="line">		if(m&gt;=1000&amp;&amp;m&lt;10000&amp;&amp;n&gt;=100000&amp;&amp;n&lt;1000000)</span><br><span class="line">		&#123;</span><br><span class="line">			for(j=0;j&lt;4;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				a[m%10]++;</span><br><span class="line">				m=m/10;</span><br><span class="line">			&#125; </span><br><span class="line">			for(j=0;j&lt;6;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				a[n%10]++;</span><br><span class="line">				n=n/10;</span><br><span class="line">			&#125; </span><br><span class="line">		&#125;</span><br><span class="line">		for(j=0;j&lt;10;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			if(a[j]!=1)</span><br><span class="line">				break;</span><br><span class="line">			if(j==9)</span><br><span class="line">				printf(&quot;%d&quot;,i); 	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="该题逼近到18-21可以直接输出-立方四次方-肉眼观察即可"><a href="#该题逼近到18-21可以直接输出-立方四次方-肉眼观察即可" class="headerlink" title="该题逼近到18-21可以直接输出 立方四次方 肉眼观察即可"></a>该题逼近到18-21可以直接输出 立方四次方 肉眼观察即可</h4><h2 id="B-马虎的算式"><a href="#B-马虎的算式" class="headerlink" title="B 马虎的算式"></a>B 马虎的算式</h2><h4 id="小明是个急性子，上小学的时候经常把老师写在黑板上的题目抄错了。"><a href="#小明是个急性子，上小学的时候经常把老师写在黑板上的题目抄错了。" class="headerlink" title="小明是个急性子，上小学的时候经常把老师写在黑板上的题目抄错了。"></a>小明是个急性子，上小学的时候经常把老师写在黑板上的题目抄错了。</h4><h4 id="有一次，老师出的题目是：36-x-495"><a href="#有一次，老师出的题目是：36-x-495" class="headerlink" title="有一次，老师出的题目是：36 x 495 = ?"></a>有一次，老师出的题目是：36 x 495 = ?</h4><h4 id="他却给抄成了：396-x-45"><a href="#他却给抄成了：396-x-45" class="headerlink" title="他却给抄成了：396 x 45 = ?"></a>他却给抄成了：396 x 45 = ?</h4><h4 id="但结果却很戏剧性，他的答案竟然是对的！！"><a href="#但结果却很戏剧性，他的答案竟然是对的！！" class="headerlink" title="但结果却很戏剧性，他的答案竟然是对的！！"></a>但结果却很戏剧性，他的答案竟然是对的！！</h4><h4 id="因为-36-495-396-45-17820"><a href="#因为-36-495-396-45-17820" class="headerlink" title="因为 36 * 495 = 396 * 45 = 17820"></a>因为 36 * 495 = 396 * 45 = 17820</h4><h4 id="类似这样的巧合情况可能还有很多，比如：27-594-297-54"><a href="#类似这样的巧合情况可能还有很多，比如：27-594-297-54" class="headerlink" title="类似这样的巧合情况可能还有很多，比如：27 * 594 = 297 * 54"></a>类似这样的巧合情况可能还有很多，比如：27 * 594 = 297 * 54</h4><h4 id="假设-a-b-c-d-e-代表1-9不同的5个数字（注意是各不相同的数字，且不含0）"><a href="#假设-a-b-c-d-e-代表1-9不同的5个数字（注意是各不相同的数字，且不含0）" class="headerlink" title="假设 a b c d e 代表1~9不同的5个数字（注意是各不相同的数字，且不含0）"></a>假设 a b c d e 代表1~9不同的5个数字（注意是各不相同的数字，且不含0）</h4><h4 id="能满足形如：-ab-cde-adb-ce-这样的算式一共有多少种呢？"><a href="#能满足形如：-ab-cde-adb-ce-这样的算式一共有多少种呢？" class="headerlink" title="能满足形如： ab * cde = adb * ce 这样的算式一共有多少种呢？"></a>能满足形如： ab * cde = adb * ce 这样的算式一共有多少种呢？</h4><h4 id="思路-将五位分别进行枚举-再组合成数-再求解"><a href="#思路-将五位分别进行枚举-再组合成数-再求解" class="headerlink" title="思路;将五位分别进行枚举 再组合成数 再求解"></a>思路;将五位分别进行枚举 再组合成数 再求解</h4><h4 id="参考代码-暴力解题-1"><a href="#参考代码-暴力解题-1" class="headerlink" title="参考代码(暴力解题)"></a>参考代码(暴力解题)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int count=0;</span><br><span class="line">	for(int a=1;a&lt;10;a++)</span><br><span class="line">	&#123;</span><br><span class="line">		for(int b=1;b&lt;10;b++)</span><br><span class="line">		&#123;</span><br><span class="line">			if(a!=b)</span><br><span class="line">			&#123;</span><br><span class="line">				for(int c=1;c&lt;10;c++)</span><br><span class="line">				&#123;</span><br><span class="line">					if(a!=c&amp;&amp;b!=c)	//注意判断时 将该位与已存在的数进行判断 看是否不等</span><br><span class="line">					&#123;</span><br><span class="line">						for(int d=1;d&lt;10;d++)</span><br><span class="line">						&#123;</span><br><span class="line">							if(c!=d&amp;&amp;a!=d&amp;&amp;b!=d)</span><br><span class="line">							&#123;</span><br><span class="line">								for(int e=1;e&lt;10;e++)</span><br><span class="line">								&#123;</span><br><span class="line">									if(a!=e&amp;&amp;b!=e&amp;&amp;c!=e&amp;&amp;d!=e)</span><br><span class="line">									&#123;</span><br><span class="line">										int i=a*10+b;</span><br><span class="line">										int j=c*100+d*10+e;</span><br><span class="line">										int m=a*100+d*10+b;</span><br><span class="line">										int n=c*10+e;</span><br><span class="line">										if(i*j==m*n)</span><br><span class="line">										&#123;</span><br><span class="line">											count++;</span><br><span class="line">											printf(&quot;%d*%d=%d*%d\n&quot;,i,j,m,n);</span><br><span class="line">										&#125;</span><br><span class="line">									&#125;	</span><br><span class="line">								&#125;</span><br><span class="line">							&#125;	</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d\n&quot;,count);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-振兴中华"><a href="#C-振兴中华" class="headerlink" title="C 振兴中华"></a>C 振兴中华</h2><h4 id="小明参加了学校的趣味运动会，其中的一个项目是：跳格子。"><a href="#小明参加了学校的趣味运动会，其中的一个项目是：跳格子。" class="headerlink" title="小明参加了学校的趣味运动会，其中的一个项目是：跳格子。"></a>小明参加了学校的趣味运动会，其中的一个项目是：跳格子。</h4><h4 id="地上画着一些格子，每个格子里写一个字，如下所示：（也可参见p1-jpg）"><a href="#地上画着一些格子，每个格子里写一个字，如下所示：（也可参见p1-jpg）" class="headerlink" title="地上画着一些格子，每个格子里写一个字，如下所示：（也可参见p1.jpg）"></a>地上画着一些格子，每个格子里写一个字，如下所示：（也可参见p1.jpg）</h4><h4 id="一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：-1"><a href="#一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：-1" class="headerlink" title="一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说："></a>一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：</h4><h3 id="从我做起振"><a href="#从我做起振" class="headerlink" title="从我做起振"></a>从我做起振</h3><h3 id="我做起振兴"><a href="#我做起振兴" class="headerlink" title="我做起振兴"></a>我做起振兴</h3><h3 id="做起振兴中"><a href="#做起振兴中" class="headerlink" title="做起振兴中"></a>做起振兴中</h3><h3 id="起振兴中华"><a href="#起振兴中华" class="headerlink" title="起振兴中华"></a>起振兴中华</h3><h4 id="比赛时，先站在左上角的写着“从”字的格子里，可以横向或纵向跳到相邻的格子里，但不能跳到对角的格子或其它位置。一直要跳到“华”字结束。"><a href="#比赛时，先站在左上角的写着“从”字的格子里，可以横向或纵向跳到相邻的格子里，但不能跳到对角的格子或其它位置。一直要跳到“华”字结束。" class="headerlink" title="比赛时，先站在左上角的写着“从”字的格子里，可以横向或纵向跳到相邻的格子里，但不能跳到对角的格子或其它位置。一直要跳到“华”字结束。"></a>比赛时，先站在左上角的写着“从”字的格子里，可以横向或纵向跳到相邻的格子里，但不能跳到对角的格子或其它位置。一直要跳到“华”字结束。</h4><h4 id="要求跳过的路线刚好构成“从我做起振兴中华”这句话。"><a href="#要求跳过的路线刚好构成“从我做起振兴中华”这句话。" class="headerlink" title="要求跳过的路线刚好构成“从我做起振兴中华”这句话。"></a>要求跳过的路线刚好构成“从我做起振兴中华”这句话。</h4><h4 id="请你帮助小明算一算他一共有多少种可能的跳跃路线呢？"><a href="#请你帮助小明算一算他一共有多少种可能的跳跃路线呢？" class="headerlink" title="请你帮助小明算一算他一共有多少种可能的跳跃路线呢？"></a>请你帮助小明算一算他一共有多少种可能的跳跃路线呢？</h4><h4 id="参考代码-暴力解题-2"><a href="#参考代码-暴力解题-2" class="headerlink" title="参考代码(暴力解题)"></a>参考代码(暴力解题)</h4><h4 id="思路-第一行和第一列只有一种走法-都置为1，其他格子的走法都等于他的上一行同列元素与该行前一列元素的和。最终的结果就是最后一行最后一列的元素值"><a href="#思路-第一行和第一列只有一种走法-都置为1，其他格子的走法都等于他的上一行同列元素与该行前一列元素的和。最终的结果就是最后一行最后一列的元素值" class="headerlink" title="思路:第一行和第一列只有一种走法 都置为1，其他格子的走法都等于他的上一行同列元素与该行前一列元素的和。最终的结果就是最后一行最后一列的元素值."></a>思路:第一行和第一列只有一种走法 都置为1，其他格子的走法都等于他的上一行同列元素与该行前一列元素的和。最终的结果就是最后一行最后一列的元素值.</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a[4][5];</span><br><span class="line">	for(int i=0;i&lt;5;i++)</span><br><span class="line">		a[0][i]=1;</span><br><span class="line">	for(int i=0;i&lt;4;i++)</span><br><span class="line">		a[i][0]=1;</span><br><span class="line">	for(int i=1;i&lt;4;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for(int j=1;j&lt;5;j++)</span><br><span class="line">			a[i][j]=a[i][j-1]+a[i-1][j];</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d&quot;,a[3][4]);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="D-幻方填空"><a href="#D-幻方填空" class="headerlink" title="D 幻方填空"></a>D 幻方填空</h2><h4 id="幻方是把一些数字填写在方阵中，使得行、列、两条对角线的数字之和都相等。"><a href="#幻方是把一些数字填写在方阵中，使得行、列、两条对角线的数字之和都相等。" class="headerlink" title="幻方是把一些数字填写在方阵中，使得行、列、两条对角线的数字之和都相等。"></a>幻方是把一些数字填写在方阵中，使得行、列、两条对角线的数字之和都相等。</h4><h4 id="欧洲最著名的幻方是德国数学家、画家迪勒创作的版画《忧郁》中给出的一个4阶幻方。"><a href="#欧洲最著名的幻方是德国数学家、画家迪勒创作的版画《忧郁》中给出的一个4阶幻方。" class="headerlink" title="欧洲最著名的幻方是德国数学家、画家迪勒创作的版画《忧郁》中给出的一个4阶幻方。"></a>欧洲最著名的幻方是德国数学家、画家迪勒创作的版画《忧郁》中给出的一个4阶幻方。</h4><h4 id="他把1-2-3-…16-这16个数字填写在4-x-4的方格中。"><a href="#他把1-2-3-…16-这16个数字填写在4-x-4的方格中。" class="headerlink" title="他把1,2,3,…16 这16个数字填写在4 x 4的方格中。"></a>他把1,2,3,…16 这16个数字填写在4 x 4的方格中。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">16 ?  ?  13 </span><br><span class="line">?  ?  11 ? </span><br><span class="line">9  ?  ?  * </span><br><span class="line">?  15 ?  1</span><br></pre></td></tr></table></figure>
+
+<h4 id="表中有些数字已经显露出来，还有些用-和-代替。"><a href="#表中有些数字已经显露出来，还有些用-和-代替。" class="headerlink" title="表中有些数字已经显露出来，还有些用?和*代替。"></a>表中有些数字已经显露出来，还有些用?和*代替。</h4><h4 id="请你计算出-和-所代表的数字。并把-所代表的数字作为本题答案提交。"><a href="#请你计算出-和-所代表的数字。并把-所代表的数字作为本题答案提交。" class="headerlink" title="请你计算出? 和 * 所代表的数字。并把 * 所代表的数字作为本题答案提交。"></a>请你计算出? 和 * 所代表的数字。并把 * 所代表的数字作为本题答案提交。</h4><h4 id="请你帮助小明算一算他一共有多少种可能的跳跃路线呢？-1"><a href="#请你帮助小明算一算他一共有多少种可能的跳跃路线呢？-1" class="headerlink" title="请你帮助小明算一算他一共有多少种可能的跳跃路线呢？"></a>请你帮助小明算一算他一共有多少种可能的跳跃路线呢？</h4><h4 id="参考代码-暴力解题-3"><a href="#参考代码-暴力解题-3" class="headerlink" title="参考代码(暴力解题)"></a>参考代码(暴力解题)</h4><h4 id="思路-利用stl全排列函数"><a href="#思路-利用stl全排列函数" class="headerlink" title="思路:利用stl全排列函数"></a>思路:利用stl全排列函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[10]=&#123;2,3,4,5,6,7,8,10,12,14&#125;;</span><br><span class="line">void check()</span><br><span class="line">&#123;</span><br><span class="line">	int r1=16+a[0]+a[1]+13;</span><br><span class="line">	int r2=a[2]+a[3]+11+a[4];</span><br><span class="line">	int r3=9+a[5]+a[6]+a[7];</span><br><span class="line">	int r4=a[8]+15+a[9]+1;</span><br><span class="line">	</span><br><span class="line">	int c1=16+a[2]+9+a[8];</span><br><span class="line">	int c2=a[0]+a[3]+a[5]+15;</span><br><span class="line">	int c3=a[1]+11+a[6]+a[9];</span><br><span class="line">	int c4=13+a[4]+a[7]+1;</span><br><span class="line">	</span><br><span class="line">	int d1=16+a[3]+a[6]+1;</span><br><span class="line">	int d2=13+11+a[5]+a[8];</span><br><span class="line">	</span><br><span class="line">	if(r1==r2&amp;&amp;r2==r3&amp;&amp;r3==r4&amp;&amp;r4==c1&amp;&amp;c1==c2&amp;&amp;c2==c3&amp;&amp;c3==c4&amp;&amp;c4==d1&amp;&amp;d1==d2)</span><br><span class="line">		cout&lt;&lt;a[7]&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	do&#123;</span><br><span class="line">		check();</span><br><span class="line">	&#125;while(next_permutation(a,a+10));</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="E-公约数公倍数"><a href="#E-公约数公倍数" class="headerlink" title="E 公约数公倍数"></a>E 公约数公倍数</h2><h4 id="我们经常会用到求两个整数的最大公约数和最小公倍数的功能。"><a href="#我们经常会用到求两个整数的最大公约数和最小公倍数的功能。" class="headerlink" title="我们经常会用到求两个整数的最大公约数和最小公倍数的功能。"></a>我们经常会用到求两个整数的最大公约数和最小公倍数的功能。</h4><h4 id="下面的程序给出了一种算法。"><a href="#下面的程序给出了一种算法。" class="headerlink" title="下面的程序给出了一种算法。"></a>下面的程序给出了一种算法。</h4><h4 id="函数-myfunc-接受两个正整数a-b"><a href="#函数-myfunc-接受两个正整数a-b" class="headerlink" title="函数 myfunc 接受两个正整数a,b"></a>函数 myfunc 接受两个正整数a,b</h4><h4 id="经过运算后打印出-它们的最大公约数和最小公倍数。"><a href="#经过运算后打印出-它们的最大公约数和最小公倍数。" class="headerlink" title="经过运算后打印出 它们的最大公约数和最小公倍数。"></a>经过运算后打印出 它们的最大公约数和最小公倍数。</h4><h4 id="此时，调用-myfunc-15-20"><a href="#此时，调用-myfunc-15-20" class="headerlink" title="此时，调用 myfunc(15,20)"></a>此时，调用 myfunc(15,20)</h4><h4 id="将会输出："><a href="#将会输出：" class="headerlink" title="将会输出："></a>将会输出：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">60</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">void swap(int *a,int *b)</span><br><span class="line">&#123;</span><br><span class="line">   int temp;</span><br><span class="line">   temp=*a;</span><br><span class="line">   *a=*b;</span><br><span class="line">   *b=temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void myfunc(int a, int b)</span><br><span class="line">&#123;</span><br><span class="line">   int m,n,r;  </span><br><span class="line">   if(a&lt;b) swap(&amp;a,&amp;b);</span><br><span class="line">   m=a;n=b;r=a%b;</span><br><span class="line">   while(r!=0)</span><br><span class="line">   &#123;</span><br><span class="line">    a=b;b=r;</span><br><span class="line">    r=a%b;</span><br><span class="line">   &#125;</span><br><span class="line">   printf(&quot;%d\n&quot;,b);  // 最大公约数 </span><br><span class="line">   printf(&quot;%d\n&quot;, ____________________________________);  // 最小公倍数 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">答案:m/b*n或者m*n/b</span><br></pre></td></tr></table></figure>
+
+<h4 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现:"></a>完整代码实现:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void swap(int *a,int *b)</span><br><span class="line">&#123;</span><br><span class="line">   int temp;</span><br><span class="line">   temp=*a;</span><br><span class="line">   *a=*b;</span><br><span class="line">   *b=temp;</span><br><span class="line">&#125;</span><br><span class="line">void myfunc(int a, int b)</span><br><span class="line">&#123;</span><br><span class="line">   int m,n,r;  </span><br><span class="line">   if(a&lt;b) swap(&amp;a,&amp;b);</span><br><span class="line">   m=a;n=b;r=a%b;</span><br><span class="line">   while(r!=0)</span><br><span class="line">   &#123;</span><br><span class="line">    a=b;b=r;</span><br><span class="line">    r=a%b;</span><br><span class="line">   &#125;</span><br><span class="line">   printf(&quot;%d\n&quot;,b);  // 最大公约数 </span><br><span class="line">   printf(&quot;%d\n&quot;,m*n/b);  // 最小公倍数 填空位置</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a,b;</span><br><span class="line">	while(scanf(&quot;%d%d&quot;,&amp;a,&amp;b)==2)</span><br><span class="line">	&#123;</span><br><span class="line">		myfunc(a,b);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="F-三部排序"><a href="#F-三部排序" class="headerlink" title="F 三部排序"></a>F 三部排序</h2><h4 id="一般的排序有许多经典算法，如快速排序、希尔排序等。"><a href="#一般的排序有许多经典算法，如快速排序、希尔排序等。" class="headerlink" title="一般的排序有许多经典算法，如快速排序、希尔排序等。"></a>一般的排序有许多经典算法，如快速排序、希尔排序等。</h4><h4 id="但实际应用时，经常会或多或少有一些特殊的要求。我们没必要套用那些经典算法，可以根据实际情况建立更好的解法。"><a href="#但实际应用时，经常会或多或少有一些特殊的要求。我们没必要套用那些经典算法，可以根据实际情况建立更好的解法。" class="headerlink" title="但实际应用时，经常会或多或少有一些特殊的要求。我们没必要套用那些经典算法，可以根据实际情况建立更好的解法。"></a>但实际应用时，经常会或多或少有一些特殊的要求。我们没必要套用那些经典算法，可以根据实际情况建立更好的解法。</h4><h4 id="比如，对一个整型数组中的数字进行分类排序："><a href="#比如，对一个整型数组中的数字进行分类排序：" class="headerlink" title="比如，对一个整型数组中的数字进行分类排序："></a>比如，对一个整型数组中的数字进行分类排序：</h4><h4 id="使得负数都靠左端，正数都靠右端，0在中部。注意问题的特点是：负数区域和正数区域内并不要求有序。可以利用这个特点通过1次线性扫描就结束战斗"><a href="#使得负数都靠左端，正数都靠右端，0在中部。注意问题的特点是：负数区域和正数区域内并不要求有序。可以利用这个特点通过1次线性扫描就结束战斗" class="headerlink" title="使得负数都靠左端，正数都靠右端，0在中部。注意问题的特点是：负数区域和正数区域内并不要求有序。可以利用这个特点通过1次线性扫描就结束战斗!!"></a>使得负数都靠左端，正数都靠右端，0在中部。注意问题的特点是：负数区域和正数区域内并不要求有序。可以利用这个特点通过1次线性扫描就结束战斗!!</h4><h4 id="以下的程序实现了该目标。"><a href="#以下的程序实现了该目标。" class="headerlink" title="以下的程序实现了该目标。"></a>以下的程序实现了该目标。</h4><h4 id="其中x指向待排序的整型数组，len是数组的长度。"><a href="#其中x指向待排序的整型数组，len是数组的长度。" class="headerlink" title="其中x指向待排序的整型数组，len是数组的长度。"></a>其中x指向待排序的整型数组，len是数组的长度。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">void sort3p(int* x, int len)</span><br><span class="line">&#123;</span><br><span class="line">	int p = 0;</span><br><span class="line">	int left = 0;</span><br><span class="line">	int right = len-1;</span><br><span class="line">	while(p&lt;=right)&#123;</span><br><span class="line">		if(x[p]&lt;0)&#123;</span><br><span class="line">			int t = x[left];</span><br><span class="line">			x[left] = x[p];</span><br><span class="line">			x[p] = t;</span><br><span class="line">			left++;</span><br><span class="line">			p++;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(x[p]&gt;0)&#123;</span><br><span class="line">			int t = x[right];</span><br><span class="line">			x[right] = x[p];</span><br><span class="line">			x[p] = t;</span><br><span class="line">			right--;			</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			__________________________;  //填空位置</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="如果给定数组："><a href="#如果给定数组：" class="headerlink" title="如果给定数组："></a>如果给定数组：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0</span><br></pre></td></tr></table></figure>
+
+<h4 id="则排序后为："><a href="#则排序后为：" class="headerlink" title="则排序后为："></a>则排序后为：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-3,-2,-16,-5,0,0,0,21,19,33,25,16,18,25</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">答案:p++</span><br></pre></td></tr></table></figure>
+
+<h4 id="完整代码实现-1"><a href="#完整代码实现-1" class="headerlink" title="完整代码实现:"></a>完整代码实现:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">void sort3p(int* x, int len)</span><br><span class="line">&#123;</span><br><span class="line">	int p = 0;</span><br><span class="line">	int left = 0;</span><br><span class="line">	int right = len-1;</span><br><span class="line">	</span><br><span class="line">	while(p&lt;=right)&#123;</span><br><span class="line">		if(x[p]&lt;0)&#123;</span><br><span class="line">			int t = x[left];</span><br><span class="line">			x[left] = x[p];</span><br><span class="line">			x[p] = t;</span><br><span class="line">			left++;</span><br><span class="line">			p++;</span><br><span class="line">		&#125;</span><br><span class="line">		else if(x[p]&gt;0)&#123;</span><br><span class="line">			int t = x[right];</span><br><span class="line">			x[right] = x[p];</span><br><span class="line">			x[p] = t;</span><br><span class="line">			right--;			</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			p++;  //填空位置</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a[14]=&#123;25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0&#125;;</span><br><span class="line">	sort3p(a,14);</span><br><span class="line">	for(int i=0;i&lt;14;i++)</span><br><span class="line">		printf(&quot;%d &quot;,a[i]);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="G-核桃的数量"><a href="#G-核桃的数量" class="headerlink" title="G 核桃的数量"></a>G 核桃的数量</h2><h4 id="小张是软件项目经理，他带领3个开发组。工期紧，今天都在加班呢。为鼓舞士气，小张打算给每个组发一袋核桃（据传言能补脑）。他的要求是："><a href="#小张是软件项目经理，他带领3个开发组。工期紧，今天都在加班呢。为鼓舞士气，小张打算给每个组发一袋核桃（据传言能补脑）。他的要求是：" class="headerlink" title="小张是软件项目经理，他带领3个开发组。工期紧，今天都在加班呢。为鼓舞士气，小张打算给每个组发一袋核桃（据传言能补脑）。他的要求是："></a>小张是软件项目经理，他带领3个开发组。工期紧，今天都在加班呢。为鼓舞士气，小张打算给每个组发一袋核桃（据传言能补脑）。他的要求是：</h4><h4 id="1-各组的核桃数量必须相同"><a href="#1-各组的核桃数量必须相同" class="headerlink" title="1. 各组的核桃数量必须相同"></a>1. 各组的核桃数量必须相同</h4><h4 id="2-各组内必须能平分核桃（当然是不能打碎的）"><a href="#2-各组内必须能平分核桃（当然是不能打碎的）" class="headerlink" title="2. 各组内必须能平分核桃（当然是不能打碎的）"></a>2. 各组内必须能平分核桃（当然是不能打碎的）</h4><h4 id="3-尽量提供满足1-2条件的最小数量（节约闹革命嘛）"><a href="#3-尽量提供满足1-2条件的最小数量（节约闹革命嘛）" class="headerlink" title="3. 尽量提供满足1,2条件的最小数量（节约闹革命嘛）"></a>3. 尽量提供满足1,2条件的最小数量（节约闹革命嘛）</h4><h3 id="输入"><a href="#输入" class="headerlink" title="输入:"></a>输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a b c </span><br><span class="line">a,b,c都是正整数，表示每个组正在加班的人数，用空格分开（a,b,c&lt;30）</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出:"></a>输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个正整数，表示每袋核桃的数量。</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 4 5</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">20</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 1 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路-先求出两个大数的最小公倍数-再求出三个数的最小公倍数"><a href="#思路-先求出两个大数的最小公倍数-再求出三个数的最小公倍数" class="headerlink" title="思路:先求出两个大数的最小公倍数 再求出三个数的最小公倍数"></a>思路:先求出两个大数的最小公倍数 再求出三个数的最小公倍数</h4><h4 id="我的代码"><a href="#我的代码" class="headerlink" title="我的代码:"></a>我的代码:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int gcd(int a,int b)	//辗转相除法</span><br><span class="line">&#123;</span><br><span class="line">	if(b==0)</span><br><span class="line">		return a;</span><br><span class="line">	else</span><br><span class="line">		return gcd(b,a%b);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a[3];</span><br><span class="line">	scanf(&quot;%d%d%d&quot;,&amp;a[0],&amp;a[1],&amp;a[2]);</span><br><span class="line">	sort(a,a+3);</span><br><span class="line">	int b=gcd(a[2],a[1]);</span><br><span class="line">	int sum=a[2]/b*a[1];</span><br><span class="line">	if(sum%a[0]!=0)</span><br><span class="line">		sum=sum*a[0];</span><br><span class="line">	printf(&quot;%d&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="参考代码如下-暴力解法"><a href="#参考代码如下-暴力解法" class="headerlink" title="参考代码如下:(暴力解法)"></a>参考代码如下:(暴力解法)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a,b,c;</span><br><span class="line">	scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);</span><br><span class="line">	for(int i=1;i&lt;a*b*c;i++)</span><br><span class="line">		if(i%a==0&amp;&amp;i%b==0&amp;&amp;i%c==0)</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;%d&quot;,i);</span><br><span class="line">			break;</span><br><span class="line">		&#125; </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="I-带分数"><a href="#I-带分数" class="headerlink" title="I 带分数"></a>I 带分数</h2><h4 id="100-可以表示为带分数的形式：100-3-69258-714"><a href="#100-可以表示为带分数的形式：100-3-69258-714" class="headerlink" title="100 可以表示为带分数的形式：100 = 3 + 69258 / 714"></a>100 可以表示为带分数的形式：100 = 3 + 69258 / 714</h4><h4 id="注意特征：带分数中，数字1-9分别出现且只出现一次（不包含0）。"><a href="#注意特征：带分数中，数字1-9分别出现且只出现一次（不包含0）。" class="headerlink" title="注意特征：带分数中，数字1~9分别出现且只出现一次（不包含0）。"></a>注意特征：带分数中，数字1~9分别出现且只出现一次（不包含0）。</h4><h4 id="类似这样的带分数，100-有-11-种表示法。"><a href="#类似这样的带分数，100-有-11-种表示法。" class="headerlink" title="类似这样的带分数，100 有 11 种表示法。"></a>类似这样的带分数，100 有 11 种表示法。</h4><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入:"></a>输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从标准输入读入一个正整数N (N&lt;1000*1000)</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出:"></a>输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">程序输出该数字用数码1~9不重复不遗漏地组成带分数表示的全部种数。 </span><br><span class="line">注意：不要求输出每个表示，只统计有多少表示法！</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输入-3"><a href="#样例输入-3" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">105</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-3"><a href="#样例输出-3" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路-用全排列求解"><a href="#思路-用全排列求解" class="headerlink" title="思路:用全排列求解"></a>思路:用全排列求解</h4><h4 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码:"></a>参考代码:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[15],c=0;</span><br><span class="line">void judge(int n)</span><br><span class="line">&#123;</span><br><span class="line">	int s1=0;</span><br><span class="line">	for(int i=0;i&lt;7;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		s1=s1*10+a[i];</span><br><span class="line">		if(s1&gt;n)</span><br><span class="line">			break;</span><br><span class="line">		int s2=0;</span><br><span class="line">		for(int j=i+1;j&lt;8;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			s2=s2*10+a[j];</span><br><span class="line">			int s3=0;</span><br><span class="line">			for(int k=j+1;k&lt;9;k++)</span><br><span class="line">			&#123;</span><br><span class="line">				s3=s3*10+a[k];</span><br><span class="line">				if(s3&gt;s2)</span><br><span class="line">					break;</span><br><span class="line">			&#125;</span><br><span class="line">			if((s1+s2/s3)==n&amp;&amp;s2%s3==0)</span><br><span class="line">				c++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	for(int i=0;i&lt;9;i++)</span><br><span class="line">		a[i]=i+1;</span><br><span class="line">	do&#123;</span><br><span class="line">		judge(n);</span><br><span class="line">	&#125;while(next_permutation(a,a+9));</span><br><span class="line">	printf(&quot;%d&quot;,c);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>小礼物走一个哟</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="Daybreak-Zheng 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="Daybreak-Zheng 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/蓝桥杯-真题/" rel="tag"> 蓝桥杯 真题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/02/Acwing--双指针算法/" rel="next" title="Acwing--双指针算法">
+                <i class="fa fa-chevron-left"></i> Acwing--双指针算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/05/CF--训练交流(一)/" rel="prev" title="CF--训练交流(一)">
+                CF--训练交流(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Daybreak-Zheng">
+  
+  <p class="site-author-name" itemprop="name">Daybreak-Zheng</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Daybreak-Zheng" title="GitHub &rarr; https://github.com/Daybreak-Zheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://Daybreak-Zheng.github.io" title="https://Daybreak-Zheng.github.io">Daybreak-Zheng</a>
+        </li>
+      
+    </ul>
+  </div>
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-猜年龄"><span class="nav-number">1.</span> <span class="nav-text">A 猜年龄</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#美国数学家维纳-N-Wiener-智力早熟，11岁就上了大学。他曾在1935-1936年应邀来中国清华大学讲学。"><span class="nav-number">1.0.1.</span> <span class="nav-text">美国数学家维纳(N.Wiener)智力早熟，11岁就上了大学。他曾在1935~1936年应邀来中国清华大学讲学。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说："><span class="nav-number">1.0.2.</span> <span class="nav-text">一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“我年龄的立方是个4位数。我年龄的4次方是个6位数。这10个数字正好包含了从0到9这10个数字，每个都恰好出现1次。”"><span class="nav-number">1.0.3.</span> <span class="nav-text">“我年龄的立方是个4位数。我年龄的4次方是个6位数。这10个数字正好包含了从0到9这10个数字，每个都恰好出现1次。”</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请你推算一下，他当时到底有多年轻。"><span class="nav-number">1.1.</span> <span class="nav-text">请你推算一下，他当时到底有多年轻。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码-暴力解题"><span class="nav-number">1.1.1.</span> <span class="nav-text">参考代码(暴力解题)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#该题逼近到18-21可以直接输出-立方四次方-肉眼观察即可"><span class="nav-number">1.1.2.</span> <span class="nav-text">该题逼近到18-21可以直接输出 立方四次方 肉眼观察即可</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#B-马虎的算式"><span class="nav-number">2.</span> <span class="nav-text">B 马虎的算式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#小明是个急性子，上小学的时候经常把老师写在黑板上的题目抄错了。"><span class="nav-number">2.0.1.</span> <span class="nav-text">小明是个急性子，上小学的时候经常把老师写在黑板上的题目抄错了。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有一次，老师出的题目是：36-x-495"><span class="nav-number">2.0.2.</span> <span class="nav-text">有一次，老师出的题目是：36 x 495 = ?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#他却给抄成了：396-x-45"><span class="nav-number">2.0.3.</span> <span class="nav-text">他却给抄成了：396 x 45 = ?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#但结果却很戏剧性，他的答案竟然是对的！！"><span class="nav-number">2.0.4.</span> <span class="nav-text">但结果却很戏剧性，他的答案竟然是对的！！</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#因为-36-495-396-45-17820"><span class="nav-number">2.0.5.</span> <span class="nav-text">因为 36 * 495 = 396 * 45 = 17820</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类似这样的巧合情况可能还有很多，比如：27-594-297-54"><span class="nav-number">2.0.6.</span> <span class="nav-text">类似这样的巧合情况可能还有很多，比如：27 * 594 = 297 * 54</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#假设-a-b-c-d-e-代表1-9不同的5个数字（注意是各不相同的数字，且不含0）"><span class="nav-number">2.0.7.</span> <span class="nav-text">假设 a b c d e 代表1~9不同的5个数字（注意是各不相同的数字，且不含0）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#能满足形如：-ab-cde-adb-ce-这样的算式一共有多少种呢？"><span class="nav-number">2.0.8.</span> <span class="nav-text">能满足形如： ab * cde = adb * ce 这样的算式一共有多少种呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-将五位分别进行枚举-再组合成数-再求解"><span class="nav-number">2.0.9.</span> <span class="nav-text">思路;将五位分别进行枚举 再组合成数 再求解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码-暴力解题-1"><span class="nav-number">2.0.10.</span> <span class="nav-text">参考代码(暴力解题)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-振兴中华"><span class="nav-number">3.</span> <span class="nav-text">C 振兴中华</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#小明参加了学校的趣味运动会，其中的一个项目是：跳格子。"><span class="nav-number">3.0.1.</span> <span class="nav-text">小明参加了学校的趣味运动会，其中的一个项目是：跳格子。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#地上画着一些格子，每个格子里写一个字，如下所示：（也可参见p1-jpg）"><span class="nav-number">3.0.2.</span> <span class="nav-text">地上画着一些格子，每个格子里写一个字，如下所示：（也可参见p1.jpg）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：-1"><span class="nav-number">3.0.3.</span> <span class="nav-text">一次，他参加某个重要会议，年轻的脸孔引人注目。于是有人询问他的年龄，他回答说：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从我做起振"><span class="nav-number">3.1.</span> <span class="nav-text">从我做起振</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我做起振兴"><span class="nav-number">3.2.</span> <span class="nav-text">我做起振兴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做起振兴中"><span class="nav-number">3.3.</span> <span class="nav-text">做起振兴中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#起振兴中华"><span class="nav-number">3.4.</span> <span class="nav-text">起振兴中华</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#比赛时，先站在左上角的写着“从”字的格子里，可以横向或纵向跳到相邻的格子里，但不能跳到对角的格子或其它位置。一直要跳到“华”字结束。"><span class="nav-number">3.4.1.</span> <span class="nav-text">比赛时，先站在左上角的写着“从”字的格子里，可以横向或纵向跳到相邻的格子里，但不能跳到对角的格子或其它位置。一直要跳到“华”字结束。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#要求跳过的路线刚好构成“从我做起振兴中华”这句话。"><span class="nav-number">3.4.2.</span> <span class="nav-text">要求跳过的路线刚好构成“从我做起振兴中华”这句话。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请你帮助小明算一算他一共有多少种可能的跳跃路线呢？"><span class="nav-number">3.4.3.</span> <span class="nav-text">请你帮助小明算一算他一共有多少种可能的跳跃路线呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码-暴力解题-2"><span class="nav-number">3.4.4.</span> <span class="nav-text">参考代码(暴力解题)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-第一行和第一列只有一种走法-都置为1，其他格子的走法都等于他的上一行同列元素与该行前一列元素的和。最终的结果就是最后一行最后一列的元素值"><span class="nav-number">3.4.5.</span> <span class="nav-text">思路:第一行和第一列只有一种走法 都置为1，其他格子的走法都等于他的上一行同列元素与该行前一列元素的和。最终的结果就是最后一行最后一列的元素值.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-幻方填空"><span class="nav-number">4.</span> <span class="nav-text">D 幻方填空</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#幻方是把一些数字填写在方阵中，使得行、列、两条对角线的数字之和都相等。"><span class="nav-number">4.0.1.</span> <span class="nav-text">幻方是把一些数字填写在方阵中，使得行、列、两条对角线的数字之和都相等。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欧洲最著名的幻方是德国数学家、画家迪勒创作的版画《忧郁》中给出的一个4阶幻方。"><span class="nav-number">4.0.2.</span> <span class="nav-text">欧洲最著名的幻方是德国数学家、画家迪勒创作的版画《忧郁》中给出的一个4阶幻方。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#他把1-2-3-…16-这16个数字填写在4-x-4的方格中。"><span class="nav-number">4.0.3.</span> <span class="nav-text">他把1,2,3,…16 这16个数字填写在4 x 4的方格中。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表中有些数字已经显露出来，还有些用-和-代替。"><span class="nav-number">4.0.4.</span> <span class="nav-text">表中有些数字已经显露出来，还有些用?和*代替。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请你计算出-和-所代表的数字。并把-所代表的数字作为本题答案提交。"><span class="nav-number">4.0.5.</span> <span class="nav-text">请你计算出? 和 * 所代表的数字。并把 * 所代表的数字作为本题答案提交。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请你帮助小明算一算他一共有多少种可能的跳跃路线呢？-1"><span class="nav-number">4.0.6.</span> <span class="nav-text">请你帮助小明算一算他一共有多少种可能的跳跃路线呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码-暴力解题-3"><span class="nav-number">4.0.7.</span> <span class="nav-text">参考代码(暴力解题)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-利用stl全排列函数"><span class="nav-number">4.0.8.</span> <span class="nav-text">思路:利用stl全排列函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-公约数公倍数"><span class="nav-number">5.</span> <span class="nav-text">E 公约数公倍数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#我们经常会用到求两个整数的最大公约数和最小公倍数的功能。"><span class="nav-number">5.0.1.</span> <span class="nav-text">我们经常会用到求两个整数的最大公约数和最小公倍数的功能。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下面的程序给出了一种算法。"><span class="nav-number">5.0.2.</span> <span class="nav-text">下面的程序给出了一种算法。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数-myfunc-接受两个正整数a-b"><span class="nav-number">5.0.3.</span> <span class="nav-text">函数 myfunc 接受两个正整数a,b</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#经过运算后打印出-它们的最大公约数和最小公倍数。"><span class="nav-number">5.0.4.</span> <span class="nav-text">经过运算后打印出 它们的最大公约数和最小公倍数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#此时，调用-myfunc-15-20"><span class="nav-number">5.0.5.</span> <span class="nav-text">此时，调用 myfunc(15,20)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将会输出："><span class="nav-number">5.0.6.</span> <span class="nav-text">将会输出：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完整代码实现"><span class="nav-number">5.0.7.</span> <span class="nav-text">完整代码实现:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-三部排序"><span class="nav-number">6.</span> <span class="nav-text">F 三部排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般的排序有许多经典算法，如快速排序、希尔排序等。"><span class="nav-number">6.0.1.</span> <span class="nav-text">一般的排序有许多经典算法，如快速排序、希尔排序等。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#但实际应用时，经常会或多或少有一些特殊的要求。我们没必要套用那些经典算法，可以根据实际情况建立更好的解法。"><span class="nav-number">6.0.2.</span> <span class="nav-text">但实际应用时，经常会或多或少有一些特殊的要求。我们没必要套用那些经典算法，可以根据实际情况建立更好的解法。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比如，对一个整型数组中的数字进行分类排序："><span class="nav-number">6.0.3.</span> <span class="nav-text">比如，对一个整型数组中的数字进行分类排序：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使得负数都靠左端，正数都靠右端，0在中部。注意问题的特点是：负数区域和正数区域内并不要求有序。可以利用这个特点通过1次线性扫描就结束战斗"><span class="nav-number">6.0.4.</span> <span class="nav-text">使得负数都靠左端，正数都靠右端，0在中部。注意问题的特点是：负数区域和正数区域内并不要求有序。可以利用这个特点通过1次线性扫描就结束战斗!!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#以下的程序实现了该目标。"><span class="nav-number">6.0.5.</span> <span class="nav-text">以下的程序实现了该目标。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其中x指向待排序的整型数组，len是数组的长度。"><span class="nav-number">6.0.6.</span> <span class="nav-text">其中x指向待排序的整型数组，len是数组的长度。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果给定数组："><span class="nav-number">6.0.7.</span> <span class="nav-text">如果给定数组：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#则排序后为："><span class="nav-number">6.0.8.</span> <span class="nav-text">则排序后为：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完整代码实现-1"><span class="nav-number">6.0.9.</span> <span class="nav-text">完整代码实现:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-核桃的数量"><span class="nav-number">7.</span> <span class="nav-text">G 核桃的数量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#小张是软件项目经理，他带领3个开发组。工期紧，今天都在加班呢。为鼓舞士气，小张打算给每个组发一袋核桃（据传言能补脑）。他的要求是："><span class="nav-number">7.0.1.</span> <span class="nav-text">小张是软件项目经理，他带领3个开发组。工期紧，今天都在加班呢。为鼓舞士气，小张打算给每个组发一袋核桃（据传言能补脑）。他的要求是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-各组的核桃数量必须相同"><span class="nav-number">7.0.2.</span> <span class="nav-text">1. 各组的核桃数量必须相同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-各组内必须能平分核桃（当然是不能打碎的）"><span class="nav-number">7.0.3.</span> <span class="nav-text">2. 各组内必须能平分核桃（当然是不能打碎的）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-尽量提供满足1-2条件的最小数量（节约闹革命嘛）"><span class="nav-number">7.0.4.</span> <span class="nav-text">3. 尽量提供满足1,2条件的最小数量（节约闹革命嘛）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入"><span class="nav-number">7.1.</span> <span class="nav-text">输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出"><span class="nav-number">7.2.</span> <span class="nav-text">输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-number">7.3.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-number">7.4.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-1"><span class="nav-number">7.5.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-1"><span class="nav-number">7.6.</span> <span class="nav-text">样例输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-先求出两个大数的最小公倍数-再求出三个数的最小公倍数"><span class="nav-number">7.6.1.</span> <span class="nav-text">思路:先求出两个大数的最小公倍数 再求出三个数的最小公倍数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的代码"><span class="nav-number">7.6.2.</span> <span class="nav-text">我的代码:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码如下-暴力解法"><span class="nav-number">7.6.3.</span> <span class="nav-text">参考代码如下:(暴力解法)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-带分数"><span class="nav-number">8.</span> <span class="nav-text">I 带分数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#100-可以表示为带分数的形式：100-3-69258-714"><span class="nav-number">8.0.1.</span> <span class="nav-text">100 可以表示为带分数的形式：100 = 3 + 69258 / 714</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意特征：带分数中，数字1-9分别出现且只出现一次（不包含0）。"><span class="nav-number">8.0.2.</span> <span class="nav-text">注意特征：带分数中，数字1~9分别出现且只出现一次（不包含0）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类似这样的带分数，100-有-11-种表示法。"><span class="nav-number">8.0.3.</span> <span class="nav-text">类似这样的带分数，100 有 11 种表示法。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-1"><span class="nav-number">8.1.</span> <span class="nav-text">输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-1"><span class="nav-number">8.2.</span> <span class="nav-text">输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-2"><span class="nav-number">8.3.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-2"><span class="nav-number">8.4.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-3"><span class="nav-number">8.5.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-3"><span class="nav-number">8.6.</span> <span class="nav-text">样例输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-用全排列求解"><span class="nav-number">8.6.1.</span> <span class="nav-text">思路:用全排列求解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码"><span class="nav-number">8.6.2.</span> <span class="nav-text">参考代码:</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daybreak-Zheng</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">181k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">2:44</span>
+  
+</div>
+
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>  
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/20/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+ <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['/lib/three/three-waves.min.js', '/lib/three/canvas_lines.min.js', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
+
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '5509b91a59c3adf55754',
+    clientSecret: 'c2f7f5deb4e775eaf0997d8188cea666e0e2f84c',
+    repo: 'Daybreak-Zheng.github.io',
+    owner: 'Daybreak-Zheng',
+    admin: ['Daybreak-Zheng'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+    <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('����').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('���Ƴɹ�')
+        else $(this).text('����ʧ��')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('����')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clipboard-min.js"></script>  
+<script type="text/javascript" src="/js/clipboard-use.js"></script>
+</html>
