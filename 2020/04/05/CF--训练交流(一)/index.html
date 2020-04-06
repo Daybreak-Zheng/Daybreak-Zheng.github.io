@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="vX8GmgNWqZ">
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="A-Watermelon CodeForcesOne hot summer day Pete and his friend Billy decided to buy a watermelon. They chose the biggest and the ripest one, in their opinion. After that the watermelon was weighed, and">
+<meta name="keywords" content="Acwing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF--训练交流(一)">
+<meta property="og:url" content="https://Daybreak-Zheng.github.io/2020/04/05/CF--训练交流(一)/index.html">
+<meta property="og:site_name" content="Daybreak-Zheng">
+<meta property="og:description" content="A-Watermelon CodeForcesOne hot summer day Pete and his friend Billy decided to buy a watermelon. They chose the biggest and the ripest one, in their opinion. After that the watermelon was weighed, and">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-06T08:20:03.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CF--训练交流(一)">
+<meta name="twitter:description" content="A-Watermelon CodeForcesOne hot summer day Pete and his friend Billy decided to buy a watermelon. They chose the biggest and the ripest one, in their opinion. After that the watermelon was weighed, and">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://Daybreak-Zheng.github.io/2020/04/05/CF--训练交流(一)/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>CF--训练交流(一) | Daybreak-Zheng</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Daybreak-Zheng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">13</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">9</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">90</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Daybreak-Zheng.github.io/2020/04/05/CF--训练交流(一)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daybreak-Zheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Daybreak-Zheng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CF--训练交流(一)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-05 20:15:10" itemprop="dateCreated datePublished" datetime="2020-04-05T20:15:10+08:00">2020-04-05</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-04-06 16:20:03" itemprop="dateModified" datetime="2020-04-06T16:20:03+08:00">2020-04-06</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">12k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">11 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="A-Watermelon-CodeForces"><a href="#A-Watermelon-CodeForces" class="headerlink" title="A-Watermelon CodeForces"></a>A-Watermelon CodeForces</h3><h4 id="One-hot-summer-day-Pete-and-his-friend-Billy-decided-to-buy-a-watermelon-They-chose-the-biggest-and-the-ripest-one-in-their-opinion-After-that-the-watermelon-was-weighed-and-the-scales-showed-w-kilos-They-rushed-home-dying-of-thirst-and-decided-to-divide-the-berry-however-they-faced-a-hard-problem"><a href="#One-hot-summer-day-Pete-and-his-friend-Billy-decided-to-buy-a-watermelon-They-chose-the-biggest-and-the-ripest-one-in-their-opinion-After-that-the-watermelon-was-weighed-and-the-scales-showed-w-kilos-They-rushed-home-dying-of-thirst-and-decided-to-divide-the-berry-however-they-faced-a-hard-problem" class="headerlink" title="One hot summer day Pete and his friend Billy decided to buy a watermelon. They chose the biggest and the ripest one, in their opinion. After that the watermelon was weighed, and the scales showed w kilos. They rushed home, dying of thirst, and decided to divide the berry, however they faced a hard problem."></a>One hot summer day Pete and his friend Billy decided to buy a watermelon. They chose the biggest and the ripest one, in their opinion. After that the watermelon was weighed, and the scales showed w kilos. They rushed home, dying of thirst, and decided to divide the berry, however they faced a hard problem.</h4><h4 id="Pete-and-Billy-are-great-fans-of-even-numbers-that’s-why-they-want-to-divide-the-watermelon-in-such-a-way-that-each-of-the-two-parts-weighs-even-number-of-kilos-at-the-same-time-it-is-not-obligatory-that-the-parts-are-equal-The-boys-are-extremely-tired-and-want-to-start-their-meal-as-soon-as-possible-that’s-why-you-should-help-them-and-find-out-if-they-can-divide-the-watermelon-in-the-way-they-want-For-sure-each-of-them-should-get-a-part-of-positive-weight"><a href="#Pete-and-Billy-are-great-fans-of-even-numbers-that’s-why-they-want-to-divide-the-watermelon-in-such-a-way-that-each-of-the-two-parts-weighs-even-number-of-kilos-at-the-same-time-it-is-not-obligatory-that-the-parts-are-equal-The-boys-are-extremely-tired-and-want-to-start-their-meal-as-soon-as-possible-that’s-why-you-should-help-them-and-find-out-if-they-can-divide-the-watermelon-in-the-way-they-want-For-sure-each-of-them-should-get-a-part-of-positive-weight" class="headerlink" title="Pete and Billy are great fans of even numbers, that’s why they want to divide the watermelon in such a way that each of the two parts weighs even number of kilos, at the same time it is not obligatory that the parts are equal. The boys are extremely tired and want to start their meal as soon as possible, that’s why you should help them and find out, if they can divide the watermelon in the way they want. For sure, each of them should get a part of positive weight."></a>Pete and Billy are great fans of even numbers, that’s why they want to divide the watermelon in such a way that each of the two parts weighs even number of kilos, at the same time it is not obligatory that the parts are equal. The boys are extremely tired and want to start their meal as soon as possible, that’s why you should help them and find out, if they can divide the watermelon in the way they want. For sure, each of them should get a part of positive weight.</h4><h3 id="输入"><a href="#输入" class="headerlink" title="输入:"></a>输入:</h3><h4 id="The-first-and-the-only-input-line-contains-integer-number-w-1-≤-w-≤-100-—-the-weight-of-the-watermelon-bought-by-the-boys"><a href="#The-first-and-the-only-input-line-contains-integer-number-w-1-≤-w-≤-100-—-the-weight-of-the-watermelon-bought-by-the-boys" class="headerlink" title="The first (and the only) input line contains integer number w (1 ≤ w ≤ 100) — the weight of the watermelon bought by the boys."></a>The first (and the only) input line contains integer number w (1 ≤ w ≤ 100) — the weight of the watermelon bought by the boys.</h4><h3 id="输出"><a href="#输出" class="headerlink" title="输出:"></a>输出:</h3><h4 id="Print-YES-if-the-boys-can-divide-the-watermelon-into-two-parts-each-of-them-weighing-even-number-of-kilos-and-NO-in-the-opposite-case"><a href="#Print-YES-if-the-boys-can-divide-the-watermelon-into-two-parts-each-of-them-weighing-even-number-of-kilos-and-NO-in-the-opposite-case" class="headerlink" title="Print YES, if the boys can divide the watermelon into two parts, each of them weighing even number of kilos; and NO in the opposite case."></a>Print YES, if the boys can divide the watermelon into two parts, each of them weighing even number of kilos; and NO in the opposite case.</h4><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入:"></a>样例输入:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8</span><br></pre></td></tr></table></figure>
+
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出:"></a>样例输出:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br></pre></td></tr></table></figure>
+
+<h4 id="NOTE：For-example-the-boys-can-divide-the-watermelon-into-two-parts-of-2-and-6-kilos-respectively-another-variant-—-two-parts-of-4-and-4-kilos"><a href="#NOTE：For-example-the-boys-can-divide-the-watermelon-into-two-parts-of-2-and-6-kilos-respectively-another-variant-—-two-parts-of-4-and-4-kilos" class="headerlink" title="NOTE：For example, the boys can divide the watermelon into two parts of 2 and 6 kilos respectively (another variant — two parts of 4 and 4 kilos)."></a>NOTE：For example, the boys can divide the watermelon into two parts of 2 and 6 kilos respectively (another variant — two parts of 4 and 4 kilos).</h4><h4 id="大体意思就是输入一个数-看它能不能拆分成两个偶数-不要求两个偶数大小相同"><a href="#大体意思就是输入一个数-看它能不能拆分成两个偶数-不要求两个偶数大小相同" class="headerlink" title="大体意思就是输入一个数 看它能不能拆分成两个偶数 不要求两个偶数大小相同."></a>大体意思就是输入一个数 看它能不能拆分成两个偶数 不要求两个偶数大小相同.</h4><h4 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	long long n;</span><br><span class="line">	scanf(&quot;%lld&quot;,&amp;n);</span><br><span class="line">	if(n%2==0&amp;&amp;n&gt;2)	//有坑 去2的情况 2是偶数却只能拆分成两个1</span><br><span class="line">		printf(&quot;YES&quot;);</span><br><span class="line">	else</span><br><span class="line">		printf(&quot;NO&quot;);		</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="B-Theatre-Square"><a href="#B-Theatre-Square" class="headerlink" title="B - Theatre Square"></a>B - Theatre Square</h3><h4 id="Theatre-Square-in-the-capital-city-of-Berland-has-a-rectangular-shape-with-the-size-n-×-m-meters-On-the-occasion-of-the-city’s-anniversary-a-decision-was-taken-to-pave-the-Square-with-square-granite-flagstones-Each-flagstone-is-of-the-size-a-×-a"><a href="#Theatre-Square-in-the-capital-city-of-Berland-has-a-rectangular-shape-with-the-size-n-×-m-meters-On-the-occasion-of-the-city’s-anniversary-a-decision-was-taken-to-pave-the-Square-with-square-granite-flagstones-Each-flagstone-is-of-the-size-a-×-a" class="headerlink" title="Theatre Square in the capital city of Berland has a rectangular shape with the size n × m meters. On the occasion of the city’s anniversary, a decision was taken to pave the Square with square granite flagstones. Each flagstone is of the size a × a."></a>Theatre Square in the capital city of Berland has a rectangular shape with the size n × m meters. On the occasion of the city’s anniversary, a decision was taken to pave the Square with square granite flagstones. Each flagstone is of the size a × a.</h4><h4 id="What-is-the-least-number-of-flagstones-needed-to-pave-the-Square-It’s-allowed-to-cover-the-surface-larger-than-the-Theatre-Square-but-the-Square-has-to-be-covered-It’s-not-allowed-to-break-the-flagstones-The-sides-of-flagstones-should-be-parallel-to-the-sides-of-the-Square"><a href="#What-is-the-least-number-of-flagstones-needed-to-pave-the-Square-It’s-allowed-to-cover-the-surface-larger-than-the-Theatre-Square-but-the-Square-has-to-be-covered-It’s-not-allowed-to-break-the-flagstones-The-sides-of-flagstones-should-be-parallel-to-the-sides-of-the-Square" class="headerlink" title="What is the least number of flagstones needed to pave the Square? It’s allowed to cover the surface larger than the Theatre Square, but the Square has to be covered. It’s not allowed to break the flagstones. The sides of flagstones should be parallel to the sides of the Square."></a>What is the least number of flagstones needed to pave the Square? It’s allowed to cover the surface larger than the Theatre Square, but the Square has to be covered. It’s not allowed to break the flagstones. The sides of flagstones should be parallel to the sides of the Square.</h4><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入:"></a>输入:</h3><h4 id="The-input-contains-three-positive-integer-numbers-in-the-first-line-n-m-and-a-1-≤-n-m-a-≤-109"><a href="#The-input-contains-three-positive-integer-numbers-in-the-first-line-n-m-and-a-1-≤-n-m-a-≤-109" class="headerlink" title="The input contains three positive integer numbers in the first line: n,  m and a (1 ≤  n, m, a ≤ 109)."></a>The input contains three positive integer numbers in the first line: n,  m and a (1 ≤  n, m, a ≤ 109).</h4><h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出:"></a>输出:</h3><h4 id="Write-the-needed-number-of-flagstones"><a href="#Write-the-needed-number-of-flagstones" class="headerlink" title="Write the needed number of flagstones."></a>Write the needed number of flagstones.</h4><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6 6 4</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<h4 id="大体意思就是给你一个n乘m的面积-再给你一个a乘a的方形地板-求最少需要多少块才可以完全覆盖"><a href="#大体意思就是给你一个n乘m的面积-再给你一个a乘a的方形地板-求最少需要多少块才可以完全覆盖" class="headerlink" title="大体意思就是给你一个n乘m的面积 再给你一个a乘a的方形地板 求最少需要多少块才可以完全覆盖"></a>大体意思就是给你一个n乘m的面积 再给你一个a乘a的方形地板 求最少需要多少块才可以完全覆盖</h4><h4 id="思路-求出长需要的块数-求出宽需要的块数-相乘即可"><a href="#思路-求出长需要的块数-求出宽需要的块数-相乘即可" class="headerlink" title="思路:求出长需要的块数 求出宽需要的块数 相乘即可"></a>思路:求出长需要的块数 求出宽需要的块数 相乘即可</h4><h4 id="代码如下-1"><a href="#代码如下-1" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	long long n,m,a;</span><br><span class="line">	scanf(&quot;%lld%lld%lld&quot;,&amp;n,&amp;m,&amp;a);</span><br><span class="line">	long long i=n/a;	</span><br><span class="line">	long long j=m/a;</span><br><span class="line">	if(n%a!=0)	//保证长度够长</span><br><span class="line">		i++;</span><br><span class="line">	if(m%a!=0)</span><br><span class="line">		j++;</span><br><span class="line">	printf(&quot;%lld&quot;,i*j);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-IQ-test"><a href="#C-IQ-test" class="headerlink" title="C - IQ test"></a>C - IQ test</h3><h4 id="Bob-is-preparing-to-pass-IQ-test-The-most-frequent-task-in-this-test-is-to-find-out-which-one-of-the-given-n-numbers-differs-from-the-others-Bob-observed-that-one-number-usually-differs-from-the-others-in-evenness-Help-Bob-—-to-check-his-answers-he-needs-a-program-that-among-the-given-n-numbers-finds-one-that-is-different-in-evenness"><a href="#Bob-is-preparing-to-pass-IQ-test-The-most-frequent-task-in-this-test-is-to-find-out-which-one-of-the-given-n-numbers-differs-from-the-others-Bob-observed-that-one-number-usually-differs-from-the-others-in-evenness-Help-Bob-—-to-check-his-answers-he-needs-a-program-that-among-the-given-n-numbers-finds-one-that-is-different-in-evenness" class="headerlink" title="Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given n numbers differs from the others. Bob observed that one number usually differs from the others in evenness. Help Bob — to check his answers, he needs a program that among the given n numbers finds one that is different in evenness."></a>Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given n numbers differs from the others. Bob observed that one number usually differs from the others in evenness. Help Bob — to check his answers, he needs a program that among the given n numbers finds one that is different in evenness.</h4><h3 id="输入-2"><a href="#输入-2" class="headerlink" title="输入:"></a>输入:</h3><h4 id="The-first-line-contains-integer-n-3-≤-n-≤-100-—-amount-of-numbers-in-the-task-The-second-line-contains-n-space-separated-natural-numbers-not-exceeding-100-It-is-guaranteed-that-exactly-one-of-these-numbers-differs-from-the-others-in-evenness"><a href="#The-first-line-contains-integer-n-3-≤-n-≤-100-—-amount-of-numbers-in-the-task-The-second-line-contains-n-space-separated-natural-numbers-not-exceeding-100-It-is-guaranteed-that-exactly-one-of-these-numbers-differs-from-the-others-in-evenness" class="headerlink" title="The first line contains integer n (3 ≤ n ≤ 100) — amount of numbers in the task. The second line contains n space-separated natural numbers, not exceeding 100. It is guaranteed, that exactly one of these numbers differs from the others in evenness."></a>The first line contains integer n (3 ≤ n ≤ 100) — amount of numbers in the task. The second line contains n space-separated natural numbers, not exceeding 100. It is guaranteed, that exactly one of these numbers differs from the others in evenness.</h4><h3 id="输出-2"><a href="#输出-2" class="headerlink" title="输出:"></a>输出:</h3><h4 id="Output-index-of-number-that-differs-from-the-others-in-evenness-Numbers-are-numbered-from-1-in-the-input-order"><a href="#Output-index-of-number-that-differs-from-the-others-in-evenness-Numbers-are-numbered-from-1-in-the-input-order" class="headerlink" title="Output index of number that differs from the others in evenness. Numbers are numbered from 1 in the input order."></a>Output index of number that differs from the others in evenness. Numbers are numbered from 1 in the input order.</h4><h3 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">2 4 7 8 10</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输入-3"><a href="#样例输入-3" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 2 1 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-3"><a href="#样例输出-3" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h4 id="大体意思就是输入一个数-仅包含一个偶数或者奇数-求出该数的位置"><a href="#大体意思就是输入一个数-仅包含一个偶数或者奇数-求出该数的位置" class="headerlink" title="大体意思就是输入一个数 仅包含一个偶数或者奇数 求出该数的位置"></a>大体意思就是输入一个数 仅包含一个偶数或者奇数 求出该数的位置</h4><h3 id="优化后的代码如下"><a href="#优化后的代码如下" class="headerlink" title="优化后的代码如下:"></a>优化后的代码如下:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[101];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	scanf(&quot;%d%d%d&quot;,&amp;a[0],&amp;a[1],&amp;a[2]);</span><br><span class="line">	int o=(a[0]%2+a[1]%2+a[2]%2)/2;</span><br><span class="line">	for(int i=0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(i&gt;2)</span><br><span class="line">			scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">		if((a[i]%2)!=o)</span><br><span class="line">			printf(&quot;%d&quot;,i+1); </span><br><span class="line">	&#125; </span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="D-Vanya-and-Lanterns"><a href="#D-Vanya-and-Lanterns" class="headerlink" title="D - Vanya and Lanterns"></a>D - Vanya and Lanterns</h3><h4 id="Vanya-walks-late-at-night-along-a-straight-street-of-length-l-lit-by-n-lanterns-Consider-the-coordinate-system-with-the-beginning-of-the-street-corresponding-to-the-point-0-and-its-end-corresponding-to-the-point-l-Then-the-i-th-lantern-is-at-the-point-ai-The-lantern-lights-all-points-of-the-street-that-are-at-the-distance-of-at-most-d-from-it-where-d-is-some-positive-number-common-for-all-lanterns"><a href="#Vanya-walks-late-at-night-along-a-straight-street-of-length-l-lit-by-n-lanterns-Consider-the-coordinate-system-with-the-beginning-of-the-street-corresponding-to-the-point-0-and-its-end-corresponding-to-the-point-l-Then-the-i-th-lantern-is-at-the-point-ai-The-lantern-lights-all-points-of-the-street-that-are-at-the-distance-of-at-most-d-from-it-where-d-is-some-positive-number-common-for-all-lanterns" class="headerlink" title="Vanya walks late at night along a straight street of length l, lit by n lanterns. Consider the coordinate system with the beginning of the street corresponding to the point 0, and its end corresponding to the point l. Then the i-th lantern is at the point ai. The lantern lights all points of the street that are at the distance of at most d from it, where d is some positive number, common for all lanterns."></a>Vanya walks late at night along a straight street of length l, lit by n lanterns. Consider the coordinate system with the beginning of the street corresponding to the point 0, and its end corresponding to the point l. Then the i-th lantern is at the point ai. The lantern lights all points of the street that are at the distance of at most d from it, where d is some positive number, common for all lanterns.</h4><h4 id="Vanya-wonders-what-is-the-minimum-light-radius-d-should-the-lanterns-have-to-light-the-whole-street"><a href="#Vanya-wonders-what-is-the-minimum-light-radius-d-should-the-lanterns-have-to-light-the-whole-street" class="headerlink" title="Vanya wonders: what is the minimum light radius d should the lanterns have to light the whole street?"></a>Vanya wonders: what is the minimum light radius d should the lanterns have to light the whole street?</h4><h3 id="输入-3"><a href="#输入-3" class="headerlink" title="输入:"></a>输入:</h3><h4 id="The-first-line-contains-two-integers-n-l-1-≤-n-≤-1000-1-≤-l-≤-109-—-the-number-of-lanterns-and-the-length-of-the-street-respectively"><a href="#The-first-line-contains-two-integers-n-l-1-≤-n-≤-1000-1-≤-l-≤-109-—-the-number-of-lanterns-and-the-length-of-the-street-respectively" class="headerlink" title="The first line contains two integers n, l (1 ≤ n ≤ 1000, 1 ≤ l ≤ 109) — the number of lanterns and the length of the street respectively."></a>The first line contains two integers n, l (1 ≤ n ≤ 1000, 1 ≤ l ≤ 109) — the number of lanterns and the length of the street respectively.</h4><h4 id="The-next-line-contains-n-integers-ai-0-≤-ai-≤-l-Multiple-lanterns-can-be-located-at-the-same-point-The-lanterns-may-be-located-at-the-ends-of-the-street"><a href="#The-next-line-contains-n-integers-ai-0-≤-ai-≤-l-Multiple-lanterns-can-be-located-at-the-same-point-The-lanterns-may-be-located-at-the-ends-of-the-street" class="headerlink" title="The next line contains n integers ai (0 ≤ ai ≤ l). Multiple lanterns can be located at the same point. The lanterns may be located at the ends of the street."></a>The next line contains n integers ai (0 ≤ ai ≤ l). Multiple lanterns can be located at the same point. The lanterns may be located at the ends of the street.</h4><h3 id="输出-3"><a href="#输出-3" class="headerlink" title="输出:"></a>输出:</h3><h4 id="Print-the-minimum-light-radius-d-needed-to-light-the-whole-street-The-answer-will-be-considered-correct-if-its-absolute-or-relative-error-doesn’t-exceed-10-9"><a href="#Print-the-minimum-light-radius-d-needed-to-light-the-whole-street-The-answer-will-be-considered-correct-if-its-absolute-or-relative-error-doesn’t-exceed-10-9" class="headerlink" title="Print the minimum light radius d, needed to light the whole street. The answer will be considered correct if its absolute or relative error doesn’t exceed 10 - 9."></a>Print the minimum light radius d, needed to light the whole street. The answer will be considered correct if its absolute or relative error doesn’t exceed 10 - 9.</h4><h3 id="样例输入-4"><a href="#样例输入-4" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">7 15</span><br><span class="line">15 5 3 7 9 14 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-4"><a href="#样例输出-4" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.5000000000</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输入-5"><a href="#样例输入-5" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 5</span><br><span class="line">2 5</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-5"><a href="#样例输出-5" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.0000000000</span><br></pre></td></tr></table></figure>
+
+<h4 id="Note-Consider-the-second-sample-At-d-2-the-first-lantern-will-light-the-segment-0-4-of-the-street-and-the-second-lantern-will-light-segment-3-5-Thus-the-whole-street-will-be-lit"><a href="#Note-Consider-the-second-sample-At-d-2-the-first-lantern-will-light-the-segment-0-4-of-the-street-and-the-second-lantern-will-light-segment-3-5-Thus-the-whole-street-will-be-lit" class="headerlink" title="Note:Consider the second sample. At d = 2 the first lantern will light the segment [0, 4] of the street, and the second lantern will light segment [3, 5]. Thus, the whole street will be lit."></a>Note:Consider the second sample. At d = 2 the first lantern will light the segment [0, 4] of the street, and the second lantern will light segment [3, 5]. Thus, the whole street will be lit.</h4><h4 id="大体意思就是给你一段道路的长度，每个路灯所在位置，求路灯所至少要照亮的范围，才可保证所有路灯能照亮这段道路"><a href="#大体意思就是给你一段道路的长度，每个路灯所在位置，求路灯所至少要照亮的范围，才可保证所有路灯能照亮这段道路" class="headerlink" title="大体意思就是给你一段道路的长度，每个路灯所在位置，求路灯所至少要照亮的范围，才可保证所有路灯能照亮这段道路"></a>大体意思就是给你一段道路的长度，每个路灯所在位置，求路灯所至少要照亮的范围，才可保证所有路灯能照亮这段道路</h4><h4 id="注意-路灯的第一个位置或者最后一个位置可能不在道路两边"><a href="#注意-路灯的第一个位置或者最后一个位置可能不在道路两边" class="headerlink" title="注意:路灯的第一个位置或者最后一个位置可能不在道路两边."></a>注意:路灯的第一个位置或者最后一个位置可能不在道路两边.</h4><h4 id="我的代码如下"><a href="#我的代码如下" class="headerlink" title="我的代码如下:"></a>我的代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;	</span><br><span class="line">	long long a[1010];</span><br><span class="line">	int n;</span><br><span class="line">	long long l;</span><br><span class="line">	double d=0;</span><br><span class="line">	scanf(&quot;%d%lld&quot;,&amp;n,&amp;l);</span><br><span class="line">	for(int i=0;i&lt;n;i++)</span><br><span class="line">		scanf(&quot;%lld&quot;,&amp;a[i]);		</span><br><span class="line">	sort(a,a+n);</span><br><span class="line">	if(a[0]!=0)</span><br><span class="line">		d=a[0];</span><br><span class="line">	for(int i=1;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		double temp=(a[i]-a[i-1])/2.0;</span><br><span class="line">		if(temp&gt;d)</span><br><span class="line">			d=temp;</span><br><span class="line">	&#125;</span><br><span class="line">	if(a[n-1]!=l)</span><br><span class="line">	&#123;</span><br><span class="line">		double temp=l-a[n-1];</span><br><span class="line">		if(temp&gt;d)</span><br><span class="line">			d=temp;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%.10f&quot;,d);</span><br><span class="line">	return  0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="优化后的代码："><a href="#优化后的代码：" class="headerlink" title="优化后的代码："></a>优化后的代码：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int a[110];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n,l;</span><br><span class="line">	scanf(&quot;%d%d&quot;,&amp;n,&amp;l);</span><br><span class="line">	for(int i=0;i&lt;n;i++)</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">	sort(a,a+n);</span><br><span class="line">	double m=max(a[0],l-a[n-1]);</span><br><span class="line">	for(int i=1;i&lt;n;i++)</span><br><span class="line">		m=max(m,(a[i]-a[i-1])/2.0);</span><br><span class="line">	printf(&quot;%.10f&quot;,m);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="E-Registration-system"><a href="#E-Registration-system" class="headerlink" title="E - Registration system"></a>E - Registration system</h3><h4 id="A-new-e-mail-service-“Berlandesk”-is-going-to-be-opened-in-Berland-in-the-near-future-The-site-administration-wants-to-launch-their-project-as-soon-as-possible-that’s-why-they-ask-you-to-help-You’re-suggested-to-implement-the-prototype-of-site-registration-system-The-system-should-work-on-the-following-principle"><a href="#A-new-e-mail-service-“Berlandesk”-is-going-to-be-opened-in-Berland-in-the-near-future-The-site-administration-wants-to-launch-their-project-as-soon-as-possible-that’s-why-they-ask-you-to-help-You’re-suggested-to-implement-the-prototype-of-site-registration-system-The-system-should-work-on-the-following-principle" class="headerlink" title="A new e-mail service “Berlandesk” is going to be opened in Berland in the near future. The site administration wants to launch their project as soon as possible, that’s why they ask you to help. You’re suggested to implement the prototype of site registration system. The system should work on the following principle."></a>A new e-mail service “Berlandesk” is going to be opened in Berland in the near future. The site administration wants to launch their project as soon as possible, that’s why they ask you to help. You’re suggested to implement the prototype of site registration system. The system should work on the following principle.</h4><h4 id="Each-time-a-new-user-wants-to-register-he-sends-to-the-system-a-request-with-his-name-If-such-a-name-does-not-exist-in-the-system-database-it-is-inserted-into-the-database-and-the-user-gets-the-response-OK-confirming-the-successful-registration-If-the-name-already-exists-in-the-system-database-the-system-makes-up-a-new-user-name-sends-it-to-the-user-as-a-prompt-and-also-inserts-the-prompt-into-the-database-The-new-name-is-formed-by-the-following-rule-Numbers-starting-with-1-are-appended-one-after-another-to-name-name1-name2-…-among-these-numbers-the-least-i-is-found-so-that-namei-does-not-yet-exist-in-the-database"><a href="#Each-time-a-new-user-wants-to-register-he-sends-to-the-system-a-request-with-his-name-If-such-a-name-does-not-exist-in-the-system-database-it-is-inserted-into-the-database-and-the-user-gets-the-response-OK-confirming-the-successful-registration-If-the-name-already-exists-in-the-system-database-the-system-makes-up-a-new-user-name-sends-it-to-the-user-as-a-prompt-and-also-inserts-the-prompt-into-the-database-The-new-name-is-formed-by-the-following-rule-Numbers-starting-with-1-are-appended-one-after-another-to-name-name1-name2-…-among-these-numbers-the-least-i-is-found-so-that-namei-does-not-yet-exist-in-the-database" class="headerlink" title="Each time a new user wants to register, he sends to the system a request with his name. If such a name does not exist in the system database, it is inserted into the database, and the user gets the response OK, confirming the successful registration. If the name already exists in the system database, the system makes up a new user name, sends it to the user as a prompt and also inserts the prompt into the database. The new name is formed by the following rule. Numbers, starting with 1, are appended one after another to name (name1, name2, …), among these numbers the least i is found so that namei does not yet exist in the database."></a>Each time a new user wants to register, he sends to the system a request with his name. If such a name does not exist in the system database, it is inserted into the database, and the user gets the response OK, confirming the successful registration. If the name already exists in the system database, the system makes up a new user name, sends it to the user as a prompt and also inserts the prompt into the database. The new name is formed by the following rule. Numbers, starting with 1, are appended one after another to name (name1, name2, …), among these numbers the least i is found so that namei does not yet exist in the database.</h4><h3 id="输入-4"><a href="#输入-4" class="headerlink" title="输入:"></a>输入:</h3><h4 id="The-first-line-contains-number-n-1-≤-n-≤-105-The-following-n-lines-contain-the-requests-to-the-system-Each-request-is-a-non-empty-line-and-consists-of-not-more-than-32-characters-which-are-all-lowercase-Latin-letters"><a href="#The-first-line-contains-number-n-1-≤-n-≤-105-The-following-n-lines-contain-the-requests-to-the-system-Each-request-is-a-non-empty-line-and-consists-of-not-more-than-32-characters-which-are-all-lowercase-Latin-letters" class="headerlink" title="The first line contains number n (1 ≤ n ≤ 105). The following n lines contain the requests to the system. Each request is a non-empty line, and consists of not more than 32 characters, which are all lowercase Latin letters."></a>The first line contains number n (1 ≤ n ≤ 105). The following n lines contain the requests to the system. Each request is a non-empty line, and consists of not more than 32 characters, which are all lowercase Latin letters.</h4><h3 id="输出-4"><a href="#输出-4" class="headerlink" title="输出:"></a>输出:</h3><h4 id="Print-n-lines-which-are-system-responses-to-the-requests-OK-in-case-of-successful-registration-or-a-prompt-with-a-new-name-if-the-requested-name-is-already-taken"><a href="#Print-n-lines-which-are-system-responses-to-the-requests-OK-in-case-of-successful-registration-or-a-prompt-with-a-new-name-if-the-requested-name-is-already-taken" class="headerlink" title="Print n lines, which are system responses to the requests: OK in case of successful registration, or a prompt with a new name, if the requested name is already taken."></a>Print n lines, which are system responses to the requests: OK in case of successful registration, or a prompt with a new name, if the requested name is already taken.</h4><h3 id="样例输入-6"><a href="#样例输入-6" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">abacaba</span><br><span class="line">acaba</span><br><span class="line">abacaba</span><br><span class="line">acab</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-6"><a href="#样例输出-6" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OK</span><br><span class="line">OK</span><br><span class="line">abacaba1</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输入-7"><a href="#样例输入-7" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">first</span><br><span class="line">first</span><br><span class="line">second</span><br><span class="line">second</span><br><span class="line">third</span><br><span class="line">third</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-7"><a href="#样例输出-7" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">OK</span><br><span class="line">first1</span><br><span class="line">OK</span><br><span class="line">second1</span><br><span class="line">OK</span><br><span class="line">third1</span><br></pre></td></tr></table></figure>
+
+<h4 id="大体意思就是输入一个字符串-如果是第一次输入-直接输出该字符串-否则的话-将该字符串重命名输出-即在字符串后面加上序号-从1开始"><a href="#大体意思就是输入一个字符串-如果是第一次输入-直接输出该字符串-否则的话-将该字符串重命名输出-即在字符串后面加上序号-从1开始" class="headerlink" title="大体意思就是输入一个字符串 如果是第一次输入 直接输出该字符串 否则的话 将该字符串重命名输出 即在字符串后面加上序号 从1开始"></a>大体意思就是输入一个字符串 如果是第一次输入 直接输出该字符串 否则的话 将该字符串重命名输出 即在字符串后面加上序号 从1开始</h4><h4 id="思路-用结构体解题-存字符串和出现的次数"><a href="#思路-用结构体解题-存字符串和出现的次数" class="headerlink" title="思路:用结构体解题 存字符串和出现的次数"></a>思路:用结构体解题 存字符串和出现的次数</h4><h4 id="我的代码如下-1"><a href="#我的代码如下-1" class="headerlink" title="我的代码如下:"></a>我的代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">struct p</span><br><span class="line">&#123;</span><br><span class="line">	char n[35];</span><br><span class="line">	int count=0;</span><br><span class="line">&#125;pp[10010];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n;</span><br><span class="line">	char m[35];</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	int c=1; </span><br><span class="line">	for(int i=0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		memset(m,0,35);</span><br><span class="line">		scanf(&quot;%s&quot;,m);</span><br><span class="line">		int j=0;</span><br><span class="line">		for(j=0;j&lt;c;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			if(strcmp(m,pp[j].n)==0)</span><br><span class="line">			&#123;</span><br><span class="line">				pp[j].count++;</span><br><span class="line">				printf(&quot;%s%d\n&quot;,m,pp[j].count);</span><br><span class="line">				break; </span><br><span class="line">			&#125;	</span><br><span class="line">		&#125;</span><br><span class="line">		if(j==c)</span><br><span class="line">		&#123;</span><br><span class="line">			strcpy(pp[c].n,m);</span><br><span class="line">			printf(&quot;OK\n&quot;);</span><br><span class="line">			c++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="优化的代码"><a href="#优化的代码" class="headerlink" title="优化的代码:"></a>优化的代码:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	map&lt;string,int&gt; m;</span><br><span class="line">	string a;</span><br><span class="line">	for(int i=0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cin&gt;&gt;a;</span><br><span class="line">		if(m[a]==0)</span><br><span class="line">			printf(&quot;OK\n&quot;);</span><br><span class="line">		else</span><br><span class="line">			cout&lt;&lt;a&lt;&lt;m[a]&lt;&lt;endl;		</span><br><span class="line">		m[a]++;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="F-Cut-Ribbon"><a href="#F-Cut-Ribbon" class="headerlink" title="F - Cut Ribbon"></a>F - Cut Ribbon</h3><h4 id="Polycarpus-has-a-ribbon-its-length-is-n-He-wants-to-cut-the-ribbon-in-a-way-that-fulfils-the-following-two-conditions"><a href="#Polycarpus-has-a-ribbon-its-length-is-n-He-wants-to-cut-the-ribbon-in-a-way-that-fulfils-the-following-two-conditions" class="headerlink" title="Polycarpus has a ribbon, its length is n. He wants to cut the ribbon in a way that fulfils the following two conditions:"></a>Polycarpus has a ribbon, its length is n. He wants to cut the ribbon in a way that fulfils the following two conditions:</h4><h4 id="After-the-cutting-each-ribbon-piece-should-have-length-a-b-or-c"><a href="#After-the-cutting-each-ribbon-piece-should-have-length-a-b-or-c" class="headerlink" title="After the cutting each ribbon piece should have length a, b or c."></a>After the cutting each ribbon piece should have length a, b or c.</h4><h4 id="After-the-cutting-the-number-of-ribbon-pieces-should-be-maximum"><a href="#After-the-cutting-the-number-of-ribbon-pieces-should-be-maximum" class="headerlink" title="After the cutting the number of ribbon pieces should be maximum."></a>After the cutting the number of ribbon pieces should be maximum.</h4><h4 id="Help-Polycarpus-and-find-the-number-of-ribbon-pieces-after-the-required-cutting"><a href="#Help-Polycarpus-and-find-the-number-of-ribbon-pieces-after-the-required-cutting" class="headerlink" title="Help Polycarpus and find the number of ribbon pieces after the required cutting."></a>Help Polycarpus and find the number of ribbon pieces after the required cutting.</h4><h3 id="输入-5"><a href="#输入-5" class="headerlink" title="输入:"></a>输入:</h3><h4 id="The-first-line-contains-four-space-separated-integers-n-a-b-and-c-1-≤-n-a-b-c-≤-4000-—-the-length-of-the-original-ribbon-and-the-acceptable-lengths-of-the-ribbon-pieces-after-the-cutting-correspondingly-The-numbers-a-b-and-c-can-coincide"><a href="#The-first-line-contains-four-space-separated-integers-n-a-b-and-c-1-≤-n-a-b-c-≤-4000-—-the-length-of-the-original-ribbon-and-the-acceptable-lengths-of-the-ribbon-pieces-after-the-cutting-correspondingly-The-numbers-a-b-and-c-can-coincide" class="headerlink" title="The first line contains four space-separated integers n, a, b and c (1 ≤ n, a, b, c ≤ 4000) — the length of the original ribbon and the acceptable lengths of the ribbon pieces after the cutting, correspondingly. The numbers a, b and c can coincide."></a>The first line contains four space-separated integers n, a, b and c (1 ≤ n, a, b, c ≤ 4000) — the length of the original ribbon and the acceptable lengths of the ribbon pieces after the cutting, correspondingly. The numbers a, b and c can coincide.</h4><h3 id="输出-5"><a href="#输出-5" class="headerlink" title="输出:"></a>输出:</h3><h4 id="Print-a-single-number-—-the-maximum-possible-number-of-ribbon-pieces-It-is-guaranteed-that-at-least-one-correct-ribbon-cutting-exists"><a href="#Print-a-single-number-—-the-maximum-possible-number-of-ribbon-pieces-It-is-guaranteed-that-at-least-one-correct-ribbon-cutting-exists" class="headerlink" title="Print a single number — the maximum possible number of ribbon pieces. It is guaranteed that at least one correct ribbon cutting exists."></a>Print a single number — the maximum possible number of ribbon pieces. It is guaranteed that at least one correct ribbon cutting exists.</h4><h3 id="样例输入-8"><a href="#样例输入-8" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 5 3 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-8"><a href="#样例输出-8" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输入-9"><a href="#样例输入-9" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7 5 5 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-9"><a href="#样例输出-9" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h4 id="大体意思就是给你一个长色带-给出三个切割长度-求最多可以切割成几段"><a href="#大体意思就是给你一个长色带-给出三个切割长度-求最多可以切割成几段" class="headerlink" title="大体意思就是给你一个长色带 给出三个切割长度 求最多可以切割成几段"></a>大体意思就是给你一个长色带 给出三个切割长度 求最多可以切割成几段</h4><h4 id="代码如下-2"><a href="#代码如下-2" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">暂无代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="G-T-primes"><a href="#G-T-primes" class="headerlink" title="G - T-primes"></a>G - T-primes</h3><h4 id="We-know-that-prime-numbers-are-positive-integers-that-have-exactly-two-distinct-positive-divisors-Similarly-we’ll-call-a-positive-integer-t-Т-prime-if-t-has-exactly-three-distinct-positive-divisors"><a href="#We-know-that-prime-numbers-are-positive-integers-that-have-exactly-two-distinct-positive-divisors-Similarly-we’ll-call-a-positive-integer-t-Т-prime-if-t-has-exactly-three-distinct-positive-divisors" class="headerlink" title="We know that prime numbers are positive integers that have exactly two distinct positive divisors. Similarly, we’ll call a positive integer t Т-prime, if t has exactly three distinct positive divisors."></a>We know that prime numbers are positive integers that have exactly two distinct positive divisors. Similarly, we’ll call a positive integer t Т-prime, if t has exactly three distinct positive divisors.</h4><h4 id="You-are-given-an-array-of-n-positive-integers-For-each-of-them-determine-whether-it-is-Т-prime-or-not"><a href="#You-are-given-an-array-of-n-positive-integers-For-each-of-them-determine-whether-it-is-Т-prime-or-not" class="headerlink" title="You are given an array of n positive integers. For each of them determine whether it is Т-prime or not.."></a>You are given an array of n positive integers. For each of them determine whether it is Т-prime or not..</h4><h3 id="输入-6"><a href="#输入-6" class="headerlink" title="输入:"></a>输入:</h3><h4 id="The-first-line-contains-a-single-positive-integer-n-1-≤-n-≤-105-showing-how-many-numbers-are-in-the-array-The-next-line-contains-n-space-separated-integers-xi-1-≤-xi-≤-1012"><a href="#The-first-line-contains-a-single-positive-integer-n-1-≤-n-≤-105-showing-how-many-numbers-are-in-the-array-The-next-line-contains-n-space-separated-integers-xi-1-≤-xi-≤-1012" class="headerlink" title="The first line contains a single positive integer, n (1 ≤ n ≤ 105), showing how many numbers are in the array. The next line contains n space-separated integers xi (1 ≤ xi ≤ 1012)."></a>The first line contains a single positive integer, n (1 ≤ n ≤ 105), showing how many numbers are in the array. The next line contains n space-separated integers xi (1 ≤ xi ≤ 1012).</h4><h4 id="Please-do-not-use-the-lld-specifier-to-read-or-write-64-bit-integers-in-С-It-is-advised-to-use-the-cin-cout-streams-or-the-I64d-specifier"><a href="#Please-do-not-use-the-lld-specifier-to-read-or-write-64-bit-integers-in-С-It-is-advised-to-use-the-cin-cout-streams-or-the-I64d-specifier" class="headerlink" title="Please, do not use the %lld specifier to read or write 64-bit integers in С++. It is advised to use the cin, cout streams or the %I64d specifier."></a>Please, do not use the %lld specifier to read or write 64-bit integers in С++. It is advised to use the cin, cout streams or the %I64d specifier.</h4><h3 id="输出-6"><a href="#输出-6" class="headerlink" title="输出:"></a>输出:</h3><h4 id="Print-n-lines-the-i-th-line-should-contain-“YES”-without-the-quotes-if-number-xi-is-Т-prime-and-“NO”-without-the-quotes-if-it-isn’t"><a href="#Print-n-lines-the-i-th-line-should-contain-“YES”-without-the-quotes-if-number-xi-is-Т-prime-and-“NO”-without-the-quotes-if-it-isn’t" class="headerlink" title="Print n lines: the i-th line should contain “YES” (without the quotes), if number xi is Т-prime, and “NO” (without the quotes), if it isn’t."></a>Print n lines: the i-th line should contain “YES” (without the quotes), if number xi is Т-prime, and “NO” (without the quotes), if it isn’t.</h4><h3 id="样例输入-10"><a href="#样例输入-10" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4 5 6</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-10"><a href="#样例输出-10" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
+
+<h4 id="大体意思就是给你一堆数-然后求出这些数中因子为三个的数"><a href="#大体意思就是给你一堆数-然后求出这些数中因子为三个的数" class="headerlink" title="大体意思就是给你一堆数 然后求出这些数中因子为三个的数"></a>大体意思就是给你一堆数 然后求出这些数中因子为三个的数</h4><h4 id="代码如下-3"><a href="#代码如下-3" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int M=1e6+10;</span><br><span class="line">bool a[M]=&#123;0&#125;;</span><br><span class="line">void isprime()		//判断素数 进行预处理打表 直接打表会TLE</span><br><span class="line">&#123;</span><br><span class="line">	for(int i=2;i&lt;M;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(a[i]==false)</span><br><span class="line">			for(int j=2*i;j&lt;M;j=j+i)</span><br><span class="line">				a[j]=true;	</span><br><span class="line">	&#125;		</span><br><span class="line">&#125; </span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	isprime();</span><br><span class="line">	for(int i=0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		long long x,sx;</span><br><span class="line">		scanf(&quot;%I64d&quot;,&amp;x);	//注意该处输入I64d 有些编译器不支持lld</span><br><span class="line">		sx=sqrt(x);</span><br><span class="line">		if(sx&gt;1&amp;&amp;sx*sx==x&amp;&amp;a[sx]==false)//如果该数的平方根为素数 并且不为1的话 该数符合条件</span><br><span class="line">			printf(&quot;YES\n&quot;);</span><br><span class="line">		else</span><br><span class="line">			printf(&quot;NO\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="H-Cheap-Travel"><a href="#H-Cheap-Travel" class="headerlink" title="H - Cheap Travel"></a>H - Cheap Travel</h3><h4 id="Ann-has-recently-started-commuting-by-subway-We-know-that-a-one-ride-subway-ticket-costs-a-rubles-Besides-Ann-found-out-that-she-can-buy-a-special-ticket-for-m-rides-she-can-buy-it-several-times-It-costs-b-rubles-Ann-did-the-math-she-will-need-to-use-subway-n-times-Help-Ann-tell-her-what-is-the-minimum-sum-of-money-she-will-have-to-spend-to-make-n-rides"><a href="#Ann-has-recently-started-commuting-by-subway-We-know-that-a-one-ride-subway-ticket-costs-a-rubles-Besides-Ann-found-out-that-she-can-buy-a-special-ticket-for-m-rides-she-can-buy-it-several-times-It-costs-b-rubles-Ann-did-the-math-she-will-need-to-use-subway-n-times-Help-Ann-tell-her-what-is-the-minimum-sum-of-money-she-will-have-to-spend-to-make-n-rides" class="headerlink" title="Ann has recently started commuting by subway. We know that a one ride subway ticket costs a rubles. Besides, Ann found out that she can buy a special ticket for m rides (she can buy it several times). It costs b rubles. Ann did the math; she will need to use subway n times. Help Ann, tell her what is the minimum sum of money she will have to spend to make n rides?"></a>Ann has recently started commuting by subway. We know that a one ride subway ticket costs a rubles. Besides, Ann found out that she can buy a special ticket for m rides (she can buy it several times). It costs b rubles. Ann did the math; she will need to use subway n times. Help Ann, tell her what is the minimum sum of money she will have to spend to make n rides?</h4><h3 id="输入-7"><a href="#输入-7" class="headerlink" title="输入:"></a>输入:</h3><h4 id="The-single-line-contains-four-space-separated-integers-n-m-a-b-1-≤-n-m-a-b-≤-1000-—-the-number-of-rides-Ann-has-planned-the-number-of-rides-covered-by-the-m-ride-ticket-the-price-of-a-one-ride-ticket-and-the-price-of-an-m-ride-ticket"><a href="#The-single-line-contains-four-space-separated-integers-n-m-a-b-1-≤-n-m-a-b-≤-1000-—-the-number-of-rides-Ann-has-planned-the-number-of-rides-covered-by-the-m-ride-ticket-the-price-of-a-one-ride-ticket-and-the-price-of-an-m-ride-ticket" class="headerlink" title="The single line contains four space-separated integers n, m, a, b (1 ≤ n, m, a, b ≤ 1000) — the number of rides Ann has planned, the number of rides covered by the m ride ticket, the price of a one ride ticket and the price of an m ride ticket."></a>The single line contains four space-separated integers n, m, a, b (1 ≤ n, m, a, b ≤ 1000) — the number of rides Ann has planned, the number of rides covered by the m ride ticket, the price of a one ride ticket and the price of an m ride ticket.</h4><h3 id="输出-7"><a href="#输出-7" class="headerlink" title="输出:"></a>输出:</h3><h4 id="Print-a-single-integer-—-the-minimum-sum-in-rubles-that-Ann-will-need-to-spend"><a href="#Print-a-single-integer-—-the-minimum-sum-in-rubles-that-Ann-will-need-to-spend" class="headerlink" title="Print a single integer — the minimum sum in rubles that Ann will need to spend."></a>Print a single integer — the minimum sum in rubles that Ann will need to spend.</h4><h3 id="样例输入-11"><a href="#样例输入-11" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6 2 1 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-11"><a href="#样例输出-11" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输入-12"><a href="#样例输入-12" class="headerlink" title="样例输入:"></a>样例输入:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 2 2 3</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-12"><a href="#样例输出-12" class="headerlink" title="样例输出:"></a>样例输出:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8</span><br></pre></td></tr></table></figure>
+
+<h4 id="大体意思就是给你一段路程-有每公里的票p-和每m公里的票价mp，求出经过该段路程所需要的费用最小为多少"><a href="#大体意思就是给你一段路程-有每公里的票p-和每m公里的票价mp，求出经过该段路程所需要的费用最小为多少" class="headerlink" title="大体意思就是给你一段路程 有每公里的票p  和每m公里的票价mp，求出经过该段路程所需要的费用最小为多少."></a>大体意思就是给你一段路程 有每公里的票p  和每m公里的票价mp，求出经过该段路程所需要的费用最小为多少.</h4><h4 id="注意：该题有坑-mp不一定小于m乘p-如果mp小的话-注意最后的余数乘p和mp比较"><a href="#注意：该题有坑-mp不一定小于m乘p-如果mp小的话-注意最后的余数乘p和mp比较" class="headerlink" title="注意：该题有坑 mp不一定小于m乘p 如果mp小的话 注意最后的余数乘p和mp比较"></a>注意：该题有坑 mp不一定小于m乘p 如果mp小的话 注意最后的余数乘p和mp比较</h4><h4 id="代码如下-4"><a href="#代码如下-4" class="headerlink" title="代码如下:"></a>代码如下:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n,m,p,mp;</span><br><span class="line">	scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;m,&amp;p,&amp;mp);</span><br><span class="line">	long long price=0;</span><br><span class="line">	if(m*p&lt;mp)</span><br><span class="line">		price=n*p;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		int k=n/m;</span><br><span class="line">		if((n%m)*p&lt;mp)</span><br><span class="line">			price=k*mp+(n-k*m)*p;</span><br><span class="line">		else</span><br><span class="line">			price=k*mp+mp;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%lld&quot;,price);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>小礼物走一个哟</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="Daybreak-Zheng 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="Daybreak-Zheng 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Acwing/" rel="tag"> Acwing</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/02/Acwing--双指针算法/" rel="next" title="Acwing--双指针算法">
+                <i class="fa fa-chevron-left"></i> Acwing--双指针算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Daybreak-Zheng">
+  
+  <p class="site-author-name" itemprop="name">Daybreak-Zheng</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Daybreak-Zheng" title="GitHub &rarr; https://github.com/Daybreak-Zheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://Daybreak-Zheng.github.io" title="https://Daybreak-Zheng.github.io">Daybreak-Zheng</a>
+        </li>
+      
+    </ul>
+  </div>
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Watermelon-CodeForces"><span class="nav-number">1.</span> <span class="nav-text">A-Watermelon CodeForces</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#One-hot-summer-day-Pete-and-his-friend-Billy-decided-to-buy-a-watermelon-They-chose-the-biggest-and-the-ripest-one-in-their-opinion-After-that-the-watermelon-was-weighed-and-the-scales-showed-w-kilos-They-rushed-home-dying-of-thirst-and-decided-to-divide-the-berry-however-they-faced-a-hard-problem"><span class="nav-number">1.1.</span> <span class="nav-text">One hot summer day Pete and his friend Billy decided to buy a watermelon. They chose the biggest and the ripest one, in their opinion. After that the watermelon was weighed, and the scales showed w kilos. They rushed home, dying of thirst, and decided to divide the berry, however they faced a hard problem.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pete-and-Billy-are-great-fans-of-even-numbers-that’s-why-they-want-to-divide-the-watermelon-in-such-a-way-that-each-of-the-two-parts-weighs-even-number-of-kilos-at-the-same-time-it-is-not-obligatory-that-the-parts-are-equal-The-boys-are-extremely-tired-and-want-to-start-their-meal-as-soon-as-possible-that’s-why-you-should-help-them-and-find-out-if-they-can-divide-the-watermelon-in-the-way-they-want-For-sure-each-of-them-should-get-a-part-of-positive-weight"><span class="nav-number">1.2.</span> <span class="nav-text">Pete and Billy are great fans of even numbers, that’s why they want to divide the watermelon in such a way that each of the two parts weighs even number of kilos, at the same time it is not obligatory that the parts are equal. The boys are extremely tired and want to start their meal as soon as possible, that’s why you should help them and find out, if they can divide the watermelon in the way they want. For sure, each of them should get a part of positive weight.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入"><span class="nav-number">2.</span> <span class="nav-text">输入:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-first-and-the-only-input-line-contains-integer-number-w-1-≤-w-≤-100-—-the-weight-of-the-watermelon-bought-by-the-boys"><span class="nav-number">2.1.</span> <span class="nav-text">The first (and the only) input line contains integer number w (1 ≤ w ≤ 100) — the weight of the watermelon bought by the boys.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出"><span class="nav-number">3.</span> <span class="nav-text">输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Print-YES-if-the-boys-can-divide-the-watermelon-into-two-parts-each-of-them-weighing-even-number-of-kilos-and-NO-in-the-opposite-case"><span class="nav-number">3.1.</span> <span class="nav-text">Print YES, if the boys can divide the watermelon into two parts, each of them weighing even number of kilos; and NO in the opposite case.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输入"><span class="nav-number">3.2.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样例输出"><span class="nav-number">3.3.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NOTE：For-example-the-boys-can-divide-the-watermelon-into-two-parts-of-2-and-6-kilos-respectively-another-variant-—-two-parts-of-4-and-4-kilos"><span class="nav-number">3.4.</span> <span class="nav-text">NOTE：For example, the boys can divide the watermelon into two parts of 2 and 6 kilos respectively (another variant — two parts of 4 and 4 kilos).</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大体意思就是输入一个数-看它能不能拆分成两个偶数-不要求两个偶数大小相同"><span class="nav-number">3.5.</span> <span class="nav-text">大体意思就是输入一个数 看它能不能拆分成两个偶数 不要求两个偶数大小相同.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下"><span class="nav-number">3.6.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-Theatre-Square"><span class="nav-number">4.</span> <span class="nav-text">B - Theatre Square</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Theatre-Square-in-the-capital-city-of-Berland-has-a-rectangular-shape-with-the-size-n-×-m-meters-On-the-occasion-of-the-city’s-anniversary-a-decision-was-taken-to-pave-the-Square-with-square-granite-flagstones-Each-flagstone-is-of-the-size-a-×-a"><span class="nav-number">4.1.</span> <span class="nav-text">Theatre Square in the capital city of Berland has a rectangular shape with the size n × m meters. On the occasion of the city’s anniversary, a decision was taken to pave the Square with square granite flagstones. Each flagstone is of the size a × a.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-the-least-number-of-flagstones-needed-to-pave-the-Square-It’s-allowed-to-cover-the-surface-larger-than-the-Theatre-Square-but-the-Square-has-to-be-covered-It’s-not-allowed-to-break-the-flagstones-The-sides-of-flagstones-should-be-parallel-to-the-sides-of-the-Square"><span class="nav-number">4.2.</span> <span class="nav-text">What is the least number of flagstones needed to pave the Square? It’s allowed to cover the surface larger than the Theatre Square, but the Square has to be covered. It’s not allowed to break the flagstones. The sides of flagstones should be parallel to the sides of the Square.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-1"><span class="nav-number">5.</span> <span class="nav-text">输入:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-input-contains-three-positive-integer-numbers-in-the-first-line-n-m-and-a-1-≤-n-m-a-≤-109"><span class="nav-number">5.1.</span> <span class="nav-text">The input contains three positive integer numbers in the first line: n,  m and a (1 ≤  n, m, a ≤ 109).</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-1"><span class="nav-number">6.</span> <span class="nav-text">输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-the-needed-number-of-flagstones"><span class="nav-number">6.1.</span> <span class="nav-text">Write the needed number of flagstones.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-1"><span class="nav-number">7.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-1"><span class="nav-number">8.</span> <span class="nav-text">样例输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#大体意思就是给你一个n乘m的面积-再给你一个a乘a的方形地板-求最少需要多少块才可以完全覆盖"><span class="nav-number">8.1.</span> <span class="nav-text">大体意思就是给你一个n乘m的面积 再给你一个a乘a的方形地板 求最少需要多少块才可以完全覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-求出长需要的块数-求出宽需要的块数-相乘即可"><span class="nav-number">8.2.</span> <span class="nav-text">思路:求出长需要的块数 求出宽需要的块数 相乘即可</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-1"><span class="nav-number">8.3.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-IQ-test"><span class="nav-number">9.</span> <span class="nav-text">C - IQ test</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bob-is-preparing-to-pass-IQ-test-The-most-frequent-task-in-this-test-is-to-find-out-which-one-of-the-given-n-numbers-differs-from-the-others-Bob-observed-that-one-number-usually-differs-from-the-others-in-evenness-Help-Bob-—-to-check-his-answers-he-needs-a-program-that-among-the-given-n-numbers-finds-one-that-is-different-in-evenness"><span class="nav-number">9.1.</span> <span class="nav-text">Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given n numbers differs from the others. Bob observed that one number usually differs from the others in evenness. Help Bob — to check his answers, he needs a program that among the given n numbers finds one that is different in evenness.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-2"><span class="nav-number">10.</span> <span class="nav-text">输入:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-first-line-contains-integer-n-3-≤-n-≤-100-—-amount-of-numbers-in-the-task-The-second-line-contains-n-space-separated-natural-numbers-not-exceeding-100-It-is-guaranteed-that-exactly-one-of-these-numbers-differs-from-the-others-in-evenness"><span class="nav-number">10.1.</span> <span class="nav-text">The first line contains integer n (3 ≤ n ≤ 100) — amount of numbers in the task. The second line contains n space-separated natural numbers, not exceeding 100. It is guaranteed, that exactly one of these numbers differs from the others in evenness.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-2"><span class="nav-number">11.</span> <span class="nav-text">输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-index-of-number-that-differs-from-the-others-in-evenness-Numbers-are-numbered-from-1-in-the-input-order"><span class="nav-number">11.1.</span> <span class="nav-text">Output index of number that differs from the others in evenness. Numbers are numbered from 1 in the input order.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-2"><span class="nav-number">12.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-2"><span class="nav-number">13.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-3"><span class="nav-number">14.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-3"><span class="nav-number">15.</span> <span class="nav-text">样例输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#大体意思就是输入一个数-仅包含一个偶数或者奇数-求出该数的位置"><span class="nav-number">15.1.</span> <span class="nav-text">大体意思就是输入一个数 仅包含一个偶数或者奇数 求出该数的位置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化后的代码如下"><span class="nav-number">16.</span> <span class="nav-text">优化后的代码如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-Vanya-and-Lanterns"><span class="nav-number">17.</span> <span class="nav-text">D - Vanya and Lanterns</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vanya-walks-late-at-night-along-a-straight-street-of-length-l-lit-by-n-lanterns-Consider-the-coordinate-system-with-the-beginning-of-the-street-corresponding-to-the-point-0-and-its-end-corresponding-to-the-point-l-Then-the-i-th-lantern-is-at-the-point-ai-The-lantern-lights-all-points-of-the-street-that-are-at-the-distance-of-at-most-d-from-it-where-d-is-some-positive-number-common-for-all-lanterns"><span class="nav-number">17.1.</span> <span class="nav-text">Vanya walks late at night along a straight street of length l, lit by n lanterns. Consider the coordinate system with the beginning of the street corresponding to the point 0, and its end corresponding to the point l. Then the i-th lantern is at the point ai. The lantern lights all points of the street that are at the distance of at most d from it, where d is some positive number, common for all lanterns.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vanya-wonders-what-is-the-minimum-light-radius-d-should-the-lanterns-have-to-light-the-whole-street"><span class="nav-number">17.2.</span> <span class="nav-text">Vanya wonders: what is the minimum light radius d should the lanterns have to light the whole street?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-3"><span class="nav-number">18.</span> <span class="nav-text">输入:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-first-line-contains-two-integers-n-l-1-≤-n-≤-1000-1-≤-l-≤-109-—-the-number-of-lanterns-and-the-length-of-the-street-respectively"><span class="nav-number">18.1.</span> <span class="nav-text">The first line contains two integers n, l (1 ≤ n ≤ 1000, 1 ≤ l ≤ 109) — the number of lanterns and the length of the street respectively.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-next-line-contains-n-integers-ai-0-≤-ai-≤-l-Multiple-lanterns-can-be-located-at-the-same-point-The-lanterns-may-be-located-at-the-ends-of-the-street"><span class="nav-number">18.2.</span> <span class="nav-text">The next line contains n integers ai (0 ≤ ai ≤ l). Multiple lanterns can be located at the same point. The lanterns may be located at the ends of the street.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-3"><span class="nav-number">19.</span> <span class="nav-text">输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Print-the-minimum-light-radius-d-needed-to-light-the-whole-street-The-answer-will-be-considered-correct-if-its-absolute-or-relative-error-doesn’t-exceed-10-9"><span class="nav-number">19.1.</span> <span class="nav-text">Print the minimum light radius d, needed to light the whole street. The answer will be considered correct if its absolute or relative error doesn’t exceed 10 - 9.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-4"><span class="nav-number">20.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-4"><span class="nav-number">21.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-5"><span class="nav-number">22.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-5"><span class="nav-number">23.</span> <span class="nav-text">样例输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Note-Consider-the-second-sample-At-d-2-the-first-lantern-will-light-the-segment-0-4-of-the-street-and-the-second-lantern-will-light-segment-3-5-Thus-the-whole-street-will-be-lit"><span class="nav-number">23.1.</span> <span class="nav-text">Note:Consider the second sample. At d = 2 the first lantern will light the segment [0, 4] of the street, and the second lantern will light segment [3, 5]. Thus, the whole street will be lit.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大体意思就是给你一段道路的长度，每个路灯所在位置，求路灯所至少要照亮的范围，才可保证所有路灯能照亮这段道路"><span class="nav-number">23.2.</span> <span class="nav-text">大体意思就是给你一段道路的长度，每个路灯所在位置，求路灯所至少要照亮的范围，才可保证所有路灯能照亮这段道路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意-路灯的第一个位置或者最后一个位置可能不在道路两边"><span class="nav-number">23.3.</span> <span class="nav-text">注意:路灯的第一个位置或者最后一个位置可能不在道路两边.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的代码如下"><span class="nav-number">23.4.</span> <span class="nav-text">我的代码如下:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化后的代码："><span class="nav-number">23.5.</span> <span class="nav-text">优化后的代码：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E-Registration-system"><span class="nav-number">24.</span> <span class="nav-text">E - Registration system</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-new-e-mail-service-“Berlandesk”-is-going-to-be-opened-in-Berland-in-the-near-future-The-site-administration-wants-to-launch-their-project-as-soon-as-possible-that’s-why-they-ask-you-to-help-You’re-suggested-to-implement-the-prototype-of-site-registration-system-The-system-should-work-on-the-following-principle"><span class="nav-number">24.1.</span> <span class="nav-text">A new e-mail service “Berlandesk” is going to be opened in Berland in the near future. The site administration wants to launch their project as soon as possible, that’s why they ask you to help. You’re suggested to implement the prototype of site registration system. The system should work on the following principle.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Each-time-a-new-user-wants-to-register-he-sends-to-the-system-a-request-with-his-name-If-such-a-name-does-not-exist-in-the-system-database-it-is-inserted-into-the-database-and-the-user-gets-the-response-OK-confirming-the-successful-registration-If-the-name-already-exists-in-the-system-database-the-system-makes-up-a-new-user-name-sends-it-to-the-user-as-a-prompt-and-also-inserts-the-prompt-into-the-database-The-new-name-is-formed-by-the-following-rule-Numbers-starting-with-1-are-appended-one-after-another-to-name-name1-name2-…-among-these-numbers-the-least-i-is-found-so-that-namei-does-not-yet-exist-in-the-database"><span class="nav-number">24.2.</span> <span class="nav-text">Each time a new user wants to register, he sends to the system a request with his name. If such a name does not exist in the system database, it is inserted into the database, and the user gets the response OK, confirming the successful registration. If the name already exists in the system database, the system makes up a new user name, sends it to the user as a prompt and also inserts the prompt into the database. The new name is formed by the following rule. Numbers, starting with 1, are appended one after another to name (name1, name2, …), among these numbers the least i is found so that namei does not yet exist in the database.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-4"><span class="nav-number">25.</span> <span class="nav-text">输入:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-first-line-contains-number-n-1-≤-n-≤-105-The-following-n-lines-contain-the-requests-to-the-system-Each-request-is-a-non-empty-line-and-consists-of-not-more-than-32-characters-which-are-all-lowercase-Latin-letters"><span class="nav-number">25.1.</span> <span class="nav-text">The first line contains number n (1 ≤ n ≤ 105). The following n lines contain the requests to the system. Each request is a non-empty line, and consists of not more than 32 characters, which are all lowercase Latin letters.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-4"><span class="nav-number">26.</span> <span class="nav-text">输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Print-n-lines-which-are-system-responses-to-the-requests-OK-in-case-of-successful-registration-or-a-prompt-with-a-new-name-if-the-requested-name-is-already-taken"><span class="nav-number">26.1.</span> <span class="nav-text">Print n lines, which are system responses to the requests: OK in case of successful registration, or a prompt with a new name, if the requested name is already taken.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-6"><span class="nav-number">27.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-6"><span class="nav-number">28.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-7"><span class="nav-number">29.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-7"><span class="nav-number">30.</span> <span class="nav-text">样例输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#大体意思就是输入一个字符串-如果是第一次输入-直接输出该字符串-否则的话-将该字符串重命名输出-即在字符串后面加上序号-从1开始"><span class="nav-number">30.1.</span> <span class="nav-text">大体意思就是输入一个字符串 如果是第一次输入 直接输出该字符串 否则的话 将该字符串重命名输出 即在字符串后面加上序号 从1开始</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路-用结构体解题-存字符串和出现的次数"><span class="nav-number">30.2.</span> <span class="nav-text">思路:用结构体解题 存字符串和出现的次数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的代码如下-1"><span class="nav-number">30.3.</span> <span class="nav-text">我的代码如下:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化的代码"><span class="nav-number">30.4.</span> <span class="nav-text">优化的代码:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F-Cut-Ribbon"><span class="nav-number">31.</span> <span class="nav-text">F - Cut Ribbon</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Polycarpus-has-a-ribbon-its-length-is-n-He-wants-to-cut-the-ribbon-in-a-way-that-fulfils-the-following-two-conditions"><span class="nav-number">31.1.</span> <span class="nav-text">Polycarpus has a ribbon, its length is n. He wants to cut the ribbon in a way that fulfils the following two conditions:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#After-the-cutting-each-ribbon-piece-should-have-length-a-b-or-c"><span class="nav-number">31.2.</span> <span class="nav-text">After the cutting each ribbon piece should have length a, b or c.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#After-the-cutting-the-number-of-ribbon-pieces-should-be-maximum"><span class="nav-number">31.3.</span> <span class="nav-text">After the cutting the number of ribbon pieces should be maximum.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Help-Polycarpus-and-find-the-number-of-ribbon-pieces-after-the-required-cutting"><span class="nav-number">31.4.</span> <span class="nav-text">Help Polycarpus and find the number of ribbon pieces after the required cutting.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-5"><span class="nav-number">32.</span> <span class="nav-text">输入:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-first-line-contains-four-space-separated-integers-n-a-b-and-c-1-≤-n-a-b-c-≤-4000-—-the-length-of-the-original-ribbon-and-the-acceptable-lengths-of-the-ribbon-pieces-after-the-cutting-correspondingly-The-numbers-a-b-and-c-can-coincide"><span class="nav-number">32.1.</span> <span class="nav-text">The first line contains four space-separated integers n, a, b and c (1 ≤ n, a, b, c ≤ 4000) — the length of the original ribbon and the acceptable lengths of the ribbon pieces after the cutting, correspondingly. The numbers a, b and c can coincide.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-5"><span class="nav-number">33.</span> <span class="nav-text">输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Print-a-single-number-—-the-maximum-possible-number-of-ribbon-pieces-It-is-guaranteed-that-at-least-one-correct-ribbon-cutting-exists"><span class="nav-number">33.1.</span> <span class="nav-text">Print a single number — the maximum possible number of ribbon pieces. It is guaranteed that at least one correct ribbon cutting exists.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-8"><span class="nav-number">34.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-8"><span class="nav-number">35.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-9"><span class="nav-number">36.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-9"><span class="nav-number">37.</span> <span class="nav-text">样例输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#大体意思就是给你一个长色带-给出三个切割长度-求最多可以切割成几段"><span class="nav-number">37.1.</span> <span class="nav-text">大体意思就是给你一个长色带 给出三个切割长度 求最多可以切割成几段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-2"><span class="nav-number">37.2.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G-T-primes"><span class="nav-number">38.</span> <span class="nav-text">G - T-primes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#We-know-that-prime-numbers-are-positive-integers-that-have-exactly-two-distinct-positive-divisors-Similarly-we’ll-call-a-positive-integer-t-Т-prime-if-t-has-exactly-three-distinct-positive-divisors"><span class="nav-number">38.1.</span> <span class="nav-text">We know that prime numbers are positive integers that have exactly two distinct positive divisors. Similarly, we’ll call a positive integer t Т-prime, if t has exactly three distinct positive divisors.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#You-are-given-an-array-of-n-positive-integers-For-each-of-them-determine-whether-it-is-Т-prime-or-not"><span class="nav-number">38.2.</span> <span class="nav-text">You are given an array of n positive integers. For each of them determine whether it is Т-prime or not..</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-6"><span class="nav-number">39.</span> <span class="nav-text">输入:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-first-line-contains-a-single-positive-integer-n-1-≤-n-≤-105-showing-how-many-numbers-are-in-the-array-The-next-line-contains-n-space-separated-integers-xi-1-≤-xi-≤-1012"><span class="nav-number">39.1.</span> <span class="nav-text">The first line contains a single positive integer, n (1 ≤ n ≤ 105), showing how many numbers are in the array. The next line contains n space-separated integers xi (1 ≤ xi ≤ 1012).</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-do-not-use-the-lld-specifier-to-read-or-write-64-bit-integers-in-С-It-is-advised-to-use-the-cin-cout-streams-or-the-I64d-specifier"><span class="nav-number">39.2.</span> <span class="nav-text">Please, do not use the %lld specifier to read or write 64-bit integers in С++. It is advised to use the cin, cout streams or the %I64d specifier.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-6"><span class="nav-number">40.</span> <span class="nav-text">输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Print-n-lines-the-i-th-line-should-contain-“YES”-without-the-quotes-if-number-xi-is-Т-prime-and-“NO”-without-the-quotes-if-it-isn’t"><span class="nav-number">40.1.</span> <span class="nav-text">Print n lines: the i-th line should contain “YES” (without the quotes), if number xi is Т-prime, and “NO” (without the quotes), if it isn’t.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-10"><span class="nav-number">41.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-10"><span class="nav-number">42.</span> <span class="nav-text">样例输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#大体意思就是给你一堆数-然后求出这些数中因子为三个的数"><span class="nav-number">42.1.</span> <span class="nav-text">大体意思就是给你一堆数 然后求出这些数中因子为三个的数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-3"><span class="nav-number">42.2.</span> <span class="nav-text">代码如下:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#H-Cheap-Travel"><span class="nav-number">43.</span> <span class="nav-text">H - Cheap Travel</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ann-has-recently-started-commuting-by-subway-We-know-that-a-one-ride-subway-ticket-costs-a-rubles-Besides-Ann-found-out-that-she-can-buy-a-special-ticket-for-m-rides-she-can-buy-it-several-times-It-costs-b-rubles-Ann-did-the-math-she-will-need-to-use-subway-n-times-Help-Ann-tell-her-what-is-the-minimum-sum-of-money-she-will-have-to-spend-to-make-n-rides"><span class="nav-number">43.1.</span> <span class="nav-text">Ann has recently started commuting by subway. We know that a one ride subway ticket costs a rubles. Besides, Ann found out that she can buy a special ticket for m rides (she can buy it several times). It costs b rubles. Ann did the math; she will need to use subway n times. Help Ann, tell her what is the minimum sum of money she will have to spend to make n rides?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-7"><span class="nav-number">44.</span> <span class="nav-text">输入:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-single-line-contains-four-space-separated-integers-n-m-a-b-1-≤-n-m-a-b-≤-1000-—-the-number-of-rides-Ann-has-planned-the-number-of-rides-covered-by-the-m-ride-ticket-the-price-of-a-one-ride-ticket-and-the-price-of-an-m-ride-ticket"><span class="nav-number">44.1.</span> <span class="nav-text">The single line contains four space-separated integers n, m, a, b (1 ≤ n, m, a, b ≤ 1000) — the number of rides Ann has planned, the number of rides covered by the m ride ticket, the price of a one ride ticket and the price of an m ride ticket.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-7"><span class="nav-number">45.</span> <span class="nav-text">输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Print-a-single-integer-—-the-minimum-sum-in-rubles-that-Ann-will-need-to-spend"><span class="nav-number">45.1.</span> <span class="nav-text">Print a single integer — the minimum sum in rubles that Ann will need to spend.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-11"><span class="nav-number">46.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-11"><span class="nav-number">47.</span> <span class="nav-text">样例输出:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-12"><span class="nav-number">48.</span> <span class="nav-text">样例输入:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-12"><span class="nav-number">49.</span> <span class="nav-text">样例输出:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#大体意思就是给你一段路程-有每公里的票p-和每m公里的票价mp，求出经过该段路程所需要的费用最小为多少"><span class="nav-number">49.1.</span> <span class="nav-text">大体意思就是给你一段路程 有每公里的票p  和每m公里的票价mp，求出经过该段路程所需要的费用最小为多少.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意：该题有坑-mp不一定小于m乘p-如果mp小的话-注意最后的余数乘p和mp比较"><span class="nav-number">49.2.</span> <span class="nav-text">注意：该题有坑 mp不一定小于m乘p 如果mp小的话 注意最后的余数乘p和mp比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码如下-4"><span class="nav-number">49.3.</span> <span class="nav-text">代码如下:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daybreak-Zheng</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">173k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">2:37</span>
+  
+</div>
+
+
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>  
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/20/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+ <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  <script>
+    ;((d, w) => {
+      loadThree = () => {
+        let s = d.createElement('script');
+        s.src = '/lib/three/three.min.js';
+        d.body.appendChild(s);
+      }
+      let styles = ['/lib/three/three-waves.min.js', '/lib/three/canvas_lines.min.js', ''];
+      loadStyle = () => {
+        styles.forEach(x => {
+          if (x !== '') {
+            let s = d.createElement('script');
+            s.src = x;
+            d.body.appendChild(s);
+          }
+        })
+      }
+      w.addEventListener('DOMContentLoaded', loadThree);
+      w.addEventListener('load', loadStyle);
+    })(document, window);
+  </script>
+
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '5509b91a59c3adf55754',
+    clientSecret: 'c2f7f5deb4e775eaf0997d8188cea666e0e2f84c',
+    repo: 'Daybreak-Zheng.github.io',
+    owner: 'Daybreak-Zheng',
+    admin: ['Daybreak-Zheng'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+    <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('����').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('���Ƴɹ�')
+        else $(this).text('����ʧ��')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('����')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+<script type="text/javascript" src="/js/clicklove.js"></script>
+<script type="text/javascript" src="/js/clipboard-min.js"></script>  
+<script type="text/javascript" src="/js/clipboard-use.js"></script>
+</html>
